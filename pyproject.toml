@@ -4,16 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "i90-ingest"
-version = "0.1.0"
-description = "Daily REE/eSIOS I90DIA ingestion"
+version = "0.2.0"
+description = "Daily REE/eSIOS I90DIA ingestion and structural market mapping"
 requires-python = ">=3.11"
 dependencies = [
   "httpx>=0.27,<1",
   "pandas>=2.1,<3",
+  "lxml>=5,<7",
+  "pdfplumber>=0.11,<1",
 ]
 
 [project.scripts]
 i90-ingest = "i90_ingest.cli:main"
+i90-structural = "i90_ingest.structural_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

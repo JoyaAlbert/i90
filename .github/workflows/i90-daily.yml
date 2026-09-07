@@ -4,8 +4,14 @@ on:
   workflow_dispatch:
   schedule:
     # 05:30 UTC = 07:30 CEST / 06:30 CET.
-    # Early enough to be available before the morning intelligence report.
     - cron: "30 5 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - ".github/workflows/i90-daily.yml"
 
 permissions:
   contents: write
@@ -17,7 +23,7 @@ concurrency:
 jobs:
   ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -43,7 +49,12 @@ jobs:
           ESIOS_API_KEY: ${{ secrets.ESIOS_API_KEY }}
         run: python -m i90_ingest.cli
 
-      - name: Upload raw I90 artifact
+      - name: Build structural UP / UF / subject mapping
+        env:
+          ESIOS_API_KEY: ${{ secrets.ESIOS_API_KEY }}
+        run: python -m i90_ingest.structural_cli
+
+      - name: Upload raw market data artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -54,12 +65,14 @@ jobs:
 
       - name: Commit lightweight outputs
         run: |
-          if git diff --quiet -- public/; then
-            echo "No public changes"
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/
-          git commit -m "data: update I90 ingestion outputs"
+
+          if git diff --cached --quiet; then
+            echo "No public changes"
+            exit 0
+          fi
+
+          git commit -m "data: update I90 and structural mappings"
           git push

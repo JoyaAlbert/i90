@@ -1,33 +1,71 @@
-# I90 — REE/eSIOS daily ingestion
+# I90 — REE/eSIOS daily ingestion + structural mapping
 
-Pipeline diario para descargar y preparar **I90DIA** de Red Eléctrica/eSIOS para análisis de inteligencia de mercado.
+Pipeline diario para descargar **I90DIA** y construir un mapping trazable de
+**UP → sujeto/agente → empresa → UF → tecnología**.
 
-## Qué hace
+## Pipeline I90
 
 1. Calcula `D_objetivo = hoy (Europe/Madrid) - 90 días`.
-2. Busca `I90DIA` (`archive_id=34`) por **fecha de datos**.
-3. Si D no está disponible, retrocede hasta 7 días.
-4. Descarga el fichero real.
-5. Extrae ZIP si procede.
-6. Detecta CSV, encoding y separador.
-7. Guarda:
-   - fichero bruto como artifact de GitHub Actions;
-   - `manifest.json`;
-   - `schema.json`;
-   - `preview.csv`;
-   - histórico ligero por fecha.
-8. Mantiene una base para análisis 7d/30d y mapping UP -> agente -> UF -> tecnología.
+2. Descarga `I90DIA` (`archive_id=34`) por `date_type=datos`.
+3. Retrocede hasta 7 días si D aún no está disponible.
+4. Conserva el ZIP/CSV bruto como GitHub Actions artifact.
+5. Publica manifest/schema/preview e histórico ligero.
 
-## Configuración
+## Pipeline estructural
 
-Crea este secret en el repositorio:
+Cada ejecución intenta obtener:
 
-**Settings → Secrets and variables → Actions → New repository secret**
+- eSIOS: Unidades de Programación.
+- eSIOS: Unidades Físicas.
+- eSIOS: Sujetos del Mercado.
+- OMIE: `LISTADO DE UNIDADES OFERTANTES VIGENTES`.
 
-- Name: `ESIOS_API_KEY`
-- Secret: tu token de eSIOS
+Genera:
 
-No metas la API key en código, commits, issues ni logs.
+```text
+public/structural/latest/
+  programming_units.csv
+  physical_units.csv
+  market_subjects.csv
+  omie_units.csv
+  up_master.csv
+  manifest.json
+```
+
+`up_master.csv` usa únicamente cruces exactos de código. No atribuye una empresa
+por parecido del nombre de la UP.
+
+### Grupos empresariales
+
+Se separan:
+
+- `legal_entity`: sociedad publicada por la fuente de mercado.
+- `group_name`: grupo empresarial.
+- `group_confidence`: cómo se obtuvo.
+- `group_source_url`: fuente de la relación cuando se ha verificado.
+
+Ejemplos incorporados con fuente corporativa:
+
+- `AXPO IBERIA, S.L.` → `Axpo`.
+- `GAS NATURAL COMERCIALIZADORA` → `Naturgy`.
+
+Para otros grupos cuyo nombre aparece directamente en la sociedad (`ENDESA`,
+`IBERDROLA`, `REPSOL`, etc.) se marca `derived_from_legal_name`, no como una
+relación corporativa independiente verificada.
+
+## Secret
+
+En:
+
+**Settings → Secrets and variables → Actions**
+
+crea:
+
+```text
+ESIOS_API_KEY
+```
+
+Nunca guardes el token en código o commits.
 
 ## Ejecutar localmente
 
@@ -37,41 +75,27 @@ source .venv/bin/activate
 pip install -e .
 export ESIOS_API_KEY="..."
 python -m i90_ingest.cli
-```
-
-PowerShell:
-
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -e .
-$env:ESIOS_API_KEY="..."
-python -m i90_ingest.cli
+python -m i90_ingest.structural_cli
 ```
 
 ## GitHub Actions
 
 Workflow: **I90 daily ingest**
 
-- ejecución diaria antes del briefing;
-- `workflow_dispatch` manual;
-- publica el bruto como artifact;
-- versiona manifest/schema/preview e histórico ligero.
+- ejecución diaria;
+- ejecución manual;
+- se ejecuta también ante cambios de código;
+- no se vuelve a disparar cuando el bot solo actualiza `public/`;
+- versiona `up_master.csv` diariamente.
 
-## Estructura
+## Principio de trazabilidad
 
-```text
-.github/workflows/i90-daily.yml
-src/i90_ingest/
-  api.py
-  archive.py
-  csv_tools.py
-  pipeline.py
-  cli.py
-tests/
-public/
-```
+El informe debe poder distinguir:
 
-## Importante
+1. **HECHO**: código/empresa/UF publicado por REE/eSIOS u OMIE.
+2. **MÉTRICA**: cálculo sobre I90.
+3. **INFERENCIA**: estrategia comercial o agrupación empresarial no contenida
+   literalmente en el dato de mercado.
 
-El parser inicial es deliberadamente conservador: primero inspecciona el CSV real y genera schema/preview. No inventa columnas ni semántica de bloques que no hayan sido observados.
+Si una fuente estructural no puede descargarse o parsearse, `manifest.json`
+registra el error y el pipeline no inventa el mapping.
