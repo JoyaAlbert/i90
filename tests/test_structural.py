@@ -203,3 +203,78 @@ def test_query_variant_updates_known_pagination():
     assert "page=3" in url
     assert "size=500" in url
 
+def test_archive_download_json_is_complete_snapshot():
+    from i90_ingest.structural import _collect_all_network_records
+
+    class DummyPage:
+        pass
+
+    records = [{"codigo_de_up": f"UP{i:04d}"} for i in range(1200)]
+    candidate = {
+        "url": "https://api.esios.ree.es/archives/82/download_json?locale=es",
+        "method": "GET",
+        "post_data": None,
+        "headers": {},
+        "records": records,
+        "record_path": ("UnidadesProgramacion",),
+        "total_hint": None,
+        "next_url": None,
+    }
+
+    result, meta = _collect_all_network_records(
+        DummyPage(),
+        candidate,
+        "programming_units",
+        1000,
+    )
+
+    assert len(result) == 1200
+    assert meta["api_pagination_strategy"] == "esios_archive_download_json_complete"
+    assert meta["api_archive_snapshot"] is True
+
+
+def test_physical_unit_uses_explicit_up_and_subject_links():
+    import pandas as pd
+    from i90_ingest.structural import canonicalize_esios
+
+    raw = pd.DataFrame(
+        [
+            {
+                "codigo_de_uf": "UF001",
+                "descripcion_corta": "Unidad física 1",
+                "tipo_de_produccion": "Solar fotovoltaica",
+                "vinculacion_con_up": "UP777",
+                "vinculacion_con_sm": "SUBJ9",
+            }
+        ]
+    )
+
+    out = canonicalize_esios(raw, "physical_units")
+    row = out.iloc[0]
+
+    assert row["uf_code"] == "UF001"
+    assert row["up_code"] == "UP777"
+    assert row["subject_code"] == "SUBJ9"
+
+
+def test_programming_unit_uses_market_subject_field():
+    import pandas as pd
+    from i90_ingest.structural import canonicalize_esios
+
+    raw = pd.DataFrame(
+        [
+            {
+                "codigo_de_up": "UP001",
+                "descripcion_corta": "Unidad programación 1",
+                "tipo_de_produccion": "Eólica",
+                "sujeto_del_mercado": "SUBJ1",
+            }
+        ]
+    )
+
+    out = canonicalize_esios(raw, "programming_units")
+    row = out.iloc[0]
+
+    assert row["up_code"] == "UP001"
+    assert row["subject_code"] == "SUBJ1"
+

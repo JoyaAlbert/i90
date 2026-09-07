@@ -716,12 +716,30 @@ def _collect_all_network_records(
     record_path = tuple(candidate["record_path"])
     total_hint = candidate.get("total_hint")
 
-    # If the initial JSON already contains the full set, use it directly.
-    if total_hint and len(records) >= total_hint:
+    # eSIOS /archives/<id>/download_json returns the complete JSON value of
+    # that archive in one response. These structural archives do not expose
+    # page/total metadata because they are snapshots, not paginated APIs.
+    # Accept the captured payload as complete only when it is a download_json
+    # archive and it clears the dataset-specific minimum-row quality gate.
+    is_archive_download_json = "/download_json" in candidate["url"].lower()
+
+    if (
+        (total_hint and len(records) >= total_hint)
+        or (
+            is_archive_download_json
+            and len(records) >= minimum_rows
+            and not candidate.get("next_url")
+        )
+    ):
         return records, {
-            "api_pagination_strategy": "initial_payload_complete",
+            "api_pagination_strategy": (
+                "esios_archive_download_json_complete"
+                if is_archive_download_json
+                else "initial_payload_complete"
+            ),
             "api_pages": 1,
             "api_total_hint": total_hint,
+            "api_archive_snapshot": bool(is_archive_download_json),
         }
 
     # First preference: explicit next links in the API payload.
@@ -1119,6 +1137,9 @@ ALIASES = {
         "programming_unit",
         "unit_code",
         "code",
+        "vinculacion_con_up",
+        "vinculacion_up",
+        "unidad_programacion",
     ],
     "up_name": [
         "descripcion",
@@ -1166,6 +1187,9 @@ ALIASES = {
         "subject_code",
         "market_subject",
         "subject",
+        "vinculacion_con_sm",
+        "vinculacion_sm",
+        "sujeto_del_mercado",
     ],
     "legal_entity": [
         "razon_social",
