@@ -1,20 +1,114 @@
 {
-  "generated_at": "2026-09-07T16:26:25.453659+02:00",
+  "generated_at": "2026-09-07T16:36:03.064022+02:00",
   "sources": {
     "programming_units": {
       "url": "https://www.esios.ree.es/es/unidades-de-programacion",
-      "status": "error",
-      "error": "RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=programming_units, endpoint=https://api.esios.ree.es/archives/82/download_json?locale=es, method=GET, initial_records=3898, total_hint=None, record_path=UnidadesProgramacion"
+      "status": 200,
+      "source_mode": "captured_xhr_api",
+      "rows": 3898,
+      "columns": [
+        "codigo_de_up",
+        "descripcion_corta",
+        "descripcion_larga",
+        "codigo_eic",
+        "tipo_de_produccion",
+        "negocio",
+        "ambito_de_actuacion",
+        "zona_de_regulacion",
+        "tipo_de_up",
+        "sujeto_del_mercado",
+        "potencia_maxima_mw"
+      ],
+      "visible_first_page_rows": 25,
+      "api_endpoint": "https://api.esios.ree.es/archives/82/download_json?locale=es",
+      "api_method": "GET",
+      "api_record_path": "UnidadesProgramacion",
+      "api_initial_records": 3898,
+      "api_candidate_score": 52,
+      "api_pagination_strategy": "esios_archive_download_json_complete",
+      "api_pages": 1,
+      "api_total_hint": null,
+      "api_archive_snapshot": true,
+      "canonical_rows": 3898,
+      "canonical_usable_key_rows": 3898,
+      "canonical_key": "up_code",
+      "canonical_columns": [
+        "up_code",
+        "up_name",
+        "subject_code",
+        "technology_esios"
+      ],
+      "minimum_complete_rows": 1000,
+      "complete": true
     },
     "physical_units": {
       "url": "https://www.esios.ree.es/es/unidades-fisicas",
-      "status": "error",
-      "error": "RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=physical_units, endpoint=https://api.esios.ree.es/archives/81/download_json, method=GET, initial_records=6648, total_hint=None, record_path=UnidadesFisicas"
+      "status": 200,
+      "source_mode": "captured_xhr_api",
+      "rows": 6648,
+      "columns": [
+        "codigo_de_uf",
+        "codigo_eic",
+        "descripcion_corta",
+        "descripcion_larga",
+        "tipo_de_produccion",
+        "vinculacion_con_sm",
+        "vinculacion_con_up",
+        "potencia_maxima_mw"
+      ],
+      "visible_first_page_rows": 25,
+      "api_endpoint": "https://api.esios.ree.es/archives/81/download_json",
+      "api_method": "GET",
+      "api_record_path": "UnidadesFisicas",
+      "api_initial_records": 6648,
+      "api_candidate_score": 50,
+      "api_pagination_strategy": "esios_archive_download_json_complete",
+      "api_pages": 1,
+      "api_total_hint": null,
+      "api_archive_snapshot": true,
+      "canonical_rows": 6648,
+      "canonical_usable_key_rows": 6648,
+      "canonical_key": "uf_code",
+      "canonical_columns": [
+        "uf_code",
+        "uf_name",
+        "up_code",
+        "subject_code",
+        "technology_esios"
+      ],
+      "minimum_complete_rows": 1000,
+      "complete": true
     },
     "market_subjects": {
       "url": "https://www.esios.ree.es/es/sujetos-del-mercado",
-      "status": "error",
-      "error": "RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=market_subjects, endpoint=https://api.esios.ree.es/archives/83/download_json, method=GET, initial_records=741, total_hint=None, record_path=SujetosMercado"
+      "status": 200,
+      "source_mode": "captured_xhr_api",
+      "rows": 741,
+      "columns": [
+        "codigo_de_sujeto",
+        "nombre",
+        "codigo_eic",
+        "tipo_de_sm"
+      ],
+      "visible_first_page_rows": 25,
+      "api_endpoint": "https://api.esios.ree.es/archives/83/download_json",
+      "api_method": "GET",
+      "api_record_path": "SujetosMercado",
+      "api_initial_records": 741,
+      "api_candidate_score": 44,
+      "api_pagination_strategy": "esios_archive_download_json_complete",
+      "api_pages": 1,
+      "api_total_hint": null,
+      "api_archive_snapshot": true,
+      "canonical_rows": 741,
+      "canonical_usable_key_rows": 741,
+      "canonical_key": "legal_entity",
+      "canonical_columns": [
+        "subject_code",
+        "legal_entity"
+      ],
+      "minimum_complete_rows": 100,
+      "complete": true
     },
     "omie_units": {
       "url": "https://www.grupoomi.eu/sites/default/files/dados/listados/LISTA_UNIDADES.PDF",
@@ -27,17 +121,13 @@
       "rows_with_technology": 4110
     }
   },
-  "warnings": [
-    "programming_units: RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=programming_units, endpoint=https://api.esios.ree.es/archives/82/download_json?locale=es, method=GET, initial_records=3898, total_hint=None, record_path=UnidadesProgramacion",
-    "physical_units: RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=physical_units, endpoint=https://api.esios.ree.es/archives/81/download_json, method=GET, initial_records=6648, total_hint=None, record_path=UnidadesFisicas",
-    "market_subjects: RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=market_subjects, endpoint=https://api.esios.ree.es/archives/83/download_json, method=GET, initial_records=741, total_hint=None, record_path=SujetosMercado"
-  ],
+  "warnings": [],
   "master": {
-    "rows": 4130,
-    "unique_up_codes": 4121,
-    "mapped_legal_entity": 4130,
-    "mapped_group": 1021,
-    "mapped_uf": 0,
+    "rows": 7218,
+    "unique_up_codes": 7209,
+    "mapped_legal_entity": 7218,
+    "mapped_group": 1426,
+    "mapped_uf": 3883,
     "shared_ownership_up_codes": 5
   }
 }
