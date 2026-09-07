@@ -137,3 +137,67 @@ def test_esios_completion_thresholds_are_not_first_page_only():
     assert '"market_subjects": 100' in source
     assert "generic_exhausted" in source
 
+def test_flatten_record_supports_nested_api_payload():
+    from i90_ingest.structural import _flatten_record
+
+    row = _flatten_record(
+        {
+            "code": "UP001",
+            "market_subject": {"code": "SUBJ", "name": "Example"},
+            "production_type": {"name": "Solar"},
+        }
+    )
+
+    assert row["code"] == "UP001"
+    assert row["market_subject_code"] == "SUBJ"
+    assert row["market_subject_name"] == "Example"
+    assert row["production_type_name"] == "Solar"
+
+
+def test_select_network_dataset_matches_visible_code():
+    from i90_ingest.structural import _select_network_dataset
+
+    events = [
+        {
+            "url": "https://example.invalid/api/programming-units?page=0&size=25",
+            "method": "GET",
+            "post_data": None,
+            "headers": {},
+            "status": 200,
+            "payload": {
+                "content": [
+                    {
+                        "code": "UP001",
+                        "short_description": "TEST UNIT",
+                        "production_type": "Solar",
+                    }
+                ],
+                "totalElements": 1200,
+            },
+        }
+    ]
+
+    selected = _select_network_dataset(
+        events,
+        "programming_units",
+        [["UP001", "TEST UNIT"]],
+    )
+
+    assert selected is not None
+    assert selected["record_path"] == ("content",)
+    assert selected["total_hint"] == 1200
+
+
+def test_query_variant_updates_known_pagination():
+    from i90_ingest.structural import _query_variant
+
+    url, changed = _query_variant(
+        "https://example.invalid/api/items?page=0&size=25",
+        page_index=3,
+        page_size=500,
+    )
+
+    assert changed is True
+    assert "page=3" in url
+    assert "size=500" in url
+

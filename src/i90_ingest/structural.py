@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
 import httpx
 import pandas as pd
@@ -307,21 +308,663 @@ def _semantic_table_score(desc: dict, kind: str) -> tuple[int, int, int]:
     )
 
 
+
+def _flatten_record(record: dict, prefix: str = "") -> dict[str, object]:
+    out: dict[str, object] = {}
+    for key, value in record.items():
+        name = _norm(f"{prefix}_{key}" if prefix else key)
+        if isinstance(value, dict):
+            out.update(_flatten_record(value, name))
+        elif isinstance(value, list):
+            if all(not isinstance(x, (dict, list)) for x in value):
+                out[name] = "|".join(_clean(x) for x in value)
+            else:
+                out[name] = json.dumps(value, ensure_ascii=False)
+        else:
+            out[name] = value
+    return out
+
+
+def _records_frame(records: list[dict]) -> pd.DataFrame:
+    return pd.DataFrame([_flatten_record(r) for r in records]).drop_duplicates()
+
+
+def _iter_record_lists(obj: object, path: tuple[str, ...] = ()):
+    if isinstance(obj, list):
+        if obj and sum(isinstance(x, dict) for x in obj) >= max(1, int(len(obj) * 0.8)):
+            yield path, [x for x in obj if isinstance(x, dict)]
+        for item in obj[:3]:
+            yield from _iter_record_lists(item, path)
+    elif isinstance(obj, dict):
+        for key, value in obj.items():
+            yield from _iter_record_lists(value, path + (str(key),))
+
+
+def _get_json_path(obj: object, path: tuple[str, ...]) -> object:
+    current = obj
+    for key in path:
+        if not isinstance(current, dict) or key not in current:
+            return None
+        current = current[key]
+    return current
+
+
+def _json_total_hint(obj: object) -> int | None:
+    candidates: list[int] = []
+
+    def walk(value: object):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                nk = _norm(key)
+                if isinstance(child, (int, float)) and any(
+                    token in nk
+                    for token in (
+                        "total",
+                        "count",
+                        "records_total",
+                        "total_elements",
+                        "total_count",
+                        "number_of_elements",
+                    )
+                ):
+                    try:
+                        candidates.append(int(child))
+                    except Exception:
+                        pass
+                walk(child)
+        elif isinstance(value, list):
+            for child in value[:5]:
+                walk(child)
+
+    walk(obj)
+    positive = [x for x in candidates if x > 0]
+    return max(positive) if positive else None
+
+
+def _json_next_url(obj: object, base_url: str) -> str | None:
+    found: list[str] = []
+
+    def walk(value: object):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                nk = _norm(key)
+                if isinstance(child, str) and child.strip() and any(
+                    token in nk
+                    for token in (
+                        "next",
+                        "next_url",
+                        "next_page",
+                        "next_page_url",
+                    )
+                ):
+                    candidate = child.strip()
+                    if candidate.startswith(("http://", "https://", "/", "?")):
+                        found.append(urljoin(base_url, candidate))
+                walk(child)
+        elif isinstance(value, list):
+            for child in value[:5]:
+                walk(child)
+
+    walk(obj)
+    return found[0] if found else None
+
+
+def _network_record_score(
+    records: list[dict],
+    kind: str,
+    visible_values: list[str],
+    url: str,
+) -> int:
+    if not records:
+        return -10_000
+
+    flattened = [_flatten_record(r) for r in records[:25]]
+    key_text = " ".join(sorted({k for row in flattened for k in row}))
+
+    hints = {
+        "programming_units": (
+            "codigo",
+            "code",
+            "program",
+            "descripcion",
+            "description",
+            "potencia",
+            "power",
+            "sujeto",
+            "subject",
+            "produccion",
+            "production",
+        ),
+        "physical_units": (
+            "codigo",
+            "code",
+            "fisic",
+            "physical",
+            "vinculacion",
+            "program",
+            "produccion",
+            "production",
+            "potencia",
+            "power",
+        ),
+        "market_subjects": (
+            "codigo",
+            "code",
+            "sujeto",
+            "subject",
+            "nombre",
+            "name",
+            "eic",
+            "tipo",
+            "type",
+        ),
+    }[kind]
+
+    score = sum(2 for hint in hints if hint in key_text)
+
+    url_norm = _norm(url)
+    url_hints = {
+        "programming_units": ("program", "unit", "up"),
+        "physical_units": ("physical", "fisic", "unit", "uf"),
+        "market_subjects": ("subject", "sujeto", "market"),
+    }[kind]
+    score += sum(1 for hint in url_hints if hint in url_norm)
+
+    sample = json.dumps(flattened[:10], ensure_ascii=False).upper()
+    for value in visible_values[:4]:
+        token = _clean(value)
+        if len(token) >= 3 and token.upper() in sample:
+            score += 8
+
+    score += min(len(records), 100) // 10
+    return score
+
+
+def _sanitize_request_headers(headers: dict[str, str]) -> dict[str, str]:
+    allowed = {
+        "accept",
+        "content-type",
+        "x-requested-with",
+        "referer",
+        "origin",
+    }
+    return {
+        k: v
+        for k, v in headers.items()
+        if k.lower() in allowed
+    }
+
+
+def _modify_pagination_mapping(
+    mapping: dict,
+    page_index: int,
+    page_size: int,
+) -> tuple[dict, bool]:
+    size_names = {
+        "limit",
+        "size",
+        "page_size",
+        "pagesize",
+        "per_page",
+        "perpage",
+        "length",
+        "page_length",
+        "page_limit",
+        "elements_per_page",
+    }
+    page_names = {
+        "page",
+        "pagina",
+        "page_number",
+        "pagenumber",
+        "page_index",
+        "pageindex",
+        "current_page",
+    }
+    offset_names = {
+        "offset",
+        "start",
+        "from",
+        "first",
+        "skip",
+    }
+
+    changed = False
+    result = {}
+
+    for key, value in mapping.items():
+        nk = _norm(key)
+
+        if isinstance(value, dict):
+            child, child_changed = _modify_pagination_mapping(
+                value,
+                page_index,
+                page_size,
+            )
+            result[key] = child
+            changed = changed or child_changed
+            continue
+
+        if nk in size_names or any(nk.endswith("_" + x) for x in size_names):
+            result[key] = page_size
+            changed = True
+        elif nk in offset_names or any(nk.endswith("_" + x) for x in offset_names):
+            result[key] = page_index * page_size
+            changed = True
+        elif nk in page_names or any(nk.endswith("_" + x) for x in page_names):
+            try:
+                original = int(value)
+            except Exception:
+                original = 0
+            base = 0 if original == 0 else 1
+            result[key] = page_index + base
+            changed = True
+        else:
+            result[key] = value
+
+    return result, changed
+
+
+def _query_variant(
+    url: str,
+    page_index: int,
+    page_size: int,
+) -> tuple[str, bool]:
+    parts = urlsplit(url)
+    pairs = parse_qsl(parts.query, keep_blank_values=True)
+    mapping = {k: v for k, v in pairs}
+    modified, changed = _modify_pagination_mapping(
+        mapping,
+        page_index,
+        page_size,
+    )
+    if not changed:
+        return url, False
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            parts.path,
+            urlencode(modified, doseq=True),
+            parts.fragment,
+        )
+    ), True
+
+
+def _post_variant(
+    post_data: str | None,
+    page_index: int,
+    page_size: int,
+) -> tuple[str | None, bool]:
+    if not post_data:
+        return post_data, False
+
+    try:
+        payload = json.loads(post_data)
+    except Exception:
+        payload = None
+
+    if isinstance(payload, dict):
+        modified, changed = _modify_pagination_mapping(
+            payload,
+            page_index,
+            page_size,
+        )
+        return json.dumps(modified), changed
+
+    try:
+        pairs = parse_qsl(post_data, keep_blank_values=True)
+        mapping = {k: v for k, v in pairs}
+        modified, changed = _modify_pagination_mapping(
+            mapping,
+            page_index,
+            page_size,
+        )
+        return urlencode(modified), changed
+    except Exception:
+        return post_data, False
+
+
+def _request_json(
+    page,
+    request_meta: dict,
+    *,
+    override_url: str | None = None,
+    override_post_data: str | None = None,
+) -> object:
+    url = override_url or request_meta["url"]
+    method = request_meta["method"]
+    headers = request_meta.get("headers") or {}
+    kwargs: dict = {
+        "method": method,
+        "headers": headers,
+        "timeout": 90_000,
+    }
+    body = (
+        override_post_data
+        if override_post_data is not None
+        else request_meta.get("post_data")
+    )
+    if method.upper() != "GET" and body is not None:
+        kwargs["data"] = body
+
+    response = page.request.fetch(url, **kwargs)
+    if not response.ok:
+        raise RuntimeError(
+            f"eSIOS API replay returned HTTP {response.status} for {url}"
+        )
+    return response.json()
+
+
+def _select_network_dataset(
+    network_events: list[dict],
+    kind: str,
+    visible_rows: list[list[str]],
+) -> dict | None:
+    visible_values = [
+        _clean(value)
+        for row in visible_rows[:3]
+        for value in row[:4]
+        if _clean(value)
+    ]
+
+    scored: list[dict] = []
+    for event in network_events:
+        payload = event.get("payload")
+        for path, records in _iter_record_lists(payload):
+            score = _network_record_score(
+                records,
+                kind,
+                visible_values,
+                event["url"],
+            )
+            scored.append(
+                {
+                    **event,
+                    "record_path": path,
+                    "records": records,
+                    "score": score,
+                    "total_hint": _json_total_hint(payload),
+                    "next_url": _json_next_url(payload, event["url"]),
+                }
+            )
+
+    if not scored:
+        return None
+
+    scored.sort(
+        key=lambda item: (
+            item["score"],
+            len(item["records"]),
+        ),
+        reverse=True,
+    )
+
+    best = scored[0]
+    if best["score"] < 8:
+        return None
+    return best
+
+
+def _collect_all_network_records(
+    page,
+    candidate: dict,
+    kind: str,
+    minimum_rows: int,
+) -> tuple[list[dict], dict]:
+    records = list(candidate["records"])
+    record_path = tuple(candidate["record_path"])
+    total_hint = candidate.get("total_hint")
+
+    # If the initial JSON already contains the full set, use it directly.
+    if total_hint and len(records) >= total_hint:
+        return records, {
+            "api_pagination_strategy": "initial_payload_complete",
+            "api_pages": 1,
+            "api_total_hint": total_hint,
+        }
+
+    # First preference: explicit next links in the API payload.
+    next_url = candidate.get("next_url")
+    if next_url:
+        seen_urls = {candidate["url"]}
+        pages = 1
+
+        while next_url and next_url not in seen_urls and pages < 500:
+            seen_urls.add(next_url)
+            payload = _request_json(
+                page,
+                candidate,
+                override_url=next_url,
+            )
+            batch = _get_json_path(payload, record_path)
+            if not isinstance(batch, list):
+                break
+            batch = [x for x in batch if isinstance(x, dict)]
+            if not batch:
+                break
+            records.extend(batch)
+            pages += 1
+
+            if total_hint and len(records) >= total_hint:
+                break
+            next_url = _json_next_url(payload, next_url)
+
+        unique = {
+            json.dumps(_flatten_record(r), sort_keys=True, ensure_ascii=False): r
+            for r in records
+        }
+        records = list(unique.values())
+
+        if len(records) >= minimum_rows and (
+            not total_hint or len(records) >= total_hint
+        ):
+            return records, {
+                "api_pagination_strategy": "next_link",
+                "api_pages": pages,
+                "api_total_hint": total_hint,
+            }
+
+    page_size = 500
+
+    # Second preference: replay the exact request while modifying its existing
+    # page/size/offset parameters (query and/or POST/GraphQL variables).
+    first_url, query_changed = _query_variant(
+        candidate["url"],
+        0,
+        page_size,
+    )
+    first_post, post_changed = _post_variant(
+        candidate.get("post_data"),
+        0,
+        page_size,
+    )
+
+    if query_changed or post_changed:
+        collected: list[dict] = []
+        pages = 0
+
+        for page_index in range(500):
+            url_variant, _ = _query_variant(
+                candidate["url"],
+                page_index,
+                page_size,
+            )
+            post_variant, _ = _post_variant(
+                candidate.get("post_data"),
+                page_index,
+                page_size,
+            )
+            payload = _request_json(
+                page,
+                candidate,
+                override_url=url_variant,
+                override_post_data=post_variant,
+            )
+            batch = _get_json_path(payload, record_path)
+            if not isinstance(batch, list):
+                break
+            batch = [x for x in batch if isinstance(x, dict)]
+            if not batch:
+                break
+
+            collected.extend(batch)
+            pages += 1
+
+            current_total = _json_total_hint(payload) or total_hint
+            if current_total and len(collected) >= current_total:
+                total_hint = current_total
+                break
+            if len(batch) < page_size:
+                break
+
+        unique = {
+            json.dumps(_flatten_record(r), sort_keys=True, ensure_ascii=False): r
+            for r in collected
+        }
+        collected = list(unique.values())
+
+        if len(collected) >= minimum_rows:
+            return collected, {
+                "api_pagination_strategy": "replay_existing_pagination",
+                "api_pages": pages,
+                "api_total_hint": total_hint,
+            }
+
+    # Last resort: probe standard GET pagination conventions. A convention is
+    # accepted only if page 0 and page 1 return different record sets.
+    if candidate["method"].upper() == "GET":
+        probes = [
+            ("page_limit", {"page": 1, "limit": page_size}),
+            ("page_size", {"page": 0, "size": page_size}),
+            ("page_page_size", {"page": 1, "page_size": page_size}),
+            ("offset_limit", {"offset": 0, "limit": page_size}),
+        ]
+
+        parts = urlsplit(candidate["url"])
+        original_pairs = parse_qsl(parts.query, keep_blank_values=True)
+
+        for strategy, extra in probes:
+            def make_url(index: int) -> str:
+                params = dict(original_pairs)
+                if strategy == "page_limit":
+                    params.update({"page": index + 1, "limit": page_size})
+                elif strategy == "page_size":
+                    params.update({"page": index, "size": page_size})
+                elif strategy == "page_page_size":
+                    params.update({"page": index + 1, "page_size": page_size})
+                else:
+                    params.update({"offset": index * page_size, "limit": page_size})
+                return urlunsplit(
+                    (
+                        parts.scheme,
+                        parts.netloc,
+                        parts.path,
+                        urlencode(params),
+                        parts.fragment,
+                    )
+                )
+
+            try:
+                payload0 = _request_json(
+                    page,
+                    candidate,
+                    override_url=make_url(0),
+                )
+                payload1 = _request_json(
+                    page,
+                    candidate,
+                    override_url=make_url(1),
+                )
+            except Exception:
+                continue
+
+            batch0 = _get_json_path(payload0, record_path)
+            batch1 = _get_json_path(payload1, record_path)
+            if not isinstance(batch0, list) or not isinstance(batch1, list):
+                continue
+
+            batch0 = [x for x in batch0 if isinstance(x, dict)]
+            batch1 = [x for x in batch1 if isinstance(x, dict)]
+            if not batch0 or not batch1:
+                continue
+
+            sig0 = json.dumps(
+                [_flatten_record(x) for x in batch0[:3]],
+                sort_keys=True,
+                ensure_ascii=False,
+            )
+            sig1 = json.dumps(
+                [_flatten_record(x) for x in batch1[:3]],
+                sort_keys=True,
+                ensure_ascii=False,
+            )
+            if sig0 == sig1:
+                continue
+
+            collected = list(batch0)
+            pages = 1
+            total_hint = _json_total_hint(payload0) or total_hint
+
+            for page_index in range(1, 500):
+                payload = payload1 if page_index == 1 else _request_json(
+                    page,
+                    candidate,
+                    override_url=make_url(page_index),
+                )
+                batch = _get_json_path(payload, record_path)
+                if not isinstance(batch, list):
+                    break
+                batch = [x for x in batch if isinstance(x, dict)]
+                if not batch:
+                    break
+
+                collected.extend(batch)
+                pages += 1
+
+                if total_hint and len(collected) >= total_hint:
+                    break
+                if len(batch) < page_size:
+                    break
+
+            unique = {
+                json.dumps(_flatten_record(r), sort_keys=True, ensure_ascii=False): r
+                for r in collected
+            }
+            collected = list(unique.values())
+
+            if len(collected) >= minimum_rows:
+                return collected, {
+                    "api_pagination_strategy": f"probe_{strategy}",
+                    "api_pages": pages,
+                    "api_total_hint": total_hint,
+                }
+
+    raise RuntimeError(
+        f"Captured eSIOS API endpoint but could not exhaust it: "
+        f"kind={kind}, endpoint={candidate['url']}, "
+        f"method={candidate['method']}, "
+        f"initial_records={len(candidate['records'])}, "
+        f"total_hint={total_hint}, "
+        f"record_path={'.'.join(record_path) or '$'}"
+    )
+
+
 def _render_esios_datatable(
     url: str,
     kind: str,
 ) -> tuple[pd.DataFrame, dict]:
     """
-    Render an eSIOS structural SPA and extract its actual visible data table.
-
-    eSIOS currently mounts many hidden <table> elements. Playwright's plain
-    wait_for_selector("table") waits on the first matching element and can
-    therefore time out even though the page has already rendered the useful
-    table. We wait for *any visible table with body rows*, inspect all DOM
-    tables, then choose the visible candidate whose headers best match the
-    requested dataset.
+    Capture the XHR/fetch request that feeds the visible eSIOS structural table,
+    then replay that API request until all pages have been collected.
     """
     from playwright.sync_api import sync_playwright
+
+    minimum_rows = {
+        "programming_units": 1000,
+        "physical_units": 1000,
+        "market_subjects": 100,
+    }[kind]
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch(headless=True)
@@ -330,13 +973,40 @@ def _render_esios_datatable(
             locale="es-ES",
         )
 
+        network_events: list[dict] = []
+
+        def on_response(resp):
+            try:
+                request = resp.request
+                if request.resource_type not in {"xhr", "fetch"}:
+                    return
+
+                content_type = (resp.headers.get("content-type") or "").lower()
+                if "json" not in content_type:
+                    return
+
+                payload = resp.json()
+                network_events.append(
+                    {
+                        "url": resp.url,
+                        "method": request.method,
+                        "post_data": request.post_data,
+                        "headers": _sanitize_request_headers(request.headers),
+                        "status": resp.status,
+                        "payload": payload,
+                    }
+                )
+            except Exception:
+                return
+
+        page.on("response", on_response)
+
         response = page.goto(
             url,
             wait_until="domcontentloaded",
             timeout=120_000,
         )
 
-        # Wait for the SPA itself, not for the first hidden table.
         page.wait_for_function(
             """() => Array.from(document.querySelectorAll('table')).some(table => {
                 const rect = table.getBoundingClientRect();
@@ -351,9 +1021,7 @@ def _render_esios_datatable(
             })""",
             timeout=90_000,
         )
-
-        # Let the first asynchronous DataTables draw settle.
-        page.wait_for_timeout(2_000)
+        page.wait_for_timeout(2_500)
 
         descriptors = _table_descriptors(page)
         candidates = [
@@ -363,380 +1031,78 @@ def _render_esios_datatable(
             and desc["rows"] > 0
             and len(desc["headers"]) > 0
         ]
-
-        if not candidates:
-            browser.close()
-            raise RuntimeError(
-                f"No visible populated table found at {url}; "
-                f"DOM tables={len(descriptors)}"
-            )
-
         candidates.sort(
             key=lambda desc: _semantic_table_score(desc, kind),
             reverse=True,
         )
-        best = candidates[0]
-        score = _semantic_table_score(best, kind)
 
-        # At least one semantic hint must match. This prevents accidentally
-        # accepting a visible navigation/calendar table.
-        if score[0] < 1:
+        if not candidates:
+            browser.close()
+            raise RuntimeError(f"No visible populated eSIOS table for {kind}")
+
+        best = candidates[0]
+        best_index = int(best["index"])
+        table = page.locator("table").nth(best_index)
+
+        visible_rows = table.locator("tbody tr").evaluate_all(
+            """rows => rows.map(
+                tr => Array.from(tr.querySelectorAll('td'))
+                    .map(td => (td.innerText || td.textContent || '').trim())
+            )"""
+        )
+
+        candidate = _select_network_dataset(
+            network_events,
+            kind,
+            visible_rows,
+        )
+
+        if candidate is None:
             diagnostics = [
                 {
-                    "index": d["index"],
-                    "rows": d["rows"],
-                    "headers": d["headers"],
-                    "score": _semantic_table_score(d, kind),
+                    "url": event["url"],
+                    "method": event["method"],
+                    "status": event["status"],
+                    "record_lists": [
+                        {
+                            "path": ".".join(path) or "$",
+                            "rows": len(records),
+                        }
+                        for path, records in _iter_record_lists(event["payload"])
+                    ][:8],
                 }
-                for d in candidates[:8]
+                for event in network_events
             ]
             browser.close()
             raise RuntimeError(
-                f"No semantically compatible eSIOS table for {kind}. "
-                f"Candidates={json.dumps(diagnostics, ensure_ascii=False)}"
+                f"No matching eSIOS XHR/fetch JSON found for {kind}. "
+                f"Captured={json.dumps(diagnostics, ensure_ascii=False)[:6000]}"
             )
 
-        best_index = int(best["index"])
-        table = page.locator("table").nth(best_index)
-        headers = [_clean(x) for x in best["headers"]]
-
-        has_dt = page.evaluate(
-            """index => {
-                const el = document.querySelectorAll('table')[index];
-                return !!(
-                    el &&
-                    window.jQuery &&
-                    jQuery.fn &&
-                    jQuery.fn.dataTable &&
-                    jQuery.fn.dataTable.isDataTable(el)
-                );
-            }""",
-            best_index,
+        all_records, api_meta = _collect_all_network_records(
+            page,
+            candidate,
+            kind,
+            minimum_rows,
         )
 
-        rows: list[list[str]] = []
-        generic_pagination_meta = {"generic_pagination": False}
-        datatable_pages = 1
-        datatable_server_side = False
-
-        if has_dt:
-            dt_meta = page.evaluate(
-                """index => {
-                    const el = document.querySelectorAll('table')[index];
-                    const dt = jQuery(el).DataTable();
-                    const settings = dt.settings()[0];
-                    const info = dt.page.info();
-                    return {
-                        serverSide: !!(settings && settings.oFeatures && settings.oFeatures.bServerSide),
-                        pages: Math.max(1, info.pages || 1),
-                        recordsTotal: info.recordsTotal || null,
-                        pageLength: info.length || null,
-                    };
-                }""",
-                best_index,
-            )
-            datatable_server_side = bool(dt_meta.get("serverSide"))
-
-            # Ask for a large page. Works for client-side DataTables and most
-            # server-side eSIOS tables; if the backend caps it, we paginate.
-            page.evaluate(
-                """index => {
-                    const el = document.querySelectorAll('table')[index];
-                    jQuery(el).DataTable().page.len(500).draw();
-                }""",
-                best_index,
-            )
-            page.wait_for_timeout(1_500)
-
-            dt_meta = page.evaluate(
-                """index => {
-                    const el = document.querySelectorAll('table')[index];
-                    const info = jQuery(el).DataTable().page.info();
-                    return {
-                        pages: Math.max(1, info.pages || 1),
-                        recordsTotal: info.recordsTotal || null,
-                        pageLength: info.length || null,
-                    };
-                }""",
-                best_index,
-            )
-            datatable_pages = int(dt_meta.get("pages") or 1)
-
-            # Safety guard against accidental infinite/huge pagination.
-            if datatable_pages > 500:
-                browser.close()
-                raise RuntimeError(
-                    f"Unexpected DataTables page count for {kind}: "
-                    f"{datatable_pages}"
-                )
-
-            for page_index in range(datatable_pages):
-                if page_index:
-                    page.evaluate(
-                        """args => {
-                            const el = document.querySelectorAll('table')[args.index];
-                            jQuery(el).DataTable().page(args.page).draw('page');
-                        }""",
-                        {"index": best_index, "page": page_index},
-                    )
-                    page.wait_for_timeout(600)
-
-                chunk = table.locator("tbody tr").evaluate_all(
-                    """rows => rows.map(
-                        tr => Array.from(tr.querySelectorAll('td'))
-                            .map(td => (td.innerText || td.textContent || '').trim())
-                    )"""
-                )
-                rows.extend(chunk)
-        else:
-            def read_visible_rows() -> list[list[str]]:
-                return table.locator("tbody tr").evaluate_all(
-                    """rows => rows.map(
-                        tr => Array.from(tr.querySelectorAll('td'))
-                            .map(td => (td.innerText || td.textContent || '').trim())
-                    )"""
-                )
-
-            def row_signature() -> str:
-                return page.evaluate(
-                    """index => {
-                        const table = document.querySelectorAll('table')[index];
-                        if (!table) return '';
-                        return Array.from(table.querySelectorAll('tbody tr'))
-                            .map(tr => (tr.innerText || tr.textContent || '').trim())
-                            .join('\\n');
-                    }""",
-                    best_index,
-                )
-
-            rows.extend(read_visible_rows())
-            seen_signatures = {row_signature()}
-            generic_pages = 1
-            generic_exhausted = False
-            paginator_diagnostics: list[dict] = []
-
-            for _ in range(499):
-                candidate = page.evaluate(
-                    """index => {
-                        const table = document.querySelectorAll('table')[index];
-                        if (!table) return null;
-
-                        const tableRect = table.getBoundingClientRect();
-                        const ancestors = [];
-                        let node = table.parentElement;
-                        for (let depth = 0; node && depth < 7; depth++, node = node.parentElement) {
-                            ancestors.push(node);
-                        }
-
-                        const regex = /(siguiente|next|pr[oó]xim|›|»|chevron[-_ ]?right|angle[-_ ]?right|arrow[-_ ]?right)/i;
-                        const negative = /(anterior|previous|prev|‹|«|left)/i;
-                        const candidates = [];
-
-                        ancestors.forEach((ancestor, depth) => {
-                            ancestor.querySelectorAll('button,a,[role="button"]').forEach((el, order) => {
-                                const rect = el.getBoundingClientRect();
-                                const style = getComputedStyle(el);
-                                const visible =
-                                    style.display !== 'none' &&
-                                    style.visibility !== 'hidden' &&
-                                    Number(style.opacity || '1') !== 0 &&
-                                    rect.width > 0 &&
-                                    rect.height > 0;
-
-                                if (!visible) return;
-
-                                const text = [
-                                    el.innerText || '',
-                                    el.textContent || '',
-                                    el.getAttribute('aria-label') || '',
-                                    el.getAttribute('title') || '',
-                                    el.className || ''
-                                ].join(' ').replace(/\\s+/g, ' ').trim();
-
-                                if (!regex.test(text) || negative.test(text)) return;
-
-                                const disabled =
-                                    !!el.disabled ||
-                                    el.getAttribute('aria-disabled') === 'true' ||
-                                    /disabled/i.test(String(el.className || ''));
-
-                                const distance =
-                                    Math.abs(rect.top - tableRect.bottom) +
-                                    Math.abs(rect.left - tableRect.left);
-
-                                candidates.push({
-                                    depth,
-                                    order,
-                                    text,
-                                    disabled,
-                                    distance,
-                                    tag: el.tagName,
-                                    html: el.outerHTML.slice(0, 500),
-                                });
-                            });
-                        });
-
-                        if (!candidates.length) return null;
-
-                        candidates.sort((a, b) => {
-                            if (a.disabled !== b.disabled) return Number(a.disabled) - Number(b.disabled);
-                            if (a.depth !== b.depth) return a.depth - b.depth;
-                            return a.distance - b.distance;
-                        });
-
-                        return candidates[0];
-                    }""",
-                    best_index,
-                )
-
-                if not candidate:
-                    generic_exhausted = True
-                    break
-
-                paginator_diagnostics.append(candidate)
-
-                if candidate.get("disabled"):
-                    generic_exhausted = True
-                    break
-
-                previous_signature = row_signature()
-
-                clicked = page.evaluate(
-                    """args => {
-                        const table = document.querySelectorAll('table')[args.index];
-                        if (!table) return false;
-
-                        const tableRect = table.getBoundingClientRect();
-                        const regex = /(siguiente|next|pr[oó]xim|›|»|chevron[-_ ]?right|angle[-_ ]?right|arrow[-_ ]?right)/i;
-                        const negative = /(anterior|previous|prev|‹|«|left)/i;
-                        const ancestors = [];
-                        let node = table.parentElement;
-                        for (let depth = 0; node && depth < 7; depth++, node = node.parentElement) {
-                            ancestors.push(node);
-                        }
-
-                        const candidates = [];
-                        ancestors.forEach((ancestor, depth) => {
-                            ancestor.querySelectorAll('button,a,[role="button"]').forEach((el, order) => {
-                                const rect = el.getBoundingClientRect();
-                                const style = getComputedStyle(el);
-                                const visible =
-                                    style.display !== 'none' &&
-                                    style.visibility !== 'hidden' &&
-                                    Number(style.opacity || '1') !== 0 &&
-                                    rect.width > 0 &&
-                                    rect.height > 0;
-                                if (!visible) return;
-
-                                const text = [
-                                    el.innerText || '',
-                                    el.textContent || '',
-                                    el.getAttribute('aria-label') || '',
-                                    el.getAttribute('title') || '',
-                                    el.className || ''
-                                ].join(' ').replace(/\\s+/g, ' ').trim();
-
-                                if (!regex.test(text) || negative.test(text)) return;
-
-                                const disabled =
-                                    !!el.disabled ||
-                                    el.getAttribute('aria-disabled') === 'true' ||
-                                    /disabled/i.test(String(el.className || ''));
-                                if (disabled) return;
-
-                                const distance =
-                                    Math.abs(rect.top - tableRect.bottom) +
-                                    Math.abs(rect.left - tableRect.left);
-
-                                candidates.push({el, depth, distance});
-                            });
-                        });
-
-                        if (!candidates.length) return false;
-                        candidates.sort((a, b) => a.depth - b.depth || a.distance - b.distance);
-                        candidates[0].el.click();
-                        return true;
-                    }""",
-                    {"index": best_index},
-                )
-
-                if not clicked:
-                    generic_exhausted = True
-                    break
-
-                try:
-                    page.wait_for_function(
-                        """args => {
-                            const table = document.querySelectorAll('table')[args.index];
-                            if (!table) return false;
-                            const current = Array.from(table.querySelectorAll('tbody tr'))
-                                .map(tr => (tr.innerText || tr.textContent || '').trim())
-                                .join('\\n');
-                            return current && current !== args.previous;
-                        }""",
-                        {"index": best_index, "previous": previous_signature},
-                        timeout=15_000,
-                    )
-                except Exception:
-                    # If clicking "next" did not change rows, treat it as end of pagination.
-                    generic_exhausted = True
-                    break
-
-                page.wait_for_timeout(300)
-                signature = row_signature()
-                if not signature or signature in seen_signatures:
-                    generic_exhausted = True
-                    break
-
-                seen_signatures.add(signature)
-                rows.extend(read_visible_rows())
-                generic_pages += 1
-
-            datatable_pages = generic_pages
-            # Store diagnostics in the same meta structure below.
-            generic_pagination_meta = {
-                "generic_pagination": True,
-                "generic_pages": generic_pages,
-                "generic_exhausted": generic_exhausted,
-                "generic_last_controls": paginator_diagnostics[-5:],
-            }
-
+        frame = _records_frame(all_records)
         final_url = page.url
         browser.close()
-
-    clean_rows: list[list[str]] = []
-    for row in rows:
-        row = [_clean(x) for x in row]
-        if not any(row):
-            continue
-        if len(row) < len(headers):
-            row += [""] * (len(headers) - len(row))
-        elif len(row) > len(headers):
-            row = row[: len(headers)]
-        clean_rows.append(row)
-
-    if not clean_rows:
-        raise RuntimeError(f"Selected eSIOS table for {kind} yielded zero rows")
-
-    frame = pd.DataFrame(
-        clean_rows,
-        columns=[_norm(h) or f"col_{i}" for i, h in enumerate(headers)],
-    ).drop_duplicates()
 
     return frame, {
         "url": final_url,
         "status": response.status if response else None,
-        "rendered_table_index": best_index,
-        "rendered_table_id": best.get("id", ""),
-        "semantic_score": score[0],
-        "datatable": bool(has_dt),
-        "datatable_server_side": datatable_server_side,
-        "datatable_pages": datatable_pages,
+        "source_mode": "captured_xhr_api",
         "rows": int(len(frame)),
         "columns": list(frame.columns),
-        "visible_table_candidates": len(candidates),
-        "dom_table_count": len(descriptors),
-        **generic_pagination_meta,
+        "visible_first_page_rows": len(visible_rows),
+        "api_endpoint": candidate["url"],
+        "api_method": candidate["method"],
+        "api_record_path": ".".join(candidate["record_path"]) or "$",
+        "api_initial_records": len(candidate["records"]),
+        "api_candidate_score": candidate["score"],
+        **api_meta,
     }
 
 
@@ -748,12 +1114,22 @@ ALIASES = {
         "cod_up",
         "up",
         "codigo",
+        "codigo_de_up",
+        "programming_unit_code",
+        "programming_unit",
+        "unit_code",
+        "code",
     ],
     "up_name": [
         "descripcion",
         "denominacion",
         "nombre",
         "nombre_unidad_de_programacion",
+        "descripcion_corta",
+        "short_description",
+        "short_name",
+        "long_description",
+        "name",
     ],
     "uf_code": [
         "unidad_fisica",
@@ -762,12 +1138,22 @@ ALIASES = {
         "cod_uf",
         "uf",
         "codigo",
+        "codigo_de_uf",
+        "physical_unit_code",
+        "physical_unit",
+        "unit_code",
+        "code",
     ],
     "uf_name": [
         "descripcion",
         "denominacion",
         "nombre",
         "nombre_unidad_fisica",
+        "descripcion_corta",
+        "short_description",
+        "short_name",
+        "long_description",
+        "name",
     ],
     "subject_code": [
         "codigo_sujeto",
@@ -775,6 +1161,11 @@ ALIASES = {
         "participante",
         "codigo_participante",
         "codigo_agente",
+        "codigo_de_sujeto",
+        "market_subject_code",
+        "subject_code",
+        "market_subject",
+        "subject",
     ],
     "legal_entity": [
         "razon_social",
@@ -782,11 +1173,19 @@ ALIASES = {
         "denominacion",
         "nombre",
         "sujeto_del_mercado",
+        "market_subject_name",
+        "subject_name",
+        "legal_name",
+        "company_name",
+        "name",
     ],
     "technology": [
         "tecnologia",
         "tipo_produccion",
         "tipo_de_produccion",
+        "production_type",
+        "generation_type",
+        "technology",
     ],
 }
 
@@ -1034,10 +1433,8 @@ def run_structural(
 
             complete = bool(
                 usable_rows >= minimum_complete_rows
-                and (
-                    meta.get("datatable")
-                    or meta.get("generic_exhausted")
-                )
+                and meta.get("source_mode") == "captured_xhr_api"
+                and int(meta.get("api_pages") or 0) >= 1
             )
 
             meta["canonical_rows"] = int(len(canonical))
@@ -1052,9 +1449,10 @@ def run_structural(
                     f"eSIOS {kind} pagination incomplete: "
                     f"usable_rows={usable_rows}, "
                     f"minimum_complete_rows={minimum_complete_rows}, "
-                    f"datatable={meta.get('datatable')}, "
-                    f"generic_pages={meta.get('generic_pages')}, "
-                    f"generic_exhausted={meta.get('generic_exhausted')}"
+                    f"source_mode={meta.get('source_mode')}, "
+                    f"api_endpoint={meta.get('api_endpoint')}, "
+                    f"api_pages={meta.get('api_pages')}, "
+                    f"api_total_hint={meta.get('api_total_hint')}"
                 )
 
             manifest["sources"][kind] = meta

@@ -120,3 +120,25 @@ El mapping usa dos capas oficiales:
 - Si eSIOS no se puede renderizar, OMIE sigue proporcionando el mapping
   UP → propietario → tecnología y el manifest deja `mapped_uf=0`.
 - El informe no debe usar UF/subject mapping si el manifest marca error.
+
+
+## Mapping estructural v0.5
+
+Las páginas estructurales de eSIOS se usan únicamente para descubrir la
+petición XHR/fetch real que alimenta cada tabla. El pipeline identifica el
+JSON correspondiente por las filas visibles, reutiliza el endpoint interno y
+pagina la API directamente.
+
+El manifest deja trazabilidad de:
+
+- `api_endpoint`
+- `api_method`
+- `api_record_path`
+- `api_initial_records`
+- `api_total_hint`
+- `api_pagination_strategy`
+- `api_pages`
+
+La capa eSIOS solo queda `complete=true` si supera el umbral mínimo de filas y
+la API capturada se ha agotado. Una primera página de 25 registros nunca se
+acepta como cobertura completa.
