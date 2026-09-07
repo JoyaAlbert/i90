@@ -88,23 +88,20 @@ def assign_group(legal_entity: str) -> tuple[str, str, str]:
     return "", "", ""
 
 
-def _http_headers(api_key: str | None = None) -> dict[str, str]:
-    headers = {
-        "User-Agent": "JoyaAlbert/i90 structural mapping",
-        "Accept": "text/html,application/xhtml+xml,application/pdf,application/json;q=0.9,*/*;q=0.8",
-    }
-    if api_key:
-        headers["x-api-key"] = api_key
-    return headers
-
-
 def fetch_bytes(
     url: str,
     api_key: str | None = None,
     timeout: float = 90.0,
 ) -> tuple[bytes, dict]:
+    headers = {
+        "User-Agent": "JoyaAlbert/i90 structural mapping",
+        "Accept": "application/pdf,application/json,text/html,*/*",
+    }
+    if api_key:
+        headers["x-api-key"] = api_key
+
     with httpx.Client(
-        headers=_http_headers(api_key),
+        headers=headers,
         follow_redirects=True,
         timeout=timeout,
     ) as client:
@@ -118,28 +115,241 @@ def fetch_bytes(
         }
 
 
-def _best_html_table(html_blob: bytes, kind: str) -> pd.DataFrame:
-    try:
-        tables = pd.read_html(io.BytesIO(html_blob))
-    except Exception as exc:
-        raise RuntimeError(f"No HTML tables parsed for {kind}: {exc}") from exc
+# ---------------------------------------------------------------------------
+# OMIE: exact operational unit -> owner -> technology
+# ---------------------------------------------------------------------------
 
-    if not tables:
-        raise RuntimeError(f"No HTML tables found for {kind}")
+OMIE_X_COLUMNS = [
+    ("up_code", 100.0, 143.0),
+    ("up_name_omie", 143.0, 247.0),
+    ("legal_entity", 247.0, 431.0),
+    ("ownership_pct", 431.0, 490.0),
+    ("unit_type_omie", 490.0, 572.0),
+    ("zone_omie", 572.0, 644.0),
+    ("technology_omie", 644.0, 760.0),
+]
 
-    hints = {
-        "programming_units": ("program", "unidad", "codigo", "sujeto", "particip"),
-        "physical_units": ("fisic", "unidad", "codigo", "program", "tecnolog"),
-        "market_subjects": ("sujeto", "particip", "codigo", "nombre", "razon"),
-    }[kind]
 
-    def score(df: pd.DataFrame) -> tuple[int, int]:
-        cols = " ".join(_norm(c) for c in df.columns)
-        return sum(1 for hint in hints if hint in cols), len(df)
+def _parse_omie_pdf(pdf_blob: bytes) -> pd.DataFrame:
+    """
+    Parse OMIE's fixed-layout official PDF using word coordinates.
 
-    table = max(tables, key=score).copy()
-    table.columns = [_norm(c) or f"col_{i}" for i, c in enumerate(table.columns)]
-    return table.dropna(how="all")
+    Table extraction was intentionally avoided: merged PDF cells can shift
+    AGENTE/TECNOLOGIA columns. Coordinates are stable in the official layout
+    and are validated on every row.
+    """
+    records: list[dict[str, object]] = []
+
+    with pdfplumber.open(io.BytesIO(pdf_blob)) as pdf:
+        for page_no, page in enumerate(pdf.pages, start=1):
+            words = page.extract_words(
+                use_text_flow=False,
+                keep_blank_chars=False,
+            )
+
+            # Rows have a shared top coordinate. A 0.8pt tolerance captures
+            # the fixed-layout line without merging consecutive records.
+            groups: list[tuple[float, list[dict]]] = []
+            for word in sorted(words, key=lambda w: (w["top"], w["x0"])):
+                if word["top"] < 135:
+                    continue
+                if not groups or abs(groups[-1][0] - word["top"]) > 0.8:
+                    groups.append((word["top"], [word]))
+                else:
+                    groups[-1][1].append(word)
+
+            for top, row_words in groups:
+                values: dict[str, object] = {
+                    "omie_page": page_no,
+                    "omie_y": round(float(top), 3),
+                }
+
+                for name, x0, x1 in OMIE_X_COLUMNS:
+                    values[name] = _clean(
+                        " ".join(
+                            word["text"]
+                            for word in row_words
+                            if x0 <= word["x0"] < x1
+                        )
+                    )
+
+                code = str(values["up_code"]).replace(" ", "")
+                if not re.fullmatch(r"[A-Z0-9]{2,14}", code):
+                    continue
+
+                values["up_code"] = code
+
+                if not values["legal_entity"]:
+                    raise RuntimeError(
+                        f"OMIE row {code} page {page_no} has empty legal entity"
+                    )
+                if not values["ownership_pct"]:
+                    raise RuntimeError(
+                        f"OMIE row {code} page {page_no} has empty ownership percentage"
+                    )
+                if not values["unit_type_omie"]:
+                    raise RuntimeError(
+                        f"OMIE row {code} page {page_no} has empty unit type"
+                    )
+
+                records.append(values)
+
+    if not records:
+        raise RuntimeError("OMIE PDF parsed but no unit rows were detected")
+
+    frame = pd.DataFrame(records)
+
+    # Keep multiple owner rows: shared plants such as Almaraz/Trillo/Vandellós
+    # must not be collapsed into a single company.
+    frame = frame.drop_duplicates(
+        subset=[
+            "up_code",
+            "legal_entity",
+            "ownership_pct",
+            "up_name_omie",
+        ]
+    )
+
+    frame["ownership_pct_numeric"] = pd.to_numeric(
+        frame["ownership_pct"].astype(str).str.replace(",", ".", regex=False),
+        errors="coerce",
+    )
+
+    return frame
+
+
+# ---------------------------------------------------------------------------
+# eSIOS SPA lists: render in Chromium, then extract the DataTable
+# ---------------------------------------------------------------------------
+
+def _render_esios_datatable(url: str) -> tuple[pd.DataFrame, dict]:
+    """
+    eSIOS structural pages are SPA shells: the initial HTML has no <table>.
+    Render the page with Chromium and collect the DataTable page by page.
+    """
+    from playwright.sync_api import sync_playwright
+
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(headless=True)
+        page = browser.new_page(viewport={"width": 1600, "height": 1000})
+
+        response = page.goto(
+            url,
+            wait_until="domcontentloaded",
+            timeout=120_000,
+        )
+
+        # Give application JS and the first DataTable request time to settle.
+        page.wait_for_timeout(5_000)
+        page.wait_for_selector("table", timeout=60_000)
+
+        table_count = page.locator("table").count()
+        if table_count < 1:
+            raise RuntimeError(f"No rendered table found at {url}")
+
+        # Pick the rendered table with the largest current body.
+        best_index = 0
+        best_rows = -1
+        for idx in range(table_count):
+            count = page.locator("table").nth(idx).locator("tbody tr").count()
+            if count > best_rows:
+                best_index = idx
+                best_rows = count
+
+        table = page.locator("table").nth(best_index)
+        headers = [
+            _clean(x)
+            for x in table.locator("thead th").all_inner_texts()
+        ]
+
+        if not headers:
+            raise RuntimeError(f"Rendered eSIOS table at {url} has no headers")
+
+        # Locate the DataTables wrapper that belongs to the chosen table.
+        table_id = table.get_attribute("id")
+        if table_id:
+            table_js = f"document.getElementById({json.dumps(table_id)})"
+        else:
+            table_js = f"document.querySelectorAll('table')[{best_index}]"
+
+        has_dt = page.evaluate(
+            f"""() => {{
+                const el = {table_js};
+                return !!(
+                    window.jQuery &&
+                    jQuery.fn &&
+                    jQuery.fn.dataTable &&
+                    jQuery.fn.dataTable.isDataTable(el)
+                );
+            }}"""
+        )
+
+        rows: list[list[str]] = []
+
+        if has_dt:
+            # Increase page size to reduce requests, then iterate all pages.
+            page.evaluate(
+                f"""() => {{
+                    const dt = jQuery({table_js}).DataTable();
+                    dt.page.len(500).draw();
+                }}"""
+            )
+            page.wait_for_timeout(2_000)
+
+            info = page.evaluate(
+                f"""() => jQuery({table_js}).DataTable().page.info()"""
+            )
+            pages = max(1, int(info.get("pages", 1)))
+
+            for idx in range(pages):
+                page.evaluate(
+                    f"""() => {{
+                        const dt = jQuery({table_js}).DataTable();
+                        dt.page({idx}).draw('page');
+                    }}"""
+                )
+                page.wait_for_timeout(700)
+
+                chunk = table.locator("tbody tr").evaluate_all(
+                    """rows => rows.map(
+                        tr => Array.from(tr.querySelectorAll('td'))
+                            .map(td => td.innerText.trim())
+                    )"""
+                )
+                rows.extend(chunk)
+        else:
+            rows = table.locator("tbody tr").evaluate_all(
+                """rows => rows.map(
+                    tr => Array.from(tr.querySelectorAll('td'))
+                        .map(td => td.innerText.trim())
+                )"""
+            )
+
+        final_url = page.url
+        browser.close()
+
+    # Normalize width: DataTables sometimes adds an action/details column.
+    clean_rows = []
+    for row in rows:
+        row = [_clean(x) for x in row]
+        if not any(row):
+            continue
+        if len(row) < len(headers):
+            row = row + [""] * (len(headers) - len(row))
+        if len(row) > len(headers):
+            row = row[: len(headers)]
+        clean_rows.append(row)
+
+    frame = pd.DataFrame(clean_rows, columns=[_norm(h) for h in headers])
+    frame = frame.drop_duplicates()
+
+    return frame, {
+        "url": final_url,
+        "status": response.status if response else None,
+        "rendered_table_index": best_index,
+        "rows": int(len(frame)),
+        "columns": list(frame.columns),
+    }
 
 
 ALIASES = {
@@ -242,61 +452,6 @@ def canonicalize_esios(df: pd.DataFrame, kind: str) -> pd.DataFrame:
     return out.loc[~(out == "").all(axis=1)].drop_duplicates()
 
 
-def _parse_omie_tables(pdf_blob: bytes) -> pd.DataFrame:
-    records: list[dict[str, str]] = []
-
-    settings = {
-        "vertical_strategy": "text",
-        "horizontal_strategy": "text",
-        "snap_tolerance": 3,
-        "join_tolerance": 3,
-        "intersection_tolerance": 5,
-        "text_tolerance": 2,
-    }
-
-    with pdfplumber.open(io.BytesIO(pdf_blob)) as pdf:
-        for page_no, page in enumerate(pdf.pages, start=1):
-            for table in page.extract_tables(table_settings=settings) or []:
-                for row in table:
-                    cells = [_clean(x) for x in (row or [])]
-                    if len(cells) < 6:
-                        continue
-
-                    joined = " | ".join(cells).upper()
-                    if (
-                        "CODIGO" in joined
-                        or "CÓDIGO" in joined
-                        or "LISTADO DE UNIDADES" in joined
-                    ):
-                        continue
-
-                    code = cells[0].replace(" ", "")
-                    if not re.fullmatch(r"[A-Z0-9]{2,14}", code):
-                        continue
-
-                    records.append(
-                        {
-                            "up_code": code,
-                            "up_name_omie": cells[1] if len(cells) > 1 else "",
-                            "legal_entity": cells[2] if len(cells) > 2 else "",
-                            "ownership_pct": cells[3] if len(cells) > 3 else "",
-                            "unit_type_omie": cells[4] if len(cells) > 4 else "",
-                            "zone_omie": cells[5] if len(cells) > 5 else "",
-                            "technology_omie": " ".join(cells[6:])
-                            if len(cells) > 6
-                            else "",
-                            "omie_page": str(page_no),
-                        }
-                    )
-
-    if not records:
-        raise RuntimeError("OMIE PDF parsed but no unit rows were detected")
-
-    return pd.DataFrame(records).drop_duplicates(
-        subset=["up_code", "legal_entity", "up_name_omie"]
-    )
-
-
 def _aggregate_physical_units(physical: pd.DataFrame) -> pd.DataFrame:
     columns = ["up_code", "uf_count", "uf_codes", "uf_names"]
     if physical.empty or "up_code" not in physical.columns:
@@ -310,24 +465,9 @@ def _aggregate_physical_units(physical: pd.DataFrame) -> pd.DataFrame:
     return (
         p.groupby("up_code", as_index=False)
         .agg(
-            uf_count=(
-                "uf_code",
-                lambda s: int(
-                    pd.Series([x for x in s if _clean(x)]).nunique()
-                ),
-            ),
-            uf_codes=(
-                "uf_code",
-                lambda s: "|".join(
-                    sorted(set(_clean(x) for x in s if _clean(x)))
-                ),
-            ),
-            uf_names=(
-                "uf_name",
-                lambda s: "|".join(
-                    sorted(set(_clean(x) for x in s if _clean(x)))
-                ),
-            ),
+            uf_count=("uf_code", lambda s: len(set(_clean(x) for x in s if _clean(x)))),
+            uf_codes=("uf_code", lambda s: "|".join(sorted(set(_clean(x) for x in s if _clean(x))))),
+            uf_names=("uf_name", lambda s: "|".join(sorted(set(_clean(x) for x in s if _clean(x))))),
         )
     )
 
@@ -338,12 +478,14 @@ def build_master(
     subjects: pd.DataFrame,
     omie: pd.DataFrame,
 ) -> pd.DataFrame:
-    # OMIE states that a market offer unit corresponds to a programming unit.
-    # Only exact code equality is used; no prefix/name guessing is allowed.
     master = omie.copy()
 
     if not programming.empty and "up_code" in programming.columns:
-        master = programming.merge(master, on="up_code", how="outer")
+        master = programming.merge(
+            master,
+            on="up_code",
+            how="outer",
+        )
 
     if (
         not subjects.empty
@@ -365,9 +507,13 @@ def build_master(
 
     physical_agg = _aggregate_physical_units(physical)
     if not physical_agg.empty:
-        master = master.merge(physical_agg, on="up_code", how="left")
+        master = master.merge(
+            physical_agg,
+            on="up_code",
+            how="left",
+        )
 
-    required = [
+    for col in [
         "up_name",
         "up_name_omie",
         "legal_entity",
@@ -375,12 +521,13 @@ def build_master(
         "technology_omie",
         "unit_type_omie",
         "zone_omie",
+        "ownership_pct",
+        "ownership_pct_numeric",
         "uf_count",
         "uf_codes",
         "uf_names",
         "subject_code",
-    ]
-    for col in required:
+    ]:
         if col not in master.columns:
             master[col] = ""
 
@@ -413,12 +560,21 @@ def build_master(
             "mapping_source",
         ] += " + eSIOS UF"
 
+    owner_counts = (
+        master.groupby("up_code")["legal_entity"]
+        .transform(lambda s: s.replace("", pd.NA).dropna().nunique())
+    )
+    master["owner_count"] = owner_counts.fillna(0).astype(int)
+
     ordered = [
         "up_code",
         "up_name_final",
         "legal_entity",
         "group_name",
         "group_confidence",
+        "ownership_pct",
+        "ownership_pct_numeric",
+        "owner_count",
         "technology",
         "unit_type_omie",
         "zone_omie",
@@ -429,9 +585,6 @@ def build_master(
         "mapping_source",
         "group_source_url",
     ]
-    for col in ordered:
-        if col not in master.columns:
-            master[col] = ""
 
     return master[ordered].drop_duplicates()
 
@@ -442,7 +595,6 @@ def run_structural(
 ) -> dict:
     now = datetime.now(TZ)
     day = now.date().isoformat()
-    api_key = os.environ.get("ESIOS_API_KEY")
 
     work_root.mkdir(parents=True, exist_ok=True)
     latest = public_root / "structural" / "latest"
@@ -459,17 +611,16 @@ def run_structural(
 
     for kind, url in ESIOS_STRUCTURAL_URLS.items():
         try:
-            blob, meta = fetch_bytes(url, api_key=api_key)
-            (work_root / f"{kind}.html").write_bytes(blob)
-            raw_table = _best_html_table(blob, kind)
-            canonical = canonicalize_esios(raw_table, kind)
+            raw, meta = _render_esios_datatable(url)
+            canonical = canonicalize_esios(raw, kind)
             esios_frames[kind] = canonical
 
-            meta["rows"] = int(len(canonical))
-            meta["columns"] = list(canonical.columns)
+            meta["canonical_rows"] = int(len(canonical))
+            meta["canonical_columns"] = list(canonical.columns)
             manifest["sources"][kind] = meta
 
             for dest in (latest, history):
+                raw.to_csv(dest / f"{kind}_raw.csv", index=False)
                 canonical.to_csv(dest / f"{kind}.csv", index=False)
         except Exception as exc:
             manifest["sources"][kind] = {
@@ -484,9 +635,16 @@ def run_structural(
 
     omie_blob, omie_meta = fetch_bytes(OMIE_UNITS_URL)
     (work_root / "LISTA_UNIDADES.PDF").write_bytes(omie_blob)
-    omie = _parse_omie_tables(omie_blob)
+    omie = _parse_omie_pdf(omie_blob)
 
     omie_meta["rows"] = int(len(omie))
+    omie_meta["unique_unit_codes"] = int(omie["up_code"].nunique())
+    omie_meta["rows_with_legal_entity"] = int(
+        omie["legal_entity"].astype(str).str.len().gt(0).sum()
+    )
+    omie_meta["rows_with_technology"] = int(
+        omie["technology_omie"].astype(str).str.len().gt(0).sum()
+    )
     manifest["sources"]["omie_units"] = omie_meta
 
     for dest in (latest, history):
@@ -501,29 +659,26 @@ def run_structural(
 
     manifest["master"] = {
         "rows": int(len(master)),
+        "unique_up_codes": int(master["up_code"].nunique()),
         "mapped_legal_entity": int(
-            master["legal_entity"]
-            .fillna("")
-            .astype(str)
-            .str.len()
-            .gt(0)
-            .sum()
+            master["legal_entity"].fillna("").astype(str).str.len().gt(0).sum()
         ),
         "mapped_group": int(
-            master["group_name"]
-            .fillna("")
-            .astype(str)
-            .str.len()
-            .gt(0)
-            .sum()
+            master["group_name"].fillna("").astype(str).str.len().gt(0).sum()
         ),
         "mapped_uf": int(
-            pd.to_numeric(master["uf_count"], errors="coerce")
-            .fillna(0)
-            .gt(0)
-            .sum()
+            pd.to_numeric(master["uf_count"], errors="coerce").fillna(0).gt(0).sum()
+        ),
+        "shared_ownership_up_codes": int(
+            master.loc[master["owner_count"] > 1, "up_code"].nunique()
         ),
     }
+
+    # Quality gates: OMIE mapping is mandatory and must be nearly complete.
+    if manifest["sources"]["omie_units"]["rows_with_legal_entity"] < 4000:
+        raise RuntimeError("OMIE legal-entity mapping unexpectedly incomplete")
+    if manifest["sources"]["omie_units"]["unique_unit_codes"] < 4000:
+        raise RuntimeError("OMIE unit-code mapping unexpectedly incomplete")
 
     for dest in (latest, history):
         master.to_csv(dest / "up_master.csv", index=False)

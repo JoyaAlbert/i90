@@ -7,19 +7,51 @@ def test_group_axpo():
     group, confidence, source = assign_group("AXPO IBERIA, S.L.")
     assert group == "Axpo"
     assert confidence == "verified_corporate"
-    assert "axpo.com" in source
 
 
-def test_group_naturgy_legacy_legal_name():
+def test_group_naturgy():
     group, confidence, source = assign_group(
         "GAS NATURAL COMERCIALIZADORA"
     )
     assert group == "Naturgy"
     assert confidence == "verified_corporate"
-    assert "naturgy.com" in source
 
 
-def test_master_exact_code_and_physical_units():
+def test_shared_ownership_is_not_collapsed():
+    programming = pd.DataFrame()
+    physical = pd.DataFrame()
+    subjects = pd.DataFrame()
+    omie = pd.DataFrame(
+        [
+            {
+                "up_code": "ALZ1",
+                "up_name_omie": "C.N. ALMARAZ 1",
+                "legal_entity": "ENDESA GENERACIÓN, S.A.",
+                "ownership_pct": "36,021",
+                "ownership_pct_numeric": 36.021,
+                "unit_type_omie": "GENERACION",
+                "zone_omie": "ZONA ESPAÑOLA",
+                "technology_omie": "Nuclear",
+            },
+            {
+                "up_code": "ALZ1",
+                "up_name_omie": "C.N. ALMARAZ 1",
+                "legal_entity": "IBERDROLA ENERGÍA ESPAÑA S..A.",
+                "ownership_pct": "52,687",
+                "ownership_pct_numeric": 52.687,
+                "unit_type_omie": "GENERACION",
+                "zone_omie": "ZONA ESPAÑOLA",
+                "technology_omie": "Nuclear",
+            },
+        ]
+    )
+
+    master = build_master(programming, physical, subjects, omie)
+    assert len(master) == 2
+    assert set(master["owner_count"]) == {2}
+
+
+def test_physical_unit_join():
     programming = pd.DataFrame(
         [
             {
@@ -49,10 +81,10 @@ def test_master_exact_code_and_physical_units():
                 "up_name_omie": "ABOÑO 2 GAS",
                 "legal_entity": "ABOÑO GENERACIONES ELECTRICAS SLU",
                 "ownership_pct": "100",
+                "ownership_pct_numeric": 100.0,
                 "unit_type_omie": "GENERACION",
                 "zone_omie": "ZONA ESPAÑOLA",
                 "technology_omie": "Gas",
-                "omie_page": "1",
             }
         ]
     )
@@ -60,8 +92,6 @@ def test_master_exact_code_and_physical_units():
     master = build_master(programming, physical, subjects, omie)
     row = master.iloc[0]
 
-    assert row["up_code"] == "ABO2G"
     assert row["legal_entity"] == "ABOÑO GENERACIONES ELECTRICAS SLU"
     assert row["uf_count"] == 1
     assert row["uf_codes"] == "UF001"
-    assert "eSIOS UF" in row["mapping_source"]

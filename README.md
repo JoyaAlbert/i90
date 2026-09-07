@@ -99,3 +99,24 @@ El informe debe poder distinguir:
 
 Si una fuente estructural no puede descargarse o parsearse, `manifest.json`
 registra el error y el pipeline no inventa el mapping.
+
+
+## Mapping estructural v0.3
+
+El mapping usa dos capas oficiales:
+
+1. **OMIE `LISTA_UNIDADES.PDF`**: código exacto de unidad, descripción,
+   agente propietario, porcentaje de propiedad, tipo, zona y tecnología.
+   El parser usa coordenadas del PDF para evitar desplazamientos de columnas.
+2. **eSIOS**: UP, UF y sujetos. Estas páginas son SPA y se renderizan con
+   Chromium/Playwright antes de extraer la DataTable.
+
+### Reglas de seguridad de datos
+
+- Nunca se hace fuzzy matching por nombre.
+- Una UP con varios propietarios genera varias filas y conserva
+  `ownership_pct`.
+- `group_name` está separado de `legal_entity`.
+- Si eSIOS no se puede renderizar, OMIE sigue proporcionando el mapping
+  UP → propietario → tecnología y el manifest deja `mapped_uf=0`.
+- El informe no debe usar UF/subject mapping si el manifest marca error.
