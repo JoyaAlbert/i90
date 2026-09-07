@@ -415,6 +415,7 @@ def _render_esios_datatable(
         )
 
         rows: list[list[str]] = []
+        generic_pagination_meta = {"generic_pagination": False}
         datatable_pages = 1
         datatable_server_side = False
 
@@ -488,12 +489,217 @@ def _render_esios_datatable(
                 )
                 rows.extend(chunk)
         else:
-            rows = table.locator("tbody tr").evaluate_all(
-                """rows => rows.map(
-                    tr => Array.from(tr.querySelectorAll('td'))
-                        .map(td => (td.innerText || td.textContent || '').trim())
-                )"""
-            )
+            def read_visible_rows() -> list[list[str]]:
+                return table.locator("tbody tr").evaluate_all(
+                    """rows => rows.map(
+                        tr => Array.from(tr.querySelectorAll('td'))
+                            .map(td => (td.innerText || td.textContent || '').trim())
+                    )"""
+                )
+
+            def row_signature() -> str:
+                return page.evaluate(
+                    """index => {
+                        const table = document.querySelectorAll('table')[index];
+                        if (!table) return '';
+                        return Array.from(table.querySelectorAll('tbody tr'))
+                            .map(tr => (tr.innerText || tr.textContent || '').trim())
+                            .join('\\n');
+                    }""",
+                    best_index,
+                )
+
+            rows.extend(read_visible_rows())
+            seen_signatures = {row_signature()}
+            generic_pages = 1
+            generic_exhausted = False
+            paginator_diagnostics: list[dict] = []
+
+            for _ in range(499):
+                candidate = page.evaluate(
+                    """index => {
+                        const table = document.querySelectorAll('table')[index];
+                        if (!table) return null;
+
+                        const tableRect = table.getBoundingClientRect();
+                        const ancestors = [];
+                        let node = table.parentElement;
+                        for (let depth = 0; node && depth < 7; depth++, node = node.parentElement) {
+                            ancestors.push(node);
+                        }
+
+                        const regex = /(siguiente|next|pr[oó]xim|›|»|chevron[-_ ]?right|angle[-_ ]?right|arrow[-_ ]?right)/i;
+                        const negative = /(anterior|previous|prev|‹|«|left)/i;
+                        const candidates = [];
+
+                        ancestors.forEach((ancestor, depth) => {
+                            ancestor.querySelectorAll('button,a,[role="button"]').forEach((el, order) => {
+                                const rect = el.getBoundingClientRect();
+                                const style = getComputedStyle(el);
+                                const visible =
+                                    style.display !== 'none' &&
+                                    style.visibility !== 'hidden' &&
+                                    Number(style.opacity || '1') !== 0 &&
+                                    rect.width > 0 &&
+                                    rect.height > 0;
+
+                                if (!visible) return;
+
+                                const text = [
+                                    el.innerText || '',
+                                    el.textContent || '',
+                                    el.getAttribute('aria-label') || '',
+                                    el.getAttribute('title') || '',
+                                    el.className || ''
+                                ].join(' ').replace(/\\s+/g, ' ').trim();
+
+                                if (!regex.test(text) || negative.test(text)) return;
+
+                                const disabled =
+                                    !!el.disabled ||
+                                    el.getAttribute('aria-disabled') === 'true' ||
+                                    /disabled/i.test(String(el.className || ''));
+
+                                const distance =
+                                    Math.abs(rect.top - tableRect.bottom) +
+                                    Math.abs(rect.left - tableRect.left);
+
+                                candidates.push({
+                                    depth,
+                                    order,
+                                    text,
+                                    disabled,
+                                    distance,
+                                    tag: el.tagName,
+                                    html: el.outerHTML.slice(0, 500),
+                                });
+                            });
+                        });
+
+                        if (!candidates.length) return null;
+
+                        candidates.sort((a, b) => {
+                            if (a.disabled !== b.disabled) return Number(a.disabled) - Number(b.disabled);
+                            if (a.depth !== b.depth) return a.depth - b.depth;
+                            return a.distance - b.distance;
+                        });
+
+                        return candidates[0];
+                    }""",
+                    best_index,
+                )
+
+                if not candidate:
+                    generic_exhausted = True
+                    break
+
+                paginator_diagnostics.append(candidate)
+
+                if candidate.get("disabled"):
+                    generic_exhausted = True
+                    break
+
+                previous_signature = row_signature()
+
+                clicked = page.evaluate(
+                    """args => {
+                        const table = document.querySelectorAll('table')[args.index];
+                        if (!table) return false;
+
+                        const tableRect = table.getBoundingClientRect();
+                        const regex = /(siguiente|next|pr[oó]xim|›|»|chevron[-_ ]?right|angle[-_ ]?right|arrow[-_ ]?right)/i;
+                        const negative = /(anterior|previous|prev|‹|«|left)/i;
+                        const ancestors = [];
+                        let node = table.parentElement;
+                        for (let depth = 0; node && depth < 7; depth++, node = node.parentElement) {
+                            ancestors.push(node);
+                        }
+
+                        const candidates = [];
+                        ancestors.forEach((ancestor, depth) => {
+                            ancestor.querySelectorAll('button,a,[role="button"]').forEach((el, order) => {
+                                const rect = el.getBoundingClientRect();
+                                const style = getComputedStyle(el);
+                                const visible =
+                                    style.display !== 'none' &&
+                                    style.visibility !== 'hidden' &&
+                                    Number(style.opacity || '1') !== 0 &&
+                                    rect.width > 0 &&
+                                    rect.height > 0;
+                                if (!visible) return;
+
+                                const text = [
+                                    el.innerText || '',
+                                    el.textContent || '',
+                                    el.getAttribute('aria-label') || '',
+                                    el.getAttribute('title') || '',
+                                    el.className || ''
+                                ].join(' ').replace(/\\s+/g, ' ').trim();
+
+                                if (!regex.test(text) || negative.test(text)) return;
+
+                                const disabled =
+                                    !!el.disabled ||
+                                    el.getAttribute('aria-disabled') === 'true' ||
+                                    /disabled/i.test(String(el.className || ''));
+                                if (disabled) return;
+
+                                const distance =
+                                    Math.abs(rect.top - tableRect.bottom) +
+                                    Math.abs(rect.left - tableRect.left);
+
+                                candidates.push({el, depth, distance});
+                            });
+                        });
+
+                        if (!candidates.length) return false;
+                        candidates.sort((a, b) => a.depth - b.depth || a.distance - b.distance);
+                        candidates[0].el.click();
+                        return true;
+                    }""",
+                    {"index": best_index},
+                )
+
+                if not clicked:
+                    generic_exhausted = True
+                    break
+
+                try:
+                    page.wait_for_function(
+                        """args => {
+                            const table = document.querySelectorAll('table')[args.index];
+                            if (!table) return false;
+                            const current = Array.from(table.querySelectorAll('tbody tr'))
+                                .map(tr => (tr.innerText || tr.textContent || '').trim())
+                                .join('\\n');
+                            return current && current !== args.previous;
+                        }""",
+                        {"index": best_index, "previous": previous_signature},
+                        timeout=15_000,
+                    )
+                except Exception:
+                    # If clicking "next" did not change rows, treat it as end of pagination.
+                    generic_exhausted = True
+                    break
+
+                page.wait_for_timeout(300)
+                signature = row_signature()
+                if not signature or signature in seen_signatures:
+                    generic_exhausted = True
+                    break
+
+                seen_signatures.add(signature)
+                rows.extend(read_visible_rows())
+                generic_pages += 1
+
+            datatable_pages = generic_pages
+            # Store diagnostics in the same meta structure below.
+            generic_pagination_meta = {
+                "generic_pagination": True,
+                "generic_pages": generic_pages,
+                "generic_exhausted": generic_exhausted,
+                "generic_last_controls": paginator_diagnostics[-5:],
+            }
 
         final_url = page.url
         browser.close()
@@ -530,6 +736,7 @@ def _render_esios_datatable(
         "columns": list(frame.columns),
         "visible_table_candidates": len(candidates),
         "dom_table_count": len(descriptors),
+        **generic_pagination_meta,
     }
 
 
@@ -819,10 +1026,37 @@ def run_structural(
 
             esios_frames[kind] = canonical
 
+            minimum_complete_rows = {
+                "programming_units": 1000,
+                "physical_units": 1000,
+                "market_subjects": 100,
+            }[kind]
+
+            complete = bool(
+                usable_rows >= minimum_complete_rows
+                and (
+                    meta.get("datatable")
+                    or meta.get("generic_exhausted")
+                )
+            )
+
             meta["canonical_rows"] = int(len(canonical))
             meta["canonical_usable_key_rows"] = usable_rows
             meta["canonical_key"] = required_key
             meta["canonical_columns"] = list(canonical.columns)
+            meta["minimum_complete_rows"] = minimum_complete_rows
+            meta["complete"] = complete
+
+            if not complete:
+                raise RuntimeError(
+                    f"eSIOS {kind} pagination incomplete: "
+                    f"usable_rows={usable_rows}, "
+                    f"minimum_complete_rows={minimum_complete_rows}, "
+                    f"datatable={meta.get('datatable')}, "
+                    f"generic_pages={meta.get('generic_pages')}, "
+                    f"generic_exhausted={meta.get('generic_exhausted')}"
+                )
+
             manifest["sources"][kind] = meta
 
             for dest in (latest, history):

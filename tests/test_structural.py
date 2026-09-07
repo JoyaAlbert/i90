@@ -127,3 +127,13 @@ def test_semantic_table_score_prefers_market_subjects():
 
     assert _semantic_table_score(subjects, "market_subjects")[0] >= 2
 
+def test_esios_completion_thresholds_are_not_first_page_only():
+    from pathlib import Path
+    import i90_ingest.structural as structural
+
+    source = Path(structural.__file__).read_text(encoding="utf-8")
+    assert '"programming_units": 1000' in source
+    assert '"physical_units": 1000' in source
+    assert '"market_subjects": 100' in source
+    assert "generic_exhausted" in source
+
