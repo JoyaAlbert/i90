@@ -1,20 +1,98 @@
 {
-  "generated_at": "2026-09-07T15:48:00.801210+02:00",
+  "generated_at": "2026-09-07T16:01:23.907817+02:00",
   "sources": {
     "programming_units": {
       "url": "https://www.esios.ree.es/es/unidades-de-programacion",
-      "status": "error",
-      "error": "TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n"
+      "status": 200,
+      "rendered_table_index": 27,
+      "rendered_table_id": "",
+      "semantic_score": 4,
+      "datatable": false,
+      "datatable_server_side": false,
+      "datatable_pages": 1,
+      "rows": 25,
+      "columns": [
+        "codigo_de_up",
+        "descripcion_corta",
+        "descripcion_larga",
+        "potencia_maxima_mw",
+        "codigo_eic",
+        "tipo_de_produccion",
+        "negocio",
+        "zona_de_regulacion",
+        "sujeto_del_mercado",
+        "tipo_de_up"
+      ],
+      "visible_table_candidates": 1,
+      "dom_table_count": 28,
+      "canonical_rows": 25,
+      "canonical_usable_key_rows": 25,
+      "canonical_key": "up_code",
+      "canonical_columns": [
+        "up_code",
+        "up_name",
+        "subject_code",
+        "technology_esios"
+      ]
     },
     "physical_units": {
       "url": "https://www.esios.ree.es/es/unidades-fisicas",
-      "status": "error",
-      "error": "TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n"
+      "status": 200,
+      "rendered_table_index": 27,
+      "rendered_table_id": "",
+      "semantic_score": 2,
+      "datatable": false,
+      "datatable_server_side": false,
+      "datatable_pages": 1,
+      "rows": 25,
+      "columns": [
+        "codigo_de_uf",
+        "codigo_eic",
+        "descripcion_corta",
+        "descripcion_larga",
+        "potencia_maxima_mw",
+        "tipo_de_produccion",
+        "vinculacion_con_sm",
+        "vinculacion_con_up"
+      ],
+      "visible_table_candidates": 1,
+      "dom_table_count": 28,
+      "canonical_rows": 25,
+      "canonical_usable_key_rows": 25,
+      "canonical_key": "uf_code",
+      "canonical_columns": [
+        "uf_code",
+        "uf_name",
+        "up_code",
+        "subject_code",
+        "technology_esios"
+      ]
     },
     "market_subjects": {
       "url": "https://www.esios.ree.es/es/sujetos-del-mercado",
-      "status": "error",
-      "error": "TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n"
+      "status": 200,
+      "rendered_table_index": 27,
+      "rendered_table_id": "",
+      "semantic_score": 3,
+      "datatable": false,
+      "datatable_server_side": false,
+      "datatable_pages": 1,
+      "rows": 25,
+      "columns": [
+        "nombre",
+        "codigo_de_sujeto",
+        "codigo_eic",
+        "tipo_de_sm"
+      ],
+      "visible_table_candidates": 1,
+      "dom_table_count": 28,
+      "canonical_rows": 25,
+      "canonical_usable_key_rows": 25,
+      "canonical_key": "legal_entity",
+      "canonical_columns": [
+        "subject_code",
+        "legal_entity"
+      ]
     },
     "omie_units": {
       "url": "https://www.grupoomi.eu/sites/default/files/dados/listados/LISTA_UNIDADES.PDF",
@@ -27,17 +105,13 @@
       "rows_with_technology": 4110
     }
   },
-  "warnings": [
-    "programming_units: TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n",
-    "physical_units: TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n",
-    "market_subjects: TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n"
-  ],
+  "warnings": [],
   "master": {
-    "rows": 4130,
-    "unique_up_codes": 4121,
-    "mapped_legal_entity": 4130,
+    "rows": 4134,
+    "unique_up_codes": 4125,
+    "mapped_legal_entity": 4132,
     "mapped_group": 1021,
-    "mapped_uf": 0,
+    "mapped_uf": 6,
     "shared_ownership_up_codes": 5
   }
 }

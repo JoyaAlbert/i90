@@ -1,0 +1,26 @@
+codigo_de_up,descripcion_corta,descripcion_larga,potencia_maxima_mw,codigo_eic,tipo_de_produccion,negocio,zona_de_regulacion,sujeto_del_mercado,tipo_de_up
+A2GAME2,A2GAME2,A2GAME2,"3,8",18W000000000R205,Energía residual,Venta,SZR,AME,Generación
+ABA1,ABA1,ABARAN,"0,3",18WABA1-123456-K,Hidráulica UGH,Venta,SZR,BARER,Generación
+ABA2,ABA2,ABARAN 2,"0,4",18WABA2-123456-A,Hidráulica UGH,Venta,SZR,BARER,Generación
+ABASC01,UPC ABAST,UP COMPRA ABASTE,"1,0",18W000000000G8RE,Comercializadores mercado libre,Compra,SZR,ABAST,Comercializadores
+ABO1,ABOÑO 1,C.T. ABOÑO 1,"341,7",18WABO1-12345-0X,Hulla antracita,Venta,SZR,ABOGE,Generación
+ABO2G,ABO2G,ABOÑO2 GAS,"561,8",18W000000000T2JX,Gas Natural,Venta,SZR,ABOGE,Generación
+ABOUC01,ABOUTWHI,"ABOUT WHITE, S.L.","0,1",18WABOUC01-123-F,Comercializadores mercado libre,Compra,SZR,ABOUT,Comercializadores
+ABOX,ABOX,COMPRA SSAA ABOÑO,"30,0",18W000000000R1YE,Consumo de Servicios Auxiliares,Compra,SZR,ABOGE,Servicios auxiliares
+ACAPC01,ACAPERSA,ACAPERSA 1997,"0,8",18W000000000MBVA,Consumos directos en mercado,Compra,SZR,ACAPE,Consum. directos a mercado
+ACBFRAE,ACBFRA EXP,ACCIÓN COORDINADA DE BALANCE ES A FR,"9.999,0",18WACBFRAE-12--2,Unidad instrumental internacional,Compra,SZR,REE,Unidad instrumental internacional
+ACBFRAI,ACBFRA IMP,ACCIÓN COORDINADA DE BALANCE FR A ES,"9.999,0",18WACBFRAI-12--B,Unidad instrumental internacional,Venta,SZR,REE,Unidad instrumental internacional
+ACBPORE,ACBPOR EXP,ACCIÓN COORDINADA DE BALANCE ES A PT,"9.999,0",18WACBPORE-123-3,Unidad instrumental internacional,Compra,SZR,REE,Unidad instrumental internacional
+ACBPORI,ACBPOR IMP,ACCIÓN COORDINADA DE BALANCE PT A ES,"9.999,0",18WACBPORI-123-C,Unidad instrumental internacional,Venta,SZR,REE,Unidad instrumental internacional
+ACE3,ACECA 3 IB,C. C. ACECA 3,"386,0",18WACE3-12345-00,Ciclo Combinado,Venta,IBEG,IBGT,Generación
+ACE4,ACECA 4 UF,C. C. ACECA 4,"372,6",18WACE4-12345-0R,Ciclo Combinado,Venta,NTG,GNCC,Generación
+ACENC01,ACENORCA,ACENORCA,"0,9",18WACENORCA-SCLW,Consumos directos en mercado,Compra,SZR,ACENO,Consum. directos a mercado
+ACHEC01,CHERA,ELECTRICA DE CHERA,"1,4",18WACHEC01-123-I,Comercializadores mercado libre,Compra,SZR,ACHER,Comercializadores
+ACNHC01,ACNHC01,UP COMPRA,"0,0",18W000000000NQNE,Comercializadores mercado libre,Compra,SZR,ACENH,Comercializadores
+ACOSC01,ACOSC01,ACOSC01,"0,1",18W000000000V1SA,Comercializadores mercado libre,Compra,SZR,ACOST,Comercializadores
+ACSOC01,ACSOL,ACSOL ENERGIA GLOBAL,"0,1",18W0000000001YAU,Comercializadores mercado libre,Compra,SZR,ACSOL,Comercializadores
+ACTIC01,ACTIC01UN1,ACTIVA UPROG COMER 1,"100,0",18W000000000GE8Y,Comercializadores mercado libre,Compra,SZR,ACTIV,Comercializadores
+ADEIC01,ADEINNOVA,ADEINNOVA ENERGIA S.L,"0,5",18WADEIC01-12--B,Comercializadores mercado libre,Compra,SZR,ADEIN,Comercializadores
+ADEIV01,ADEIV01,ADEINNOVA VENTA,"0,3",18W000000000S0AO,Solar fotovoltaica,Venta,SZR,ADEIN,Generación
+ADELC01,ADELFAS,ADELFAS ENERGIA SL,"4,0",18WADELC01-123-6,Comercializadores mercado libre,Compra,SZR,ADELF,Comercializadores
+ADSEC01,ADSEC01,ADSEC01,"16,0",18WADSEC01-123-X,Comercializadores mercado libre,Compra,SZR,ADSSM,Comercializadores
