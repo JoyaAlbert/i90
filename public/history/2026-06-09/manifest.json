@@ -1,0 +1,181 @@
+{
+  "generated_at": "2026-09-07T15:23:19.563035+02:00",
+  "today_madrid": "2026-09-07",
+  "target_data_date": "2026-06-09",
+  "selected_data_date": "2026-06-09",
+  "backtrack_days": 0,
+  "archive_id": 34,
+  "archive_name": "I90DIA",
+  "download": {
+    "initial_status": 200,
+    "redirected": false,
+    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-06-09T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-06-09T00%3A00%3A00%2B00%3A00",
+    "content_type": "zip"
+  },
+  "metadata": {
+    "name": "I90DIA",
+    "description": "Información de detalle por Unidad de Programación (I90DIA)",
+    "updated_at": "2015-01-29 09:20:49.0",
+    "id": 34,
+    "horizon": "D",
+    "archive_type": "zip",
+    "download": {
+      "name": "I90DIA",
+      "url": "/archives/34/download?date_type=datos&end_date=2026-06-09T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-06-09T00%3A00%3A00%2B00%3A00"
+    },
+    "date": {
+      "date_type": "datos",
+      "start_date": "2026-06-09 00:00:00.000+0200",
+      "end_date": "2026-06-09 23:59:59.000+0200"
+    },
+    "date_times": [
+      "2026-06-09"
+    ],
+    "publication_date": [
+      "2026-09-07"
+    ],
+    "taxonomy_terms": [
+      {
+        "id_taxonomy_term": 155,
+        "name": "Generación y consumo",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 156,
+        "name": "Mercados y precios",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 165,
+        "name": "Descargas",
+        "vocabulary_id": 21
+      },
+      {
+        "id_taxonomy_term": 168,
+        "name": "General",
+        "vocabulary_id": 22
+      }
+    ],
+    "vocabularies": [
+      {
+        "id_vocabulary": 20,
+        "name": "Universo"
+      },
+      {
+        "id_vocabulary": 21,
+        "name": "Temática"
+      },
+      {
+        "id_vocabulary": 22,
+        "name": "Área"
+      }
+    ]
+  },
+  "sha256_download": "35cbdc6a94ef04b67f7bd8ffe230f5370354050eb0fd4f270ba8b8db9e85b846",
+  "csv": {
+    "encoding": "utf-8-sig",
+    "separator": ";",
+    "rows": 11,
+    "columns": [
+      "Unnamed: 0",
+      "Dia",
+      "09-junio-2026",
+      "09-junio-2026.1",
+      "09-junio-2026.2",
+      "09-junio-2026.3",
+      "09-junio-2026.4",
+      "09-junio-2026.5",
+      "09-junio-2026.6",
+      "09-junio-2026.7",
+      "09-junio-2026.8",
+      "09-junio-2026.9",
+      "09-junio-2026.10",
+      "09-junio-2026.11",
+      "09-junio-2026.12",
+      "09-junio-2026.13",
+      "09-junio-2026.14",
+      "09-junio-2026.15",
+      "09-junio-2026.16",
+      "09-junio-2026.17",
+      "09-junio-2026.18",
+      "09-junio-2026.19",
+      "09-junio-2026.20",
+      "09-junio-2026.21",
+      "09-junio-2026.22",
+      "09-junio-2026.23",
+      "09-junio-2026.24",
+      "09-junio-2026.25",
+      "09-junio-2026.26",
+      "09-junio-2026.27",
+      "09-junio-2026.28",
+      "09-junio-2026.29",
+      "09-junio-2026.30",
+      "09-junio-2026.31",
+      "09-junio-2026.32",
+      "09-junio-2026.33",
+      "09-junio-2026.34",
+      "09-junio-2026.35",
+      "09-junio-2026.36",
+      "09-junio-2026.37",
+      "09-junio-2026.38",
+      "09-junio-2026.39",
+      "09-junio-2026.40",
+      "09-junio-2026.41",
+      "09-junio-2026.42",
+      "09-junio-2026.43",
+      "09-junio-2026.44",
+      "09-junio-2026.45",
+      "09-junio-2026.46",
+      "09-junio-2026.47",
+      "09-junio-2026.48",
+      "09-junio-2026.49",
+      "09-junio-2026.50",
+      "09-junio-2026.51",
+      "09-junio-2026.52",
+      "09-junio-2026.53",
+      "09-junio-2026.54",
+      "09-junio-2026.55",
+      "09-junio-2026.56",
+      "09-junio-2026.57",
+      "09-junio-2026.58",
+      "09-junio-2026.59",
+      "09-junio-2026.60",
+      "09-junio-2026.61",
+      "09-junio-2026.62",
+      "09-junio-2026.63",
+      "09-junio-2026.64",
+      "09-junio-2026.65",
+      "09-junio-2026.66",
+      "09-junio-2026.67",
+      "09-junio-2026.68",
+      "09-junio-2026.69",
+      "09-junio-2026.70",
+      "09-junio-2026.71",
+      "09-junio-2026.72",
+      "09-junio-2026.73",
+      "09-junio-2026.74",
+      "09-junio-2026.75",
+      "09-junio-2026.76",
+      "09-junio-2026.77",
+      "09-junio-2026.78",
+      "09-junio-2026.79",
+      "09-junio-2026.80",
+      "09-junio-2026.81",
+      "09-junio-2026.82",
+      "09-junio-2026.83",
+      "09-junio-2026.84",
+      "09-junio-2026.85",
+      "09-junio-2026.86",
+      "09-junio-2026.87",
+      "09-junio-2026.88",
+      "09-junio-2026.89",
+      "09-junio-2026.90",
+      "09-junio-2026.91",
+      "09-junio-2026.92",
+      "09-junio-2026.93",
+      "09-junio-2026.94",
+      "09-junio-2026.95"
+    ]
+  },
+  "acquisition_errors_before_success": []
+}
