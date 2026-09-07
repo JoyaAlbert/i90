@@ -1,0 +1,65 @@
+name: I90 daily ingest
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 05:30 UTC = 07:30 CEST / 06:30 CET.
+    # Early enough to be available before the morning intelligence report.
+    - cron: "30 5 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: i90-daily
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest
+
+      - name: Test
+        run: pytest -q
+
+      - name: Download and inspect I90DIA
+        env:
+          ESIOS_API_KEY: ${{ secrets.ESIOS_API_KEY }}
+        run: python -m i90_ingest.cli
+
+      - name: Upload raw I90 artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: i90-raw-${{ github.run_id }}
+          path: data/work/
+          if-no-files-found: warn
+          retention-days: 45
+
+      - name: Commit lightweight outputs
+        run: |
+          if git diff --quiet -- public/; then
+            echo "No public changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/
+          git commit -m "data: update I90 ingestion outputs"
+          git push
