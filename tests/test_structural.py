@@ -135,7 +135,9 @@ def test_esios_completion_thresholds_are_not_first_page_only():
     assert '"programming_units": 1000' in source
     assert '"physical_units": 1000' in source
     assert '"market_subjects": 100' in source
-    assert "generic_exhausted" in source
+    assert "captured_xhr_api" in source
+    assert "api_endpoint" in source
+    assert "api_pagination_strategy" in source
 
 def test_flatten_record_supports_nested_api_payload():
     from i90_ingest.structural import _flatten_record
