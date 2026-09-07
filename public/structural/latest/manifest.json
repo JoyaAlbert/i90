@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-07T16:08:37.508052+02:00",
+  "generated_at": "2026-09-07T16:26:25.453659+02:00",
   "sources": {
     "programming_units": {
       "url": "https://www.esios.ree.es/es/unidades-de-programacion",
       "status": "error",
-      "error": "RuntimeError: eSIOS programming_units pagination incomplete: usable_rows=25, minimum_complete_rows=1000, datatable=False, generic_pages=1, generic_exhausted=True"
+      "error": "RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=programming_units, endpoint=https://api.esios.ree.es/archives/82/download_json?locale=es, method=GET, initial_records=3898, total_hint=None, record_path=UnidadesProgramacion"
     },
     "physical_units": {
       "url": "https://www.esios.ree.es/es/unidades-fisicas",
       "status": "error",
-      "error": "RuntimeError: eSIOS physical_units pagination incomplete: usable_rows=25, minimum_complete_rows=1000, datatable=False, generic_pages=1, generic_exhausted=True"
+      "error": "RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=physical_units, endpoint=https://api.esios.ree.es/archives/81/download_json, method=GET, initial_records=6648, total_hint=None, record_path=UnidadesFisicas"
     },
     "market_subjects": {
       "url": "https://www.esios.ree.es/es/sujetos-del-mercado",
       "status": "error",
-      "error": "RuntimeError: eSIOS market_subjects pagination incomplete: usable_rows=25, minimum_complete_rows=100, datatable=False, generic_pages=1, generic_exhausted=True"
+      "error": "RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=market_subjects, endpoint=https://api.esios.ree.es/archives/83/download_json, method=GET, initial_records=741, total_hint=None, record_path=SujetosMercado"
     },
     "omie_units": {
       "url": "https://www.grupoomi.eu/sites/default/files/dados/listados/LISTA_UNIDADES.PDF",
@@ -28,9 +28,9 @@
     }
   },
   "warnings": [
-    "programming_units: RuntimeError: eSIOS programming_units pagination incomplete: usable_rows=25, minimum_complete_rows=1000, datatable=False, generic_pages=1, generic_exhausted=True",
-    "physical_units: RuntimeError: eSIOS physical_units pagination incomplete: usable_rows=25, minimum_complete_rows=1000, datatable=False, generic_pages=1, generic_exhausted=True",
-    "market_subjects: RuntimeError: eSIOS market_subjects pagination incomplete: usable_rows=25, minimum_complete_rows=100, datatable=False, generic_pages=1, generic_exhausted=True"
+    "programming_units: RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=programming_units, endpoint=https://api.esios.ree.es/archives/82/download_json?locale=es, method=GET, initial_records=3898, total_hint=None, record_path=UnidadesProgramacion",
+    "physical_units: RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=physical_units, endpoint=https://api.esios.ree.es/archives/81/download_json, method=GET, initial_records=6648, total_hint=None, record_path=UnidadesFisicas",
+    "market_subjects: RuntimeError: Captured eSIOS API endpoint but could not exhaust it: kind=market_subjects, endpoint=https://api.esios.ree.es/archives/83/download_json, method=GET, initial_records=741, total_hint=None, record_path=SujetosMercado"
   ],
   "master": {
     "rows": 4130,
