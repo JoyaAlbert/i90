@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-09-07T15:23:21.876973+02:00",
+  "sources": {
+    "programming_units": {
+      "url": "https://www.esios.ree.es/es/unidades-de-programacion",
+      "status": "error",
+      "error": "RuntimeError: No HTML tables parsed for programming_units: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+    },
+    "physical_units": {
+      "url": "https://www.esios.ree.es/es/unidades-fisicas",
+      "status": "error",
+      "error": "RuntimeError: No HTML tables parsed for physical_units: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+    },
+    "market_subjects": {
+      "url": "https://www.esios.ree.es/es/sujetos-del-mercado",
+      "status": "error",
+      "error": "RuntimeError: No HTML tables parsed for market_subjects: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+    },
+    "omie_units": {
+      "url": "https://www.grupoomi.eu/sites/default/files/dados/listados/LISTA_UNIDADES.PDF",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 508226,
+      "rows": 4118
+    }
+  },
+  "warnings": [
+    "programming_units: RuntimeError: No HTML tables parsed for programming_units: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib.",
+    "physical_units: RuntimeError: No HTML tables parsed for physical_units: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib.",
+    "market_subjects: RuntimeError: No HTML tables parsed for market_subjects: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+  ],
+  "master": {
+    "rows": 4118,
+    "mapped_legal_entity": 2710,
+    "mapped_group": 178,
+    "mapped_uf": 0
+  }
+}
