@@ -222,16 +222,113 @@ def _parse_omie_pdf(pdf_blob: bytes) -> pd.DataFrame:
 # eSIOS SPA lists: render in Chromium, then extract the DataTable
 # ---------------------------------------------------------------------------
 
-def _render_esios_datatable(url: str) -> tuple[pd.DataFrame, dict]:
+def _table_descriptors(page) -> list[dict]:
+    """Describe every DOM table without forcing hidden tables to become visible."""
+    return page.evaluate(
+        """() => Array.from(document.querySelectorAll('table')).map((table, index) => {
+            const rect = table.getBoundingClientRect();
+            const style = window.getComputedStyle(table);
+            const visible =
+                style.display !== 'none' &&
+                style.visibility !== 'hidden' &&
+                Number(style.opacity || '1') !== 0 &&
+                rect.width > 0 &&
+                rect.height > 0;
+
+            const headers = Array.from(table.querySelectorAll('thead th'))
+                .map(th => (th.innerText || th.textContent || '').trim())
+                .filter(Boolean);
+
+            const rows = table.querySelectorAll('tbody tr').length;
+
+            return {
+                index,
+                id: table.id || '',
+                className: table.className || '',
+                visible,
+                rows,
+                headers,
+                headerText: headers.join(' ').toLowerCase(),
+                width: rect.width,
+                height: rect.height,
+            };
+        })"""
+    )
+
+
+def _semantic_table_score(desc: dict, kind: str) -> tuple[int, int, int]:
+    header = _norm(desc.get("headerText", ""))
+    headers = [_norm(x) for x in desc.get("headers", [])]
+
+    hints = {
+        "programming_units": (
+            "program",
+            "unidad",
+            "codigo",
+            "descripcion",
+            "sujeto",
+            "tipo",
+        ),
+        "physical_units": (
+            "fisic",
+            "unidad",
+            "codigo",
+            "program",
+            "tecnolog",
+            "tipo",
+        ),
+        "market_subjects": (
+            "sujeto",
+            "mercado",
+            "codigo",
+            "nombre",
+            "denomin",
+            "particip",
+        ),
+    }[kind]
+
+    semantic = sum(1 for hint in hints if hint in header)
+
+    # Penalise common layout/navigation tables even if they happen to be visible.
+    negative = (
+        "cookie",
+        "menu",
+        "footer",
+        "calend",
+        "legend",
+        "leyenda",
+    )
+    semantic -= sum(2 for token in negative if token in header)
+
+    return (
+        semantic,
+        int(desc.get("rows", 0)),
+        len(headers),
+    )
+
+
+def _render_esios_datatable(
+    url: str,
+    kind: str,
+) -> tuple[pd.DataFrame, dict]:
     """
-    eSIOS structural pages are SPA shells: the initial HTML has no <table>.
-    Render the page with Chromium and collect the DataTable page by page.
+    Render an eSIOS structural SPA and extract its actual visible data table.
+
+    eSIOS currently mounts many hidden <table> elements. Playwright's plain
+    wait_for_selector("table") waits on the first matching element and can
+    therefore time out even though the page has already rendered the useful
+    table. We wait for *any visible table with body rows*, inspect all DOM
+    tables, then choose the visible candidate whose headers best match the
+    requested dataset.
     """
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch(headless=True)
-        page = browser.new_page(viewport={"width": 1600, "height": 1000})
+        page = browser.new_page(
+            viewport={"width": 1800, "height": 1200},
+            locale="es-ES",
+        )
 
         response = page.goto(
             url,
@@ -239,81 +336,154 @@ def _render_esios_datatable(url: str) -> tuple[pd.DataFrame, dict]:
             timeout=120_000,
         )
 
-        # Give application JS and the first DataTable request time to settle.
-        page.wait_for_timeout(5_000)
-        page.wait_for_selector("table", timeout=60_000)
+        # Wait for the SPA itself, not for the first hidden table.
+        page.wait_for_function(
+            """() => Array.from(document.querySelectorAll('table')).some(table => {
+                const rect = table.getBoundingClientRect();
+                const style = window.getComputedStyle(table);
+                const visible =
+                    style.display !== 'none' &&
+                    style.visibility !== 'hidden' &&
+                    Number(style.opacity || '1') !== 0 &&
+                    rect.width > 0 &&
+                    rect.height > 0;
+                return visible && table.querySelectorAll('tbody tr').length > 0;
+            })""",
+            timeout=90_000,
+        )
 
-        table_count = page.locator("table").count()
-        if table_count < 1:
-            raise RuntimeError(f"No rendered table found at {url}")
+        # Let the first asynchronous DataTables draw settle.
+        page.wait_for_timeout(2_000)
 
-        # Pick the rendered table with the largest current body.
-        best_index = 0
-        best_rows = -1
-        for idx in range(table_count):
-            count = page.locator("table").nth(idx).locator("tbody tr").count()
-            if count > best_rows:
-                best_index = idx
-                best_rows = count
-
-        table = page.locator("table").nth(best_index)
-        headers = [
-            _clean(x)
-            for x in table.locator("thead th").all_inner_texts()
+        descriptors = _table_descriptors(page)
+        candidates = [
+            desc
+            for desc in descriptors
+            if desc["visible"]
+            and desc["rows"] > 0
+            and len(desc["headers"]) > 0
         ]
 
-        if not headers:
-            raise RuntimeError(f"Rendered eSIOS table at {url} has no headers")
+        if not candidates:
+            browser.close()
+            raise RuntimeError(
+                f"No visible populated table found at {url}; "
+                f"DOM tables={len(descriptors)}"
+            )
 
-        # Locate the DataTables wrapper that belongs to the chosen table.
-        table_id = table.get_attribute("id")
-        if table_id:
-            table_js = f"document.getElementById({json.dumps(table_id)})"
-        else:
-            table_js = f"document.querySelectorAll('table')[{best_index}]"
+        candidates.sort(
+            key=lambda desc: _semantic_table_score(desc, kind),
+            reverse=True,
+        )
+        best = candidates[0]
+        score = _semantic_table_score(best, kind)
+
+        # At least one semantic hint must match. This prevents accidentally
+        # accepting a visible navigation/calendar table.
+        if score[0] < 1:
+            diagnostics = [
+                {
+                    "index": d["index"],
+                    "rows": d["rows"],
+                    "headers": d["headers"],
+                    "score": _semantic_table_score(d, kind),
+                }
+                for d in candidates[:8]
+            ]
+            browser.close()
+            raise RuntimeError(
+                f"No semantically compatible eSIOS table for {kind}. "
+                f"Candidates={json.dumps(diagnostics, ensure_ascii=False)}"
+            )
+
+        best_index = int(best["index"])
+        table = page.locator("table").nth(best_index)
+        headers = [_clean(x) for x in best["headers"]]
 
         has_dt = page.evaluate(
-            f"""() => {{
-                const el = {table_js};
+            """index => {
+                const el = document.querySelectorAll('table')[index];
                 return !!(
+                    el &&
                     window.jQuery &&
                     jQuery.fn &&
                     jQuery.fn.dataTable &&
                     jQuery.fn.dataTable.isDataTable(el)
                 );
-            }}"""
+            }""",
+            best_index,
         )
 
         rows: list[list[str]] = []
+        datatable_pages = 1
+        datatable_server_side = False
 
         if has_dt:
-            # Increase page size to reduce requests, then iterate all pages.
+            dt_meta = page.evaluate(
+                """index => {
+                    const el = document.querySelectorAll('table')[index];
+                    const dt = jQuery(el).DataTable();
+                    const settings = dt.settings()[0];
+                    const info = dt.page.info();
+                    return {
+                        serverSide: !!(settings && settings.oFeatures && settings.oFeatures.bServerSide),
+                        pages: Math.max(1, info.pages || 1),
+                        recordsTotal: info.recordsTotal || null,
+                        pageLength: info.length || null,
+                    };
+                }""",
+                best_index,
+            )
+            datatable_server_side = bool(dt_meta.get("serverSide"))
+
+            # Ask for a large page. Works for client-side DataTables and most
+            # server-side eSIOS tables; if the backend caps it, we paginate.
             page.evaluate(
-                f"""() => {{
-                    const dt = jQuery({table_js}).DataTable();
-                    dt.page.len(500).draw();
-                }}"""
+                """index => {
+                    const el = document.querySelectorAll('table')[index];
+                    jQuery(el).DataTable().page.len(500).draw();
+                }""",
+                best_index,
             )
-            page.wait_for_timeout(2_000)
+            page.wait_for_timeout(1_500)
 
-            info = page.evaluate(
-                f"""() => jQuery({table_js}).DataTable().page.info()"""
+            dt_meta = page.evaluate(
+                """index => {
+                    const el = document.querySelectorAll('table')[index];
+                    const info = jQuery(el).DataTable().page.info();
+                    return {
+                        pages: Math.max(1, info.pages || 1),
+                        recordsTotal: info.recordsTotal || null,
+                        pageLength: info.length || null,
+                    };
+                }""",
+                best_index,
             )
-            pages = max(1, int(info.get("pages", 1)))
+            datatable_pages = int(dt_meta.get("pages") or 1)
 
-            for idx in range(pages):
-                page.evaluate(
-                    f"""() => {{
-                        const dt = jQuery({table_js}).DataTable();
-                        dt.page({idx}).draw('page');
-                    }}"""
+            # Safety guard against accidental infinite/huge pagination.
+            if datatable_pages > 500:
+                browser.close()
+                raise RuntimeError(
+                    f"Unexpected DataTables page count for {kind}: "
+                    f"{datatable_pages}"
                 )
-                page.wait_for_timeout(700)
+
+            for page_index in range(datatable_pages):
+                if page_index:
+                    page.evaluate(
+                        """args => {
+                            const el = document.querySelectorAll('table')[args.index];
+                            jQuery(el).DataTable().page(args.page).draw('page');
+                        }""",
+                        {"index": best_index, "page": page_index},
+                    )
+                    page.wait_for_timeout(600)
 
                 chunk = table.locator("tbody tr").evaluate_all(
                     """rows => rows.map(
                         tr => Array.from(tr.querySelectorAll('td'))
-                            .map(td => td.innerText.trim())
+                            .map(td => (td.innerText || td.textContent || '').trim())
                     )"""
                 )
                 rows.extend(chunk)
@@ -321,34 +491,45 @@ def _render_esios_datatable(url: str) -> tuple[pd.DataFrame, dict]:
             rows = table.locator("tbody tr").evaluate_all(
                 """rows => rows.map(
                     tr => Array.from(tr.querySelectorAll('td'))
-                        .map(td => td.innerText.trim())
+                        .map(td => (td.innerText || td.textContent || '').trim())
                 )"""
             )
 
         final_url = page.url
         browser.close()
 
-    # Normalize width: DataTables sometimes adds an action/details column.
-    clean_rows = []
+    clean_rows: list[list[str]] = []
     for row in rows:
         row = [_clean(x) for x in row]
         if not any(row):
             continue
         if len(row) < len(headers):
-            row = row + [""] * (len(headers) - len(row))
-        if len(row) > len(headers):
+            row += [""] * (len(headers) - len(row))
+        elif len(row) > len(headers):
             row = row[: len(headers)]
         clean_rows.append(row)
 
-    frame = pd.DataFrame(clean_rows, columns=[_norm(h) for h in headers])
-    frame = frame.drop_duplicates()
+    if not clean_rows:
+        raise RuntimeError(f"Selected eSIOS table for {kind} yielded zero rows")
+
+    frame = pd.DataFrame(
+        clean_rows,
+        columns=[_norm(h) or f"col_{i}" for i, h in enumerate(headers)],
+    ).drop_duplicates()
 
     return frame, {
         "url": final_url,
         "status": response.status if response else None,
         "rendered_table_index": best_index,
+        "rendered_table_id": best.get("id", ""),
+        "semantic_score": score[0],
+        "datatable": bool(has_dt),
+        "datatable_server_side": datatable_server_side,
+        "datatable_pages": datatable_pages,
         "rows": int(len(frame)),
         "columns": list(frame.columns),
+        "visible_table_candidates": len(candidates),
+        "dom_table_count": len(descriptors),
     }
 
 
@@ -611,11 +792,36 @@ def run_structural(
 
     for kind, url in ESIOS_STRUCTURAL_URLS.items():
         try:
-            raw, meta = _render_esios_datatable(url)
+            raw, meta = _render_esios_datatable(url, kind)
             canonical = canonicalize_esios(raw, kind)
+
+            required_key = {
+                "programming_units": "up_code",
+                "physical_units": "uf_code",
+                "market_subjects": "legal_entity",
+            }[kind]
+
+            usable_rows = int(
+                canonical[required_key]
+                .fillna("")
+                .astype(str)
+                .str.len()
+                .gt(0)
+                .sum()
+            ) if required_key in canonical.columns else 0
+
+            if usable_rows == 0:
+                raise RuntimeError(
+                    f"eSIOS {kind} rendered but canonical key "
+                    f"{required_key!r} has zero usable rows. "
+                    f"Raw columns={list(raw.columns)}"
+                )
+
             esios_frames[kind] = canonical
 
             meta["canonical_rows"] = int(len(canonical))
+            meta["canonical_usable_key_rows"] = usable_rows
+            meta["canonical_key"] = required_key
             meta["canonical_columns"] = list(canonical.columns)
             manifest["sources"][kind] = meta
 

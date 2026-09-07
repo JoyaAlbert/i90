@@ -95,3 +95,35 @@ def test_physical_unit_join():
     assert row["legal_entity"] == "ABOÑO GENERACIONES ELECTRICAS SLU"
     assert row["uf_count"] == 1
     assert row["uf_codes"] == "UF001"
+
+def test_semantic_table_score_prefers_physical_units():
+    from i90_ingest.structural import _semantic_table_score
+
+    physical = {
+        "rows": 500,
+        "headers": ["Código", "Unidad física", "Unidad de programación", "Tecnología"],
+        "headerText": "Código Unidad física Unidad de programación Tecnología",
+    }
+    navigation = {
+        "rows": 50,
+        "headers": ["Fecha", "Valor"],
+        "headerText": "Fecha Valor",
+    }
+
+    assert (
+        _semantic_table_score(physical, "physical_units")
+        > _semantic_table_score(navigation, "physical_units")
+    )
+
+
+def test_semantic_table_score_prefers_market_subjects():
+    from i90_ingest.structural import _semantic_table_score
+
+    subjects = {
+        "rows": 200,
+        "headers": ["Código sujeto", "Sujeto del mercado", "Nombre"],
+        "headerText": "Código sujeto Sujeto del mercado Nombre",
+    }
+
+    assert _semantic_table_score(subjects, "market_subjects")[0] >= 2
+
