@@ -1,38 +1,43 @@
 {
-  "generated_at": "2026-09-07T15:23:21.876973+02:00",
+  "generated_at": "2026-09-07T15:48:00.801210+02:00",
   "sources": {
     "programming_units": {
       "url": "https://www.esios.ree.es/es/unidades-de-programacion",
       "status": "error",
-      "error": "RuntimeError: No HTML tables parsed for programming_units: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+      "error": "TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n"
     },
     "physical_units": {
       "url": "https://www.esios.ree.es/es/unidades-fisicas",
       "status": "error",
-      "error": "RuntimeError: No HTML tables parsed for physical_units: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+      "error": "TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n"
     },
     "market_subjects": {
       "url": "https://www.esios.ree.es/es/sujetos-del-mercado",
       "status": "error",
-      "error": "RuntimeError: No HTML tables parsed for market_subjects: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+      "error": "TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n"
     },
     "omie_units": {
       "url": "https://www.grupoomi.eu/sites/default/files/dados/listados/LISTA_UNIDADES.PDF",
       "status": 200,
       "content_type": "application/pdf",
-      "bytes": 508226,
-      "rows": 4118
+      "bytes": 508149,
+      "rows": 4130,
+      "unique_unit_codes": 4121,
+      "rows_with_legal_entity": 4130,
+      "rows_with_technology": 4110
     }
   },
   "warnings": [
-    "programming_units: RuntimeError: No HTML tables parsed for programming_units: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib.",
-    "physical_units: RuntimeError: No HTML tables parsed for physical_units: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib.",
-    "market_subjects: RuntimeError: No HTML tables parsed for market_subjects: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+    "programming_units: TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n",
+    "physical_units: TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n",
+    "market_subjects: TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.\nCall log:\n  - waiting for locator(\"table\") to be visible\n    123 × locator resolved to 28 elements. Proceeding with the first one: <table>…</table>\n"
   ],
   "master": {
-    "rows": 4118,
-    "mapped_legal_entity": 2710,
-    "mapped_group": 178,
-    "mapped_uf": 0
+    "rows": 4130,
+    "unique_up_codes": 4121,
+    "mapped_legal_entity": 4130,
+    "mapped_group": 1021,
+    "mapped_uf": 0,
+    "shared_ownership_up_codes": 5
   }
 }
