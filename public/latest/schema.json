@@ -1,618 +1,606 @@
 {
-  "row_count": 3072,
-  "column_count": 102,
+  "row_count": 3008,
+  "column_count": 100,
   "columns": [
     {
       "name": "Unnamed: 0",
       "dtype": "object",
-      "non_null": 3071,
-      "unique": 2
+      "non_null": 3006,
+      "unique": 3006
     },
     {
       "name": "Unnamed: 1",
       "dtype": "object",
-      "non_null": 3071,
-      "unique": 1631
+      "non_null": 3006,
+      "unique": 14
     },
     {
-      "name": "Unnamed: 2",
+      "name": "Indicadores",
       "dtype": "object",
-      "non_null": 3071,
-      "unique": 11
+      "non_null": 3,
+      "unique": 3
     },
     {
-      "name": "Unnamed: 3",
+      "name": "Programa (MWh)",
       "dtype": "object",
-      "non_null": 3071,
-      "unique": 7
+      "non_null": 3008,
+      "unique": 2487
     },
     {
-      "name": "Unnamed: 4",
+      "name": "Programa (MWh).1",
       "dtype": "object",
-      "non_null": 3071,
-      "unique": 2
+      "non_null": 1398,
+      "unique": 518
     },
     {
-      "name": "Dia",
+      "name": "Programa (MWh).2",
       "dtype": "object",
-      "non_null": 2,
-      "unique": 2
+      "non_null": 1392,
+      "unique": 520
     },
     {
-      "name": "12-julio-2026",
+      "name": "Programa (MWh).3",
       "dtype": "object",
-      "non_null": 2065,
-      "unique": 235
+      "non_null": 1392,
+      "unique": 509
     },
     {
-      "name": "12-julio-2026.1",
+      "name": "Programa (MWh).4",
       "dtype": "object",
-      "non_null": 2059,
-      "unique": 223
+      "non_null": 1390,
+      "unique": 507
     },
     {
-      "name": "12-julio-2026.2",
+      "name": "Programa (MWh).5",
       "dtype": "object",
-      "non_null": 2052,
-      "unique": 232
+      "non_null": 1383,
+      "unique": 498
     },
     {
-      "name": "12-julio-2026.3",
+      "name": "Programa (MWh).6",
       "dtype": "object",
-      "non_null": 2050,
-      "unique": 224
+      "non_null": 1382,
+      "unique": 504
     },
     {
-      "name": "12-julio-2026.4",
+      "name": "Programa (MWh).7",
       "dtype": "object",
-      "non_null": 2048,
-      "unique": 232
+      "non_null": 1380,
+      "unique": 512
     },
     {
-      "name": "12-julio-2026.5",
+      "name": "Programa (MWh).8",
       "dtype": "object",
-      "non_null": 2050,
-      "unique": 221
+      "non_null": 1379,
+      "unique": 498
     },
     {
-      "name": "12-julio-2026.6",
+      "name": "Programa (MWh).9",
       "dtype": "object",
-      "non_null": 2054,
-      "unique": 235
+      "non_null": 1375,
+      "unique": 500
     },
     {
-      "name": "12-julio-2026.7",
+      "name": "Programa (MWh).10",
       "dtype": "object",
-      "non_null": 2052,
-      "unique": 229
+      "non_null": 1370,
+      "unique": 481
     },
     {
-      "name": "12-julio-2026.8",
+      "name": "Programa (MWh).11",
       "dtype": "object",
-      "non_null": 2054,
-      "unique": 240
+      "non_null": 1374,
+      "unique": 489
     },
     {
-      "name": "12-julio-2026.9",
+      "name": "Programa (MWh).12",
       "dtype": "object",
-      "non_null": 2053,
-      "unique": 239
+      "non_null": 1367,
+      "unique": 482
     },
     {
-      "name": "12-julio-2026.10",
+      "name": "Programa (MWh).13",
       "dtype": "object",
-      "non_null": 2056,
-      "unique": 236
+      "non_null": 1372,
+      "unique": 474
     },
     {
-      "name": "12-julio-2026.11",
+      "name": "Programa (MWh).14",
       "dtype": "object",
-      "non_null": 2058,
-      "unique": 228
+      "non_null": 1372,
+      "unique": 476
     },
     {
-      "name": "12-julio-2026.12",
+      "name": "Programa (MWh).15",
       "dtype": "object",
-      "non_null": 2065,
-      "unique": 238
+      "non_null": 1371,
+      "unique": 480
     },
     {
-      "name": "12-julio-2026.13",
+      "name": "Programa (MWh).16",
       "dtype": "object",
-      "non_null": 2064,
-      "unique": 238
+      "non_null": 1372,
+      "unique": 471
     },
     {
-      "name": "12-julio-2026.14",
+      "name": "Programa (MWh).17",
       "dtype": "object",
-      "non_null": 2065,
-      "unique": 239
+      "non_null": 1373,
+      "unique": 485
     },
     {
-      "name": "12-julio-2026.15",
+      "name": "Programa (MWh).18",
       "dtype": "object",
-      "non_null": 2067,
-      "unique": 227
+      "non_null": 1371,
+      "unique": 472
     },
     {
-      "name": "12-julio-2026.16",
+      "name": "Programa (MWh).19",
       "dtype": "object",
-      "non_null": 2064,
-      "unique": 236
+      "non_null": 1375,
+      "unique": 471
     },
     {
-      "name": "12-julio-2026.17",
+      "name": "Programa (MWh).20",
       "dtype": "object",
-      "non_null": 2059,
-      "unique": 235
+      "non_null": 1369,
+      "unique": 480
     },
     {
-      "name": "12-julio-2026.18",
+      "name": "Programa (MWh).21",
       "dtype": "object",
-      "non_null": 2060,
-      "unique": 235
+      "non_null": 1379,
+      "unique": 471
     },
     {
-      "name": "12-julio-2026.19",
+      "name": "Programa (MWh).22",
       "dtype": "object",
-      "non_null": 2057,
-      "unique": 243
+      "non_null": 1381,
+      "unique": 474
     },
     {
-      "name": "12-julio-2026.20",
+      "name": "Programa (MWh).23",
       "dtype": "object",
-      "non_null": 2057,
-      "unique": 241
+      "non_null": 1380,
+      "unique": 475
     },
     {
-      "name": "12-julio-2026.21",
+      "name": "Programa (MWh).24",
       "dtype": "object",
-      "non_null": 2058,
-      "unique": 232
+      "non_null": 1377,
+      "unique": 473
     },
     {
-      "name": "12-julio-2026.22",
+      "name": "Programa (MWh).25",
       "dtype": "object",
-      "non_null": 2059,
-      "unique": 242
+      "non_null": 1411,
+      "unique": 471
     },
     {
-      "name": "12-julio-2026.23",
+      "name": "Programa (MWh).26",
       "dtype": "object",
-      "non_null": 2064,
-      "unique": 244
+      "non_null": 1415,
+      "unique": 458
     },
     {
-      "name": "12-julio-2026.24",
+      "name": "Programa (MWh).27",
       "dtype": "object",
-      "non_null": 2064,
-      "unique": 246
+      "non_null": 1429,
+      "unique": 466
     },
     {
-      "name": "12-julio-2026.25",
+      "name": "Programa (MWh).28",
       "dtype": "object",
-      "non_null": 2063,
-      "unique": 238
+      "non_null": 1532,
+      "unique": 469
     },
     {
-      "name": "12-julio-2026.26",
+      "name": "Programa (MWh).29",
       "dtype": "object",
-      "non_null": 2064,
-      "unique": 237
+      "non_null": 1979,
+      "unique": 467
     },
     {
-      "name": "12-julio-2026.27",
+      "name": "Programa (MWh).30",
       "dtype": "object",
-      "non_null": 2551,
-      "unique": 239
+      "non_null": 2432,
+      "unique": 471
     },
     {
-      "name": "12-julio-2026.28",
+      "name": "Programa (MWh).31",
       "dtype": "object",
-      "non_null": 2562,
-      "unique": 246
+      "non_null": 2597,
+      "unique": 482
     },
     {
-      "name": "12-julio-2026.29",
+      "name": "Programa (MWh).32",
       "dtype": "object",
-      "non_null": 2571,
-      "unique": 247
+      "non_null": 2679,
+      "unique": 502
     },
     {
-      "name": "12-julio-2026.30",
+      "name": "Programa (MWh).33",
       "dtype": "object",
-      "non_null": 2568,
-      "unique": 246
+      "non_null": 2743,
+      "unique": 521
     },
     {
-      "name": "12-julio-2026.31",
+      "name": "Programa (MWh).34",
       "dtype": "object",
-      "non_null": 2572,
-      "unique": 233
+      "non_null": 2778,
+      "unique": 560
     },
     {
-      "name": "12-julio-2026.32",
+      "name": "Programa (MWh).35",
+      "dtype": "object",
+      "non_null": 2786,
+      "unique": 595
+    },
+    {
+      "name": "Programa (MWh).36",
+      "dtype": "object",
+      "non_null": 2793,
+      "unique": 635
+    },
+    {
+      "name": "Programa (MWh).37",
+      "dtype": "object",
+      "non_null": 2756,
+      "unique": 665
+    },
+    {
+      "name": "Programa (MWh).38",
+      "dtype": "object",
+      "non_null": 2759,
+      "unique": 685
+    },
+    {
+      "name": "Programa (MWh).39",
+      "dtype": "object",
+      "non_null": 2712,
+      "unique": 680
+    },
+    {
+      "name": "Programa (MWh).40",
+      "dtype": "object",
+      "non_null": 2705,
+      "unique": 659
+    },
+    {
+      "name": "Programa (MWh).41",
+      "dtype": "object",
+      "non_null": 2594,
+      "unique": 674
+    },
+    {
+      "name": "Programa (MWh).42",
+      "dtype": "object",
+      "non_null": 2610,
+      "unique": 683
+    },
+    {
+      "name": "Programa (MWh).43",
+      "dtype": "object",
+      "non_null": 2605,
+      "unique": 688
+    },
+    {
+      "name": "Programa (MWh).44",
+      "dtype": "object",
+      "non_null": 2593,
+      "unique": 671
+    },
+    {
+      "name": "Programa (MWh).45",
+      "dtype": "object",
+      "non_null": 2541,
+      "unique": 680
+    },
+    {
+      "name": "Programa (MWh).46",
+      "dtype": "object",
+      "non_null": 2547,
+      "unique": 680
+    },
+    {
+      "name": "Programa (MWh).47",
+      "dtype": "object",
+      "non_null": 2557,
+      "unique": 672
+    },
+    {
+      "name": "Programa (MWh).48",
+      "dtype": "object",
+      "non_null": 2552,
+      "unique": 694
+    },
+    {
+      "name": "Programa (MWh).49",
+      "dtype": "object",
+      "non_null": 2556,
+      "unique": 679
+    },
+    {
+      "name": "Programa (MWh).50",
+      "dtype": "object",
+      "non_null": 2570,
+      "unique": 688
+    },
+    {
+      "name": "Programa (MWh).51",
       "dtype": "object",
       "non_null": 2576,
-      "unique": 247
+      "unique": 686
     },
     {
-      "name": "12-julio-2026.33",
+      "name": "Programa (MWh).52",
       "dtype": "object",
-      "non_null": 2578,
-      "unique": 245
+      "non_null": 2591,
+      "unique": 689
     },
     {
-      "name": "12-julio-2026.34",
+      "name": "Programa (MWh).53",
       "dtype": "object",
-      "non_null": 2602,
-      "unique": 256
+      "non_null": 2586,
+      "unique": 685
     },
     {
-      "name": "12-julio-2026.35",
+      "name": "Programa (MWh).54",
       "dtype": "object",
-      "non_null": 2614,
-      "unique": 260
+      "non_null": 2609,
+      "unique": 705
     },
     {
-      "name": "12-julio-2026.36",
+      "name": "Programa (MWh).55",
       "dtype": "object",
-      "non_null": 2738,
-      "unique": 275
+      "non_null": 2606,
+      "unique": 706
     },
     {
-      "name": "12-julio-2026.37",
+      "name": "Programa (MWh).56",
       "dtype": "object",
-      "non_null": 2744,
-      "unique": 288
+      "non_null": 2616,
+      "unique": 701
     },
     {
-      "name": "12-julio-2026.38",
+      "name": "Programa (MWh).57",
       "dtype": "object",
-      "non_null": 2771,
-      "unique": 292
+      "non_null": 2608,
+      "unique": 690
     },
     {
-      "name": "12-julio-2026.39",
+      "name": "Programa (MWh).58",
       "dtype": "object",
-      "non_null": 2785,
-      "unique": 296
+      "non_null": 2608,
+      "unique": 697
     },
     {
-      "name": "12-julio-2026.40",
+      "name": "Programa (MWh).59",
       "dtype": "object",
-      "non_null": 2878,
-      "unique": 310
+      "non_null": 2615,
+      "unique": 703
     },
     {
-      "name": "12-julio-2026.41",
+      "name": "Programa (MWh).60",
       "dtype": "object",
-      "non_null": 2872,
-      "unique": 317
+      "non_null": 2620,
+      "unique": 710
     },
     {
-      "name": "12-julio-2026.42",
+      "name": "Programa (MWh).61",
       "dtype": "object",
-      "non_null": 2845,
-      "unique": 317
+      "non_null": 2507,
+      "unique": 673
     },
     {
-      "name": "12-julio-2026.43",
+      "name": "Programa (MWh).62",
       "dtype": "object",
-      "non_null": 2834,
-      "unique": 319
+      "non_null": 2505,
+      "unique": 688
     },
     {
-      "name": "12-julio-2026.44",
+      "name": "Programa (MWh).63",
       "dtype": "object",
-      "non_null": 2834,
-      "unique": 315
+      "non_null": 2507,
+      "unique": 676
     },
     {
-      "name": "12-julio-2026.45",
+      "name": "Programa (MWh).64",
       "dtype": "object",
-      "non_null": 2828,
-      "unique": 317
+      "non_null": 2498,
+      "unique": 693
     },
     {
-      "name": "12-julio-2026.46",
+      "name": "Programa (MWh).65",
       "dtype": "object",
-      "non_null": 2830,
-      "unique": 318
+      "non_null": 2498,
+      "unique": 678
     },
     {
-      "name": "12-julio-2026.47",
+      "name": "Programa (MWh).66",
       "dtype": "object",
-      "non_null": 2842,
-      "unique": 319
+      "non_null": 2494,
+      "unique": 691
     },
     {
-      "name": "12-julio-2026.48",
+      "name": "Programa (MWh).67",
       "dtype": "object",
-      "non_null": 2852,
-      "unique": 325
+      "non_null": 2499,
+      "unique": 680
     },
     {
-      "name": "12-julio-2026.49",
+      "name": "Programa (MWh).68",
       "dtype": "object",
-      "non_null": 2860,
-      "unique": 324
+      "non_null": 2506,
+      "unique": 698
     },
     {
-      "name": "12-julio-2026.50",
+      "name": "Programa (MWh).69",
       "dtype": "object",
-      "non_null": 2850,
-      "unique": 325
+      "non_null": 2513,
+      "unique": 689
     },
     {
-      "name": "12-julio-2026.51",
+      "name": "Programa (MWh).70",
       "dtype": "object",
-      "non_null": 2871,
-      "unique": 327
+      "non_null": 2508,
+      "unique": 680
     },
     {
-      "name": "12-julio-2026.52",
+      "name": "Programa (MWh).71",
       "dtype": "object",
-      "non_null": 2868,
-      "unique": 327
+      "non_null": 2507,
+      "unique": 684
     },
     {
-      "name": "12-julio-2026.53",
+      "name": "Programa (MWh).72",
       "dtype": "object",
-      "non_null": 2864,
-      "unique": 326
+      "non_null": 2507,
+      "unique": 691
     },
     {
-      "name": "12-julio-2026.54",
+      "name": "Programa (MWh).73",
       "dtype": "object",
-      "non_null": 2809,
-      "unique": 328
+      "non_null": 2488,
+      "unique": 682
     },
     {
-      "name": "12-julio-2026.55",
+      "name": "Programa (MWh).74",
       "dtype": "object",
-      "non_null": 2809,
-      "unique": 328
+      "non_null": 2484,
+      "unique": 687
     },
     {
-      "name": "12-julio-2026.56",
+      "name": "Programa (MWh).75",
       "dtype": "object",
-      "non_null": 2868,
-      "unique": 327
+      "non_null": 2514,
+      "unique": 693
     },
     {
-      "name": "12-julio-2026.57",
+      "name": "Programa (MWh).76",
       "dtype": "object",
-      "non_null": 2866,
-      "unique": 325
+      "non_null": 2528,
+      "unique": 686
     },
     {
-      "name": "12-julio-2026.58",
+      "name": "Programa (MWh).77",
       "dtype": "object",
-      "non_null": 2811,
-      "unique": 329
+      "non_null": 2624,
+      "unique": 691
     },
     {
-      "name": "12-julio-2026.59",
+      "name": "Programa (MWh).78",
       "dtype": "object",
-      "non_null": 2807,
-      "unique": 330
+      "non_null": 2638,
+      "unique": 658
     },
     {
-      "name": "12-julio-2026.60",
+      "name": "Programa (MWh).79",
       "dtype": "object",
-      "non_null": 2860,
-      "unique": 323
+      "non_null": 2642,
+      "unique": 658
     },
     {
-      "name": "12-julio-2026.61",
+      "name": "Programa (MWh).80",
       "dtype": "object",
-      "non_null": 2862,
-      "unique": 326
+      "non_null": 2649,
+      "unique": 653
     },
     {
-      "name": "12-julio-2026.62",
+      "name": "Programa (MWh).81",
       "dtype": "object",
-      "non_null": 2860,
-      "unique": 323
+      "non_null": 2825,
+      "unique": 653
     },
     {
-      "name": "12-julio-2026.63",
+      "name": "Programa (MWh).82",
       "dtype": "object",
-      "non_null": 2861,
-      "unique": 324
+      "non_null": 2808,
+      "unique": 610
     },
     {
-      "name": "12-julio-2026.64",
+      "name": "Programa (MWh).83",
       "dtype": "object",
-      "non_null": 2889,
-      "unique": 364
+      "non_null": 2768,
+      "unique": 582
     },
     {
-      "name": "12-julio-2026.65",
+      "name": "Programa (MWh).84",
       "dtype": "object",
-      "non_null": 2872,
-      "unique": 364
+      "non_null": 2707,
+      "unique": 549
     },
     {
-      "name": "12-julio-2026.66",
+      "name": "Programa (MWh).85",
       "dtype": "object",
-      "non_null": 2877,
-      "unique": 362
+      "non_null": 2566,
+      "unique": 543
     },
     {
-      "name": "12-julio-2026.67",
+      "name": "Programa (MWh).86",
       "dtype": "object",
-      "non_null": 2917,
-      "unique": 362
+      "non_null": 2348,
+      "unique": 524
     },
     {
-      "name": "12-julio-2026.68",
+      "name": "Programa (MWh).87",
       "dtype": "object",
-      "non_null": 2918,
-      "unique": 369
+      "non_null": 1857,
+      "unique": 508
     },
     {
-      "name": "12-julio-2026.69",
+      "name": "Programa (MWh).88",
       "dtype": "object",
-      "non_null": 2920,
-      "unique": 360
+      "non_null": 1559,
+      "unique": 514
     },
     {
-      "name": "12-julio-2026.70",
+      "name": "Programa (MWh).89",
       "dtype": "object",
-      "non_null": 2920,
-      "unique": 362
+      "non_null": 1441,
+      "unique": 506
     },
     {
-      "name": "12-julio-2026.71",
+      "name": "Programa (MWh).90",
       "dtype": "object",
-      "non_null": 2914,
-      "unique": 363
+      "non_null": 1435,
+      "unique": 512
     },
     {
-      "name": "12-julio-2026.72",
+      "name": "Programa (MWh).91",
       "dtype": "object",
-      "non_null": 2914,
-      "unique": 359
+      "non_null": 1475,
+      "unique": 514
     },
     {
-      "name": "12-julio-2026.73",
+      "name": "Programa (MWh).92",
       "dtype": "object",
-      "non_null": 2918,
-      "unique": 349
+      "non_null": 1472,
+      "unique": 507
     },
     {
-      "name": "12-julio-2026.74",
+      "name": "Programa (MWh).93",
       "dtype": "object",
-      "non_null": 2920,
-      "unique": 345
+      "non_null": 1440,
+      "unique": 514
     },
     {
-      "name": "12-julio-2026.75",
+      "name": "Programa (MWh).94",
       "dtype": "object",
-      "non_null": 2912,
-      "unique": 348
+      "non_null": 1433,
+      "unique": 513
     },
     {
-      "name": "12-julio-2026.76",
+      "name": "Programa (MWh).95",
       "dtype": "object",
-      "non_null": 2851,
-      "unique": 333
+      "non_null": 1438,
+      "unique": 516
     },
     {
-      "name": "12-julio-2026.77",
+      "name": "Programa (MWh).96",
       "dtype": "object",
-      "non_null": 2801,
-      "unique": 324
-    },
-    {
-      "name": "12-julio-2026.78",
-      "dtype": "object",
-      "non_null": 2774,
-      "unique": 311
-    },
-    {
-      "name": "12-julio-2026.79",
-      "dtype": "object",
-      "non_null": 2753,
-      "unique": 307
-    },
-    {
-      "name": "12-julio-2026.80",
-      "dtype": "object",
-      "non_null": 2571,
-      "unique": 251
-    },
-    {
-      "name": "12-julio-2026.81",
-      "dtype": "object",
-      "non_null": 2572,
-      "unique": 257
-    },
-    {
-      "name": "12-julio-2026.82",
-      "dtype": "object",
-      "non_null": 2560,
-      "unique": 236
-    },
-    {
-      "name": "12-julio-2026.83",
-      "dtype": "object",
-      "non_null": 2558,
-      "unique": 241
-    },
-    {
-      "name": "12-julio-2026.84",
-      "dtype": "object",
-      "non_null": 2554,
-      "unique": 241
-    },
-    {
-      "name": "12-julio-2026.85",
-      "dtype": "object",
-      "non_null": 2559,
-      "unique": 245
-    },
-    {
-      "name": "12-julio-2026.86",
-      "dtype": "object",
-      "non_null": 2541,
-      "unique": 239
-    },
-    {
-      "name": "12-julio-2026.87",
-      "dtype": "object",
-      "non_null": 2541,
-      "unique": 238
-    },
-    {
-      "name": "12-julio-2026.88",
-      "dtype": "object",
-      "non_null": 2040,
-      "unique": 226
-    },
-    {
-      "name": "12-julio-2026.89",
-      "dtype": "object",
-      "non_null": 2041,
-      "unique": 233
-    },
-    {
-      "name": "12-julio-2026.90",
-      "dtype": "object",
-      "non_null": 2039,
-      "unique": 232
-    },
-    {
-      "name": "12-julio-2026.91",
-      "dtype": "object",
-      "non_null": 2039,
-      "unique": 235
-    },
-    {
-      "name": "12-julio-2026.92",
-      "dtype": "object",
-      "non_null": 2042,
-      "unique": 233
-    },
-    {
-      "name": "12-julio-2026.93",
-      "dtype": "object",
-      "non_null": 2043,
-      "unique": 234
-    },
-    {
-      "name": "12-julio-2026.94",
-      "dtype": "object",
-      "non_null": 2044,
-      "unique": 237
-    },
-    {
-      "name": "12-julio-2026.95",
-      "dtype": "object",
-      "non_null": 2047,
-      "unique": 239
+      "non_null": 1433,
+      "unique": 506
     }
   ]
 }

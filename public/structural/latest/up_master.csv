@@ -4546,7 +4546,7 @@ IBPADOR,IBPADOR,WIND TO MARKET,,,,,1,Eólica terrestre,,,1.0,IBPADOR,IBPADOR,WMA
 IBRM01,IBERDROLA SERVICIOS ENERGETICO,IBERDROLA ENERGÍA ESPAÑA S..A.,Iberdrola,derived_from_legal_name,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.iberdrola.com/
 IBRM02,COMERCIALIZADORA FASTLIGHT,IBERDROLA ENERGÍA ESPAÑA S..A.,Iberdrola,derived_from_legal_name,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.iberdrola.com/
 IBRM03,ELECTRA COMERCIALIZADORA,IBERDROLA ENERGÍA ESPAÑA S..A.,Iberdrola,derived_from_legal_name,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.iberdrola.com/
-IBRM04,IBRM04-COMERCIALIZADORA NUREVI,IBERDROLA ENERGÍA ESPAÑA S..A.,Iberdrola,derived_from_legal_name,100,100.0,1,Rep. de comercializadores,COMERCIALIZADOR,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.iberdrola.com/
+IBRM04,IBRM04-COMERCIALIZADORA NUREVI,IBERDROLA ENERGÍA ESPAÑA S..A.,Iberdrola,derived_from_legal_name,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.iberdrola.com/
 IBSEC01,IBSEC01,IBERDROLA SERVICIOS ENERGETICO,Iberdrola,derived_from_legal_name,,,1,Comercializadores mercado libre,,,1.0,IBSEC01,IBSEC01,IBSEN,eSIOS UP + OMIE exact code + eSIOS UF,https://www.iberdrola.com/
 IBSNC01,IBSNC01,IBERICA DE SUSPENSIONES,,,,,1,Consumos directos en mercado,,,1.0,IBSNC01,IBSNC01,IBSUS,eSIOS UP + OMIE exact code + eSIOS UF,
 IBSUC01,IBSUC01,IBERICA DE SUSPENSIONES,,,,,1,Consumos directos en mercado,,,1.0,IBSUC01,IBSUC01,IBSUS,eSIOS UP + OMIE exact code + eSIOS UF,
