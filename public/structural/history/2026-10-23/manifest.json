@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-10-23T12:23:02.203085+02:00",
+  "sources": {
+    "programming_units": {
+      "url": "https://www.esios.ree.es/es/unidades-de-programacion",
+      "status": 200,
+      "source_mode": "captured_xhr_api",
+      "rows": 3930,
+      "columns": [
+        "codigo_de_up",
+        "descripcion_corta",
+        "descripcion_larga",
+        "codigo_eic",
+        "tipo_de_produccion",
+        "negocio",
+        "ambito_de_actuacion",
+        "zona_de_regulacion",
+        "tipo_de_up",
+        "sujeto_del_mercado",
+        "potencia_maxima_mw"
+      ],
+      "visible_first_page_rows": 25,
+      "api_endpoint": "https://api.esios.ree.es/archives/82/download_json?locale=es",
+      "api_method": "GET",
+      "api_record_path": "UnidadesProgramacion",
+      "api_initial_records": 3930,
+      "api_candidate_score": 52,
+      "api_pagination_strategy": "esios_archive_download_json_complete",
+      "api_pages": 1,
+      "api_total_hint": null,
+      "api_archive_snapshot": true,
+      "canonical_rows": 3930,
+      "canonical_usable_key_rows": 3930,
+      "canonical_key": "up_code",
+      "canonical_columns": [
+        "up_code",
+        "up_name",
+        "subject_code",
+        "technology_esios"
+      ],
+      "minimum_complete_rows": 1000,
+      "complete": true
+    },
+    "physical_units": {
+      "url": "https://www.esios.ree.es/es/unidades-fisicas",
+      "status": 200,
+      "source_mode": "captured_xhr_api",
+      "rows": 6672,
+      "columns": [
+        "codigo_de_uf",
+        "codigo_eic",
+        "descripcion_corta",
+        "descripcion_larga",
+        "tipo_de_produccion",
+        "vinculacion_con_sm",
+        "vinculacion_con_up",
+        "potencia_maxima_mw"
+      ],
+      "visible_first_page_rows": 25,
+      "api_endpoint": "https://api.esios.ree.es/archives/81/download_json",
+      "api_method": "GET",
+      "api_record_path": "UnidadesFisicas",
+      "api_initial_records": 6672,
+      "api_candidate_score": 50,
+      "api_pagination_strategy": "esios_archive_download_json_complete",
+      "api_pages": 1,
+      "api_total_hint": null,
+      "api_archive_snapshot": true,
+      "canonical_rows": 6672,
+      "canonical_usable_key_rows": 6672,
+      "canonical_key": "uf_code",
+      "canonical_columns": [
+        "uf_code",
+        "uf_name",
+        "up_code",
+        "subject_code",
+        "technology_esios"
+      ],
+      "minimum_complete_rows": 1000,
+      "complete": true
+    },
+    "market_subjects": {
+      "url": "https://www.esios.ree.es/es/sujetos-del-mercado",
+      "status": 200,
+      "source_mode": "captured_xhr_api",
+      "rows": 727,
+      "columns": [
+        "codigo_de_sujeto",
+        "nombre",
+        "codigo_eic",
+        "tipo_de_sm"
+      ],
+      "visible_first_page_rows": 25,
+      "api_endpoint": "https://api.esios.ree.es/archives/83/download_json",
+      "api_method": "GET",
+      "api_record_path": "SujetosMercado",
+      "api_initial_records": 727,
+      "api_candidate_score": 44,
+      "api_pagination_strategy": "esios_archive_download_json_complete",
+      "api_pages": 1,
+      "api_total_hint": null,
+      "api_archive_snapshot": true,
+      "canonical_rows": 727,
+      "canonical_usable_key_rows": 727,
+      "canonical_key": "legal_entity",
+      "canonical_columns": [
+        "subject_code",
+        "legal_entity"
+      ],
+      "minimum_complete_rows": 100,
+      "complete": true
+    },
+    "omie_units": {
+      "url": "https://www.grupoomi.eu/sites/default/files/dados/listados/LISTA_UNIDADES.PDF",
+      "status": 200,
+      "content_type": "application/pdf",
+      "bytes": 512392,
+      "rows": 4170,
+      "unique_unit_codes": 4161,
+      "rows_with_legal_entity": 4170,
+      "rows_with_technology": 4150
+    }
+  },
+  "warnings": [],
+  "master": {
+    "rows": 7292,
+    "unique_up_codes": 7283,
+    "mapped_legal_entity": 7292,
+    "mapped_group": 1508,
+    "mapped_uf": 3915,
+    "shared_ownership_up_codes": 5
+  }
+}

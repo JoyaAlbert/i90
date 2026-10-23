@@ -86,7 +86,6 @@ ALUEC01,ALUZPENIN,ALUZE,Comercializadores mercado libre
 ALUZC01,AHORRELUZ,ALUZ,Comercializadores mercado libre
 ALZ1,ALMARAZ 1,IGNU,Nuclear
 ALZ2,ALMARAZ 2,IGNU,Nuclear
-AMAZC01,AMAZON C,COMEF,Comercializadores mercado libre
 AMBIETA,AMBIETA,BIZE,Ciclo Combinado
 AMBIETX,AMBIETX,BIZE,Consumo de Servicios Auxiliares
 AMEC01,AMEC01,AME,Comercializadores mercado libre
@@ -681,7 +680,7 @@ EGREEN,EOLICAGEST,EGED,Eólica terrestre
 EGREEN1,EOLICAGES1,EGED,Eólica terrestre
 EGREEN2,EGREEN2,EGED,Híbrida renovable
 EGREEN3,EGREEN3,EGED,Eólica terrestre
-EGREEN4,EGREEN4,EGED,Eólica terrestre
+EGREEN5,EGREEN5,EGED,Eólica terrestre
 EGST146,EGST146,GESTE,Eólica terrestre
 EGST147,EGST147,GESTE,Eólica terrestre
 EGST174,EGST174,GESTE,Eólica terrestre
@@ -1513,6 +1512,7 @@ FGST337,FGST337,GESTE,Solar fotovoltaica
 FGST338,FGST338,GESTE,Solar fotovoltaica
 FGST339,FGST339,GESTE,Solar fotovoltaica
 FGST340,FGST340,GESTE,Solar fotovoltaica
+FGST342,FGST342,GESTE,Solar fotovoltaica
 FGUADCZ,FGUADCZ,NEXU,Solar fotovoltaica
 FGUILLE,SFGUILLENA,HISPE,Solar fotovoltaica
 FGUTERA,FGUTERA,NEXU,Solar fotovoltaica
@@ -2618,7 +2618,6 @@ LUCIC01,LUCI,LUCIE,Comercializadores mercado libre
 LUM1C01,LUM1C01,LUM1,Comercializadores mercado libre
 LUMIC01,LUMISA,LUMIE,Comercializadores mercado libre
 LUXC01,LUX FORUM,LUX,Comercializadores mercado libre
-LUXIC01,LUXIC01,LUXIA,Comercializadores mercado libre
 LUZSC01,UPR LUZSO,LUZSO,Comercializadores mercado libre
 LUZYC01,LUZYC01,LUZYE,Comercializadores mercado libre
 MACEC01,MACEC01,MACEB,Consumos directos en mercado
@@ -2666,6 +2665,7 @@ MIBESPT,MIBESPT,REE,Saldo acoplamiento mercado
 MIBFRES,MIBFRES,REE,Saldo acoplamiento mercado
 MIBPTES,MIBPTES,REE,Saldo acoplamiento mercado
 MILII,MILLAS II,LMER,Gas Natural Cogeneración
+MIMBRE,LA MIMBRE,LMER,Solar fotovoltaica
 MINAC01,ALCANTARA,MINAL,Consumos directos en mercado
 MINIC01,MINAI,MINAI,Comercializadores mercado libre
 MIRAN01,LAMIRANDA,ADXRE,Solar fotovoltaica
@@ -3087,7 +3087,6 @@ SNIAC01,SNIACONS,SNIA,Consumos directos en mercado
 SNICOG,SNIACE COG,COGEN,Gas Natural Cogeneración
 SOL2,SOL2,BARER,Hidráulica UGH
 SOLANAS,FVSOLAN,ELEIA,Solar fotovoltaica
-SOLFC01,SOLFC01,SOLFL,Comercializadores mercado libre
 SOLGEN,SOLGENERA,TRISO,Solar fotovoltaica
 SOLIC01,PENIN,SOLIM,Comercializadores mercado libre
 SOLINZA,SOLINZA,EGLE,Solar térmica
@@ -3163,7 +3162,6 @@ SULAC01,SULAYR,SULA,Consumos directos en mercado
 SUMAC01,SUMAE,SUMAE,Comercializadores mercado libre
 SUNAC01,SUNAIR ONE,SUNAI,Comercializadores mercado libre
 SUNCC01,SUNCAPEN,SUNCA,Comercializadores mercado libre
-SUNFC01,SUNFC01,SUNFL,Comercializadores mercado libre
 SUNHC01,SUNAIRHOME,SUNHO,Comercializadores mercado libre
 SUNPC01,UP SUNPS,SUNPS,Comercializadores mercado libre
 SUPRC01,SELECTRA,SUMIA,Comercializadores mercado libre
@@ -3591,6 +3589,7 @@ UPBRAZO,BRAZOINVES,IGNIS,Solar fotovoltaica
 UPBRILE,BRILEN,IGNIS,Gas Natural Cogeneración
 UPBUS,UPBUS,GNRA,Eólica terrestre
 UPCABEZ,UP CABEZO,IGNIS,Eólica terrestre
+UPCALA,UPCALA,GNRA,Solar fotovoltaica
 UPCAM1,UPCAM1,GNRA,Solar fotovoltaica
 UPCAM5,UPCAM5,GNRA,Solar fotovoltaica
 UPCAMI,UPCAMCRUZ,IGNIS,Solar fotovoltaica
@@ -3702,6 +3701,7 @@ UPKEN3,UP KENIA 3,IGNIS,Solar fotovoltaica
 UPKEN4,UP KENIA 4,IGNIS,Solar fotovoltaica
 UPLAGU,UPLAGUARD,IGNIS,Solar fotovoltaica
 UPLAS,UPLAS,GNRA,Solar fotovoltaica
+UPLESS,UPLESS,GNRA,Solar fotovoltaica
 UPLINI,UPLINI,GNRA,Solar fotovoltaica
 UPLIT,UPLIT,GNRA,Solar fotovoltaica
 UPLLA,UPLLA,GNRA,Solar fotovoltaica
