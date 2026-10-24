@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-23T12:23:02.203085+02:00",
+  "generated_at": "2026-10-24T11:43:43.049824+02:00",
   "sources": {
     "programming_units": {
       "url": "https://www.esios.ree.es/es/unidades-de-programacion",
       "status": 200,
       "source_mode": "captured_xhr_api",
-      "rows": 3930,
+      "rows": 3931,
       "columns": [
         "codigo_de_up",
         "descripcion_corta",
@@ -23,14 +23,14 @@
       "api_endpoint": "https://api.esios.ree.es/archives/82/download_json?locale=es",
       "api_method": "GET",
       "api_record_path": "UnidadesProgramacion",
-      "api_initial_records": 3930,
+      "api_initial_records": 3931,
       "api_candidate_score": 52,
       "api_pagination_strategy": "esios_archive_download_json_complete",
       "api_pages": 1,
       "api_total_hint": null,
       "api_archive_snapshot": true,
-      "canonical_rows": 3930,
-      "canonical_usable_key_rows": 3930,
+      "canonical_rows": 3931,
+      "canonical_usable_key_rows": 3931,
       "canonical_key": "up_code",
       "canonical_columns": [
         "up_code",
@@ -45,7 +45,7 @@
       "url": "https://www.esios.ree.es/es/unidades-fisicas",
       "status": 200,
       "source_mode": "captured_xhr_api",
-      "rows": 6672,
+      "rows": 6673,
       "columns": [
         "codigo_de_uf",
         "codigo_eic",
@@ -60,14 +60,14 @@
       "api_endpoint": "https://api.esios.ree.es/archives/81/download_json",
       "api_method": "GET",
       "api_record_path": "UnidadesFisicas",
-      "api_initial_records": 6672,
+      "api_initial_records": 6673,
       "api_candidate_score": 50,
       "api_pagination_strategy": "esios_archive_download_json_complete",
       "api_pages": 1,
       "api_total_hint": null,
       "api_archive_snapshot": true,
-      "canonical_rows": 6672,
-      "canonical_usable_key_rows": 6672,
+      "canonical_rows": 6673,
+      "canonical_usable_key_rows": 6673,
       "canonical_key": "uf_code",
       "canonical_columns": [
         "uf_code",
@@ -114,11 +114,11 @@
       "url": "https://www.grupoomi.eu/sites/default/files/dados/listados/LISTA_UNIDADES.PDF",
       "status": 200,
       "content_type": "application/pdf",
-      "bytes": 512392,
-      "rows": 4170,
-      "unique_unit_codes": 4161,
-      "rows_with_legal_entity": 4170,
-      "rows_with_technology": 4150
+      "bytes": 512616,
+      "rows": 4169,
+      "unique_unit_codes": 4160,
+      "rows_with_legal_entity": 4169,
+      "rows_with_technology": 4149
     }
   },
   "warnings": [],
@@ -127,7 +127,7 @@
     "unique_up_codes": 7283,
     "mapped_legal_entity": 7292,
     "mapped_group": 1508,
-    "mapped_uf": 3915,
+    "mapped_uf": 3916,
     "shared_ownership_up_codes": 5
   }
 }

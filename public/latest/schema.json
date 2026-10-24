@@ -1,612 +1,624 @@
 {
-  "row_count": 1137,
-  "column_count": 101,
+  "row_count": 199,
+  "column_count": 103,
   "columns": [
     {
       "name": "Unnamed: 0",
       "dtype": "object",
-      "non_null": 1136,
-      "unique": 2
+      "non_null": 198,
+      "unique": 5
     },
     {
       "name": "Unnamed: 1",
       "dtype": "object",
-      "non_null": 1136,
-      "unique": 995
+      "non_null": 198,
+      "unique": 3
     },
     {
       "name": "Unnamed: 2",
       "dtype": "object",
-      "non_null": 1136,
-      "unique": 11
+      "non_null": 198,
+      "unique": 194
     },
     {
       "name": "Unnamed: 3",
       "dtype": "object",
-      "non_null": 1136,
-      "unique": 7
+      "non_null": 198,
+      "unique": 6
     },
     {
-      "name": "Dia",
+      "name": "Unnamed: 4",
+      "dtype": "object",
+      "non_null": 198,
+      "unique": 3
+    },
+    {
+      "name": "Unnamed: 5",
+      "dtype": "object",
+      "non_null": 198,
+      "unique": 3
+    },
+    {
+      "name": "Indicadores",
       "dtype": "object",
       "non_null": 2,
       "unique": 2
     },
     {
-      "name": "25-07-2026",
+      "name": "€/MWh",
       "dtype": "object",
-      "non_null": 897,
-      "unique": 118
+      "non_null": 32,
+      "unique": 13
     },
     {
-      "name": "25-07-2026.1",
+      "name": "€/MWh.1",
       "dtype": "object",
-      "non_null": 897,
-      "unique": 120
+      "non_null": 34,
+      "unique": 15
     },
     {
-      "name": "25-07-2026.2",
+      "name": "€/MWh.2",
       "dtype": "object",
-      "non_null": 901,
-      "unique": 119
+      "non_null": 35,
+      "unique": 16
     },
     {
-      "name": "25-07-2026.3",
+      "name": "€/MWh.3",
       "dtype": "object",
-      "non_null": 905,
-      "unique": 123
+      "non_null": 35,
+      "unique": 16
     },
     {
-      "name": "25-07-2026.4",
+      "name": "€/MWh.4",
       "dtype": "object",
-      "non_null": 904,
-      "unique": 118
+      "non_null": 35,
+      "unique": 16
     },
     {
-      "name": "25-07-2026.5",
+      "name": "€/MWh.5",
       "dtype": "object",
-      "non_null": 905,
-      "unique": 118
+      "non_null": 35,
+      "unique": 16
     },
     {
-      "name": "25-07-2026.6",
+      "name": "€/MWh.6",
       "dtype": "object",
-      "non_null": 906,
-      "unique": 118
+      "non_null": 19,
+      "unique": 11
     },
     {
-      "name": "25-07-2026.7",
+      "name": "€/MWh.7",
       "dtype": "object",
-      "non_null": 902,
-      "unique": 118
+      "non_null": 19,
+      "unique": 11
     },
     {
-      "name": "25-07-2026.8",
+      "name": "€/MWh.8",
       "dtype": "object",
-      "non_null": 908,
-      "unique": 122
+      "non_null": 29,
+      "unique": 11
     },
     {
-      "name": "25-07-2026.9",
+      "name": "€/MWh.9",
       "dtype": "object",
-      "non_null": 905,
-      "unique": 121
+      "non_null": 29,
+      "unique": 11
     },
     {
-      "name": "25-07-2026.10",
+      "name": "€/MWh.10",
       "dtype": "object",
-      "non_null": 906,
-      "unique": 122
+      "non_null": 28,
+      "unique": 10
     },
     {
-      "name": "25-07-2026.11",
+      "name": "€/MWh.11",
       "dtype": "object",
-      "non_null": 907,
-      "unique": 122
+      "non_null": 28,
+      "unique": 10
     },
     {
-      "name": "25-07-2026.12",
+      "name": "€/MWh.12",
       "dtype": "object",
-      "non_null": 909,
-      "unique": 121
+      "non_null": 28,
+      "unique": 10
     },
     {
-      "name": "25-07-2026.13",
+      "name": "€/MWh.13",
       "dtype": "object",
-      "non_null": 910,
-      "unique": 121
+      "non_null": 29,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.14",
+      "name": "€/MWh.14",
       "dtype": "object",
-      "non_null": 913,
-      "unique": 121
+      "non_null": 27,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.15",
+      "name": "€/MWh.15",
       "dtype": "object",
-      "non_null": 912,
-      "unique": 121
+      "non_null": 29,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.16",
+      "name": "€/MWh.16",
       "dtype": "object",
-      "non_null": 917,
-      "unique": 122
+      "non_null": 29,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.17",
+      "name": "€/MWh.17",
       "dtype": "object",
-      "non_null": 919,
-      "unique": 122
+      "non_null": 28,
+      "unique": 11
     },
     {
-      "name": "25-07-2026.18",
+      "name": "€/MWh.18",
       "dtype": "object",
-      "non_null": 916,
-      "unique": 122
+      "non_null": 28,
+      "unique": 11
     },
     {
-      "name": "25-07-2026.19",
+      "name": "€/MWh.19",
       "dtype": "object",
-      "non_null": 915,
-      "unique": 120
+      "non_null": 28,
+      "unique": 11
     },
     {
-      "name": "25-07-2026.20",
+      "name": "€/MWh.20",
       "dtype": "object",
-      "non_null": 916,
-      "unique": 119
+      "non_null": 29,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.21",
+      "name": "€/MWh.21",
       "dtype": "object",
-      "non_null": 912,
-      "unique": 124
+      "non_null": 29,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.22",
+      "name": "€/MWh.22",
       "dtype": "object",
-      "non_null": 913,
-      "unique": 124
+      "non_null": 30,
+      "unique": 13
     },
     {
-      "name": "25-07-2026.23",
+      "name": "€/MWh.23",
       "dtype": "object",
-      "non_null": 911,
-      "unique": 124
+      "non_null": 30,
+      "unique": 13
     },
     {
-      "name": "25-07-2026.24",
+      "name": "€/MWh.24",
       "dtype": "object",
-      "non_null": 908,
-      "unique": 123
+      "non_null": 31,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.25",
+      "name": "€/MWh.25",
       "dtype": "object",
-      "non_null": 906,
-      "unique": 123
+      "non_null": 31,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.26",
+      "name": "€/MWh.26",
       "dtype": "object",
-      "non_null": 905,
-      "unique": 118
+      "non_null": 31,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.27",
+      "name": "€/MWh.27",
       "dtype": "object",
-      "non_null": 905,
-      "unique": 122
+      "non_null": 31,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.28",
+      "name": "€/MWh.28",
       "dtype": "object",
-      "non_null": 931,
-      "unique": 126
+      "non_null": 31,
+      "unique": 13
     },
     {
-      "name": "25-07-2026.29",
+      "name": "€/MWh.29",
       "dtype": "object",
-      "non_null": 948,
-      "unique": 127
+      "non_null": 32,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.30",
+      "name": "€/MWh.30",
       "dtype": "object",
-      "non_null": 953,
-      "unique": 125
+      "non_null": 34,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.31",
+      "name": "€/MWh.31",
       "dtype": "object",
-      "non_null": 960,
-      "unique": 127
+      "non_null": 38,
+      "unique": 16
     },
     {
-      "name": "25-07-2026.32",
+      "name": "€/MWh.32",
       "dtype": "object",
-      "non_null": 977,
-      "unique": 129
+      "non_null": 40,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.33",
+      "name": "€/MWh.33",
       "dtype": "object",
-      "non_null": 980,
-      "unique": 133
+      "non_null": 92,
+      "unique": 29
     },
     {
-      "name": "25-07-2026.34",
+      "name": "€/MWh.34",
       "dtype": "object",
-      "non_null": 982,
-      "unique": 139
+      "non_null": 65,
+      "unique": 24
     },
     {
-      "name": "25-07-2026.35",
+      "name": "€/MWh.35",
       "dtype": "object",
-      "non_null": 985,
-      "unique": 143
+      "non_null": 45,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.36",
+      "name": "€/MWh.36",
       "dtype": "object",
-      "non_null": 997,
-      "unique": 143
+      "non_null": 44,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.37",
+      "name": "€/MWh.37",
       "dtype": "object",
-      "non_null": 1002,
-      "unique": 148
+      "non_null": 40,
+      "unique": 22
     },
     {
-      "name": "25-07-2026.38",
+      "name": "€/MWh.38",
       "dtype": "object",
-      "non_null": 1016,
-      "unique": 152
+      "non_null": 35,
+      "unique": 19
     },
     {
-      "name": "25-07-2026.39",
+      "name": "€/MWh.39",
       "dtype": "object",
-      "non_null": 1016,
-      "unique": 149
+      "non_null": 33,
+      "unique": 18
     },
     {
-      "name": "25-07-2026.40",
+      "name": "€/MWh.40",
       "dtype": "object",
-      "non_null": 1030,
-      "unique": 149
+      "non_null": 33,
+      "unique": 16
     },
     {
-      "name": "25-07-2026.41",
+      "name": "€/MWh.41",
       "dtype": "object",
-      "non_null": 1040,
-      "unique": 150
+      "non_null": 29,
+      "unique": 16
     },
     {
-      "name": "25-07-2026.42",
+      "name": "€/MWh.42",
       "dtype": "object",
-      "non_null": 1033,
-      "unique": 153
+      "non_null": 25,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.43",
+      "name": "€/MWh.43",
       "dtype": "object",
-      "non_null": 1044,
-      "unique": 155
+      "non_null": 19,
+      "unique": 13
     },
     {
-      "name": "25-07-2026.44",
+      "name": "€/MWh.44",
       "dtype": "object",
-      "non_null": 1054,
-      "unique": 155
+      "non_null": 21,
+      "unique": 13
     },
     {
-      "name": "25-07-2026.45",
+      "name": "€/MWh.45",
       "dtype": "object",
-      "non_null": 1055,
-      "unique": 156
+      "non_null": 18,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.46",
+      "name": "€/MWh.46",
       "dtype": "object",
-      "non_null": 1061,
-      "unique": 155
+      "non_null": 16,
+      "unique": 11
     },
     {
-      "name": "25-07-2026.47",
+      "name": "€/MWh.47",
       "dtype": "object",
-      "non_null": 1060,
-      "unique": 155
+      "non_null": 18,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.48",
+      "name": "€/MWh.48",
       "dtype": "object",
-      "non_null": 1046,
-      "unique": 154
+      "non_null": 13,
+      "unique": 9
     },
     {
-      "name": "25-07-2026.49",
+      "name": "€/MWh.49",
       "dtype": "object",
-      "non_null": 1046,
-      "unique": 154
+      "non_null": 13,
+      "unique": 9
     },
     {
-      "name": "25-07-2026.50",
+      "name": "€/MWh.50",
       "dtype": "object",
-      "non_null": 1051,
-      "unique": 154
+      "non_null": 51,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.51",
+      "name": "€/MWh.51",
       "dtype": "object",
-      "non_null": 1052,
-      "unique": 154
+      "non_null": 51,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.52",
+      "name": "€/MWh.52",
       "dtype": "object",
-      "non_null": 1054,
-      "unique": 154
+      "non_null": 53,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.53",
+      "name": "€/MWh.53",
       "dtype": "object",
-      "non_null": 1055,
-      "unique": 154
+      "non_null": 53,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.54",
+      "name": "€/MWh.54",
       "dtype": "object",
-      "non_null": 1052,
-      "unique": 154
+      "non_null": 53,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.55",
+      "name": "€/MWh.55",
       "dtype": "object",
-      "non_null": 1055,
-      "unique": 154
+      "non_null": 53,
+      "unique": 22
     },
     {
-      "name": "25-07-2026.56",
+      "name": "€/MWh.56",
       "dtype": "object",
-      "non_null": 1054,
-      "unique": 154
+      "non_null": 53,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.57",
+      "name": "€/MWh.57",
       "dtype": "object",
-      "non_null": 1055,
-      "unique": 154
+      "non_null": 53,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.58",
+      "name": "€/MWh.58",
       "dtype": "object",
-      "non_null": 1054,
-      "unique": 154
+      "non_null": 54,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.59",
+      "name": "€/MWh.59",
       "dtype": "object",
-      "non_null": 1056,
-      "unique": 154
+      "non_null": 54,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.60",
+      "name": "€/MWh.60",
       "dtype": "object",
-      "non_null": 1049,
-      "unique": 152
+      "non_null": 52,
+      "unique": 20
     },
     {
-      "name": "25-07-2026.61",
+      "name": "€/MWh.61",
       "dtype": "object",
-      "non_null": 1035,
-      "unique": 154
+      "non_null": 52,
+      "unique": 20
     },
     {
-      "name": "25-07-2026.62",
+      "name": "€/MWh.62",
       "dtype": "object",
-      "non_null": 1035,
-      "unique": 154
+      "non_null": 52,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.63",
+      "name": "€/MWh.63",
       "dtype": "object",
-      "non_null": 1034,
-      "unique": 153
+      "non_null": 52,
+      "unique": 20
     },
     {
-      "name": "25-07-2026.64",
+      "name": "€/MWh.64",
       "dtype": "object",
-      "non_null": 1033,
-      "unique": 154
+      "non_null": 52,
+      "unique": 20
     },
     {
-      "name": "25-07-2026.65",
+      "name": "€/MWh.65",
       "dtype": "object",
-      "non_null": 1034,
-      "unique": 155
+      "non_null": 53,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.66",
+      "name": "€/MWh.66",
       "dtype": "object",
-      "non_null": 1048,
-      "unique": 155
+      "non_null": 52,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.67",
+      "name": "€/MWh.67",
       "dtype": "object",
-      "non_null": 1046,
-      "unique": 154
+      "non_null": 52,
+      "unique": 20
     },
     {
-      "name": "25-07-2026.68",
+      "name": "€/MWh.68",
       "dtype": "object",
-      "non_null": 1026,
-      "unique": 153
+      "non_null": 56,
+      "unique": 22
     },
     {
-      "name": "25-07-2026.69",
+      "name": "€/MWh.69",
       "dtype": "object",
-      "non_null": 1029,
-      "unique": 154
+      "non_null": 64,
+      "unique": 27
     },
     {
-      "name": "25-07-2026.70",
+      "name": "€/MWh.70",
       "dtype": "object",
-      "non_null": 1032,
-      "unique": 148
+      "non_null": 63,
+      "unique": 26
     },
     {
-      "name": "25-07-2026.71",
+      "name": "€/MWh.71",
       "dtype": "object",
-      "non_null": 1030,
-      "unique": 150
+      "non_null": 68,
+      "unique": 25
     },
     {
-      "name": "25-07-2026.72",
+      "name": "€/MWh.72",
       "dtype": "object",
-      "non_null": 1009,
-      "unique": 149
+      "non_null": 59,
+      "unique": 25
     },
     {
-      "name": "25-07-2026.73",
+      "name": "€/MWh.73",
       "dtype": "object",
-      "non_null": 1012,
-      "unique": 154
+      "non_null": 66,
+      "unique": 26
     },
     {
-      "name": "25-07-2026.74",
+      "name": "€/MWh.74",
       "dtype": "object",
-      "non_null": 1014,
-      "unique": 154
+      "non_null": 81,
+      "unique": 29
     },
     {
-      "name": "25-07-2026.75",
+      "name": "€/MWh.75",
       "dtype": "object",
-      "non_null": 1002,
-      "unique": 153
+      "non_null": 84,
+      "unique": 28
     },
     {
-      "name": "25-07-2026.76",
+      "name": "€/MWh.76",
       "dtype": "object",
-      "non_null": 1017,
-      "unique": 154
+      "non_null": 88,
+      "unique": 28
     },
     {
-      "name": "25-07-2026.77",
+      "name": "€/MWh.77",
       "dtype": "object",
-      "non_null": 1003,
-      "unique": 154
+      "non_null": 87,
+      "unique": 26
     },
     {
-      "name": "25-07-2026.78",
+      "name": "€/MWh.78",
       "dtype": "object",
-      "non_null": 999,
-      "unique": 152
+      "non_null": 87,
+      "unique": 21
     },
     {
-      "name": "25-07-2026.79",
+      "name": "€/MWh.79",
       "dtype": "object",
-      "non_null": 991,
-      "unique": 142
+      "non_null": 67,
+      "unique": 18
     },
     {
-      "name": "25-07-2026.80",
+      "name": "€/MWh.80",
       "dtype": "object",
-      "non_null": 987,
-      "unique": 138
+      "non_null": 51,
+      "unique": 22
     },
     {
-      "name": "25-07-2026.81",
+      "name": "€/MWh.81",
       "dtype": "object",
-      "non_null": 978,
-      "unique": 129
+      "non_null": 47,
+      "unique": 22
     },
     {
-      "name": "25-07-2026.82",
+      "name": "€/MWh.82",
       "dtype": "object",
-      "non_null": 975,
-      "unique": 127
+      "non_null": 44,
+      "unique": 22
     },
     {
-      "name": "25-07-2026.83",
+      "name": "€/MWh.83",
       "dtype": "object",
-      "non_null": 959,
-      "unique": 126
+      "non_null": 38,
+      "unique": 19
     },
     {
-      "name": "25-07-2026.84",
+      "name": "€/MWh.84",
       "dtype": "object",
-      "non_null": 939,
-      "unique": 123
+      "non_null": 39,
+      "unique": 19
     },
     {
-      "name": "25-07-2026.85",
+      "name": "€/MWh.85",
       "dtype": "object",
-      "non_null": 933,
-      "unique": 121
+      "non_null": 31,
+      "unique": 15
     },
     {
-      "name": "25-07-2026.86",
+      "name": "€/MWh.86",
       "dtype": "object",
-      "non_null": 929,
-      "unique": 123
+      "non_null": 24,
+      "unique": 13
     },
     {
-      "name": "25-07-2026.87",
+      "name": "€/MWh.87",
       "dtype": "object",
-      "non_null": 925,
-      "unique": 123
+      "non_null": 24,
+      "unique": 13
     },
     {
-      "name": "25-07-2026.88",
+      "name": "€/MWh.88",
       "dtype": "object",
-      "non_null": 920,
-      "unique": 119
+      "non_null": 8,
+      "unique": 8
     },
     {
-      "name": "25-07-2026.89",
+      "name": "€/MWh.89",
       "dtype": "object",
-      "non_null": 918,
-      "unique": 123
+      "non_null": 20,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.90",
+      "name": "€/MWh.90",
       "dtype": "object",
-      "non_null": 920,
-      "unique": 123
+      "non_null": 22,
+      "unique": 14
     },
     {
-      "name": "25-07-2026.91",
+      "name": "€/MWh.91",
       "dtype": "object",
-      "non_null": 920,
-      "unique": 125
+      "non_null": 20,
+      "unique": 12
     },
     {
-      "name": "25-07-2026.92",
+      "name": "€/MWh.92",
       "dtype": "object",
-      "non_null": 919,
-      "unique": 123
+      "non_null": 18,
+      "unique": 10
     },
     {
-      "name": "25-07-2026.93",
+      "name": "€/MWh.93",
       "dtype": "object",
-      "non_null": 921,
-      "unique": 127
+      "non_null": 16,
+      "unique": 8
     },
     {
-      "name": "25-07-2026.94",
+      "name": "€/MWh.94",
       "dtype": "object",
-      "non_null": 919,
-      "unique": 127
+      "non_null": 16,
+      "unique": 8
     },
     {
-      "name": "25-07-2026.95",
+      "name": "€/MWh.95",
       "dtype": "object",
-      "non_null": 918,
-      "unique": 126
+      "non_null": 16,
+      "unique": 8
     }
   ]
 }

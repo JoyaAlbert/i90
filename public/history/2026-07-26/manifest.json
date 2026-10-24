@@ -1,0 +1,186 @@
+{
+  "generated_at": "2026-10-24T11:43:40.293582+02:00",
+  "today_madrid": "2026-10-24",
+  "target_data_date": "2026-07-26",
+  "selected_data_date": "2026-07-26",
+  "backtrack_days": 0,
+  "archive_id": 34,
+  "archive_name": "I90DIA",
+  "download": {
+    "initial_status": 200,
+    "redirected": false,
+    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-07-26T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-07-26T00%3A00%3A00%2B00%3A00",
+    "content_type": "zip"
+  },
+  "metadata": {
+    "name": "I90DIA",
+    "description": "Información de detalle por Unidad de Programación (I90DIA)",
+    "updated_at": "2015-01-29 09:20:49.0",
+    "id": 34,
+    "horizon": "D",
+    "archive_type": "zip",
+    "download": {
+      "name": "I90DIA",
+      "url": "/archives/34/download?date_type=datos&end_date=2026-07-26T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-07-26T00%3A00%3A00%2B00%3A00"
+    },
+    "date": {
+      "date_type": "datos",
+      "start_date": "2026-07-26 00:00:00.000+0200",
+      "end_date": "2026-07-26 23:59:59.000+0200"
+    },
+    "date_times": [
+      "2026-07-26"
+    ],
+    "publication_date": [
+      "2026-10-24"
+    ],
+    "taxonomy_terms": [
+      {
+        "id_taxonomy_term": 155,
+        "name": "Generación y consumo",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 156,
+        "name": "Mercados y precios",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 165,
+        "name": "Descargas",
+        "vocabulary_id": 21
+      },
+      {
+        "id_taxonomy_term": 168,
+        "name": "General",
+        "vocabulary_id": 22
+      }
+    ],
+    "vocabularies": [
+      {
+        "id_vocabulary": 20,
+        "name": "Universo"
+      },
+      {
+        "id_vocabulary": 21,
+        "name": "Temática"
+      },
+      {
+        "id_vocabulary": 22,
+        "name": "Área"
+      }
+    ]
+  },
+  "sha256_download": "899ef01cc3e2c1967f2229eb140c4792800bfe4bce23ab8eecb2694f9dae9b42",
+  "csv": {
+    "encoding": "utf-8-sig",
+    "separator": ";",
+    "rows": 199,
+    "columns": [
+      "Unnamed: 0",
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "Unnamed: 3",
+      "Unnamed: 4",
+      "Unnamed: 5",
+      "Indicadores",
+      "€/MWh",
+      "€/MWh.1",
+      "€/MWh.2",
+      "€/MWh.3",
+      "€/MWh.4",
+      "€/MWh.5",
+      "€/MWh.6",
+      "€/MWh.7",
+      "€/MWh.8",
+      "€/MWh.9",
+      "€/MWh.10",
+      "€/MWh.11",
+      "€/MWh.12",
+      "€/MWh.13",
+      "€/MWh.14",
+      "€/MWh.15",
+      "€/MWh.16",
+      "€/MWh.17",
+      "€/MWh.18",
+      "€/MWh.19",
+      "€/MWh.20",
+      "€/MWh.21",
+      "€/MWh.22",
+      "€/MWh.23",
+      "€/MWh.24",
+      "€/MWh.25",
+      "€/MWh.26",
+      "€/MWh.27",
+      "€/MWh.28",
+      "€/MWh.29",
+      "€/MWh.30",
+      "€/MWh.31",
+      "€/MWh.32",
+      "€/MWh.33",
+      "€/MWh.34",
+      "€/MWh.35",
+      "€/MWh.36",
+      "€/MWh.37",
+      "€/MWh.38",
+      "€/MWh.39",
+      "€/MWh.40",
+      "€/MWh.41",
+      "€/MWh.42",
+      "€/MWh.43",
+      "€/MWh.44",
+      "€/MWh.45",
+      "€/MWh.46",
+      "€/MWh.47",
+      "€/MWh.48",
+      "€/MWh.49",
+      "€/MWh.50",
+      "€/MWh.51",
+      "€/MWh.52",
+      "€/MWh.53",
+      "€/MWh.54",
+      "€/MWh.55",
+      "€/MWh.56",
+      "€/MWh.57",
+      "€/MWh.58",
+      "€/MWh.59",
+      "€/MWh.60",
+      "€/MWh.61",
+      "€/MWh.62",
+      "€/MWh.63",
+      "€/MWh.64",
+      "€/MWh.65",
+      "€/MWh.66",
+      "€/MWh.67",
+      "€/MWh.68",
+      "€/MWh.69",
+      "€/MWh.70",
+      "€/MWh.71",
+      "€/MWh.72",
+      "€/MWh.73",
+      "€/MWh.74",
+      "€/MWh.75",
+      "€/MWh.76",
+      "€/MWh.77",
+      "€/MWh.78",
+      "€/MWh.79",
+      "€/MWh.80",
+      "€/MWh.81",
+      "€/MWh.82",
+      "€/MWh.83",
+      "€/MWh.84",
+      "€/MWh.85",
+      "€/MWh.86",
+      "€/MWh.87",
+      "€/MWh.88",
+      "€/MWh.89",
+      "€/MWh.90",
+      "€/MWh.91",
+      "€/MWh.92",
+      "€/MWh.93",
+      "€/MWh.94",
+      "€/MWh.95"
+    ]
+  },
+  "acquisition_errors_before_success": []
+}
