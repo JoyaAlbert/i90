@@ -1,0 +1,630 @@
+{
+  "row_count": 104,
+  "column_count": 104,
+  "columns": [
+    {
+      "name": "Unnamed: 0",
+      "dtype": "object",
+      "non_null": 103,
+      "unique": 7
+    },
+    {
+      "name": "Unnamed: 1",
+      "dtype": "object",
+      "non_null": 103,
+      "unique": 3
+    },
+    {
+      "name": "Unnamed: 2",
+      "dtype": "object",
+      "non_null": 103,
+      "unique": 96
+    },
+    {
+      "name": "Unnamed: 3",
+      "dtype": "object",
+      "non_null": 103,
+      "unique": 6
+    },
+    {
+      "name": "Unnamed: 4",
+      "dtype": "object",
+      "non_null": 103,
+      "unique": 3
+    },
+    {
+      "name": "Unnamed: 5",
+      "dtype": "object",
+      "non_null": 103,
+      "unique": 3
+    },
+    {
+      "name": "Unnamed: 6",
+      "dtype": "object",
+      "non_null": 74,
+      "unique": 6
+    },
+    {
+      "name": "Indicadores",
+      "dtype": "object",
+      "non_null": 2,
+      "unique": 2
+    },
+    {
+      "name": "MWh",
+      "dtype": "object",
+      "non_null": 15,
+      "unique": 15
+    },
+    {
+      "name": "MWh.1",
+      "dtype": "object",
+      "non_null": 13,
+      "unique": 12
+    },
+    {
+      "name": "MWh.2",
+      "dtype": "object",
+      "non_null": 13,
+      "unique": 12
+    },
+    {
+      "name": "MWh.3",
+      "dtype": "object",
+      "non_null": 14,
+      "unique": 13
+    },
+    {
+      "name": "MWh.4",
+      "dtype": "object",
+      "non_null": 17,
+      "unique": 16
+    },
+    {
+      "name": "MWh.5",
+      "dtype": "object",
+      "non_null": 19,
+      "unique": 17
+    },
+    {
+      "name": "MWh.6",
+      "dtype": "object",
+      "non_null": 14,
+      "unique": 13
+    },
+    {
+      "name": "MWh.7",
+      "dtype": "object",
+      "non_null": 11,
+      "unique": 10
+    },
+    {
+      "name": "MWh.8",
+      "dtype": "object",
+      "non_null": 11,
+      "unique": 10
+    },
+    {
+      "name": "MWh.9",
+      "dtype": "object",
+      "non_null": 11,
+      "unique": 10
+    },
+    {
+      "name": "MWh.10",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 8
+    },
+    {
+      "name": "MWh.11",
+      "dtype": "object",
+      "non_null": 7,
+      "unique": 7
+    },
+    {
+      "name": "MWh.12",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.13",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.14",
+      "dtype": "object",
+      "non_null": 5,
+      "unique": 5
+    },
+    {
+      "name": "MWh.15",
+      "dtype": "object",
+      "non_null": 5,
+      "unique": 5
+    },
+    {
+      "name": "MWh.16",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.17",
+      "dtype": "object",
+      "non_null": 7,
+      "unique": 7
+    },
+    {
+      "name": "MWh.18",
+      "dtype": "object",
+      "non_null": 7,
+      "unique": 7
+    },
+    {
+      "name": "MWh.19",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.20",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.21",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.22",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.23",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.24",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.25",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.26",
+      "dtype": "object",
+      "non_null": 7,
+      "unique": 7
+    },
+    {
+      "name": "MWh.27",
+      "dtype": "object",
+      "non_null": 7,
+      "unique": 6
+    },
+    {
+      "name": "MWh.28",
+      "dtype": "object",
+      "non_null": 13,
+      "unique": 12
+    },
+    {
+      "name": "MWh.29",
+      "dtype": "object",
+      "non_null": 14,
+      "unique": 14
+    },
+    {
+      "name": "MWh.30",
+      "dtype": "object",
+      "non_null": 16,
+      "unique": 15
+    },
+    {
+      "name": "MWh.31",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 8
+    },
+    {
+      "name": "MWh.32",
+      "dtype": "object",
+      "non_null": 11,
+      "unique": 11
+    },
+    {
+      "name": "MWh.33",
+      "dtype": "object",
+      "non_null": 11,
+      "unique": 11
+    },
+    {
+      "name": "MWh.34",
+      "dtype": "object",
+      "non_null": 11,
+      "unique": 10
+    },
+    {
+      "name": "MWh.35",
+      "dtype": "object",
+      "non_null": 11,
+      "unique": 11
+    },
+    {
+      "name": "MWh.36",
+      "dtype": "object",
+      "non_null": 7,
+      "unique": 7
+    },
+    {
+      "name": "MWh.37",
+      "dtype": "object",
+      "non_null": 5,
+      "unique": 5
+    },
+    {
+      "name": "MWh.38",
+      "dtype": "object",
+      "non_null": 5,
+      "unique": 5
+    },
+    {
+      "name": "MWh.39",
+      "dtype": "object",
+      "non_null": 7,
+      "unique": 7
+    },
+    {
+      "name": "MWh.40",
+      "dtype": "object",
+      "non_null": 19,
+      "unique": 17
+    },
+    {
+      "name": "MWh.41",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 8
+    },
+    {
+      "name": "MWh.42",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 7
+    },
+    {
+      "name": "MWh.43",
+      "dtype": "object",
+      "non_null": 6,
+      "unique": 6
+    },
+    {
+      "name": "MWh.44",
+      "dtype": "object",
+      "non_null": 9,
+      "unique": 9
+    },
+    {
+      "name": "MWh.45",
+      "dtype": "object",
+      "non_null": 9,
+      "unique": 9
+    },
+    {
+      "name": "MWh.46",
+      "dtype": "object",
+      "non_null": 9,
+      "unique": 9
+    },
+    {
+      "name": "MWh.47",
+      "dtype": "object",
+      "non_null": 13,
+      "unique": 12
+    },
+    {
+      "name": "MWh.48",
+      "dtype": "object",
+      "non_null": 12,
+      "unique": 11
+    },
+    {
+      "name": "MWh.49",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 8
+    },
+    {
+      "name": "MWh.50",
+      "dtype": "object",
+      "non_null": 12,
+      "unique": 12
+    },
+    {
+      "name": "MWh.51",
+      "dtype": "object",
+      "non_null": 12,
+      "unique": 12
+    },
+    {
+      "name": "MWh.52",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 8
+    },
+    {
+      "name": "MWh.53",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 8
+    },
+    {
+      "name": "MWh.54",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 8
+    },
+    {
+      "name": "MWh.55",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 8
+    },
+    {
+      "name": "MWh.56",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 7
+    },
+    {
+      "name": "MWh.57",
+      "dtype": "object",
+      "non_null": 9,
+      "unique": 8
+    },
+    {
+      "name": "MWh.58",
+      "dtype": "object",
+      "non_null": 28,
+      "unique": 23
+    },
+    {
+      "name": "MWh.59",
+      "dtype": "object",
+      "non_null": 28,
+      "unique": 23
+    },
+    {
+      "name": "MWh.60",
+      "dtype": "object",
+      "non_null": 32,
+      "unique": 30
+    },
+    {
+      "name": "MWh.61",
+      "dtype": "object",
+      "non_null": 33,
+      "unique": 29
+    },
+    {
+      "name": "MWh.62",
+      "dtype": "object",
+      "non_null": 33,
+      "unique": 31
+    },
+    {
+      "name": "MWh.63",
+      "dtype": "object",
+      "non_null": 33,
+      "unique": 32
+    },
+    {
+      "name": "MWh.64",
+      "dtype": "object",
+      "non_null": 37,
+      "unique": 34
+    },
+    {
+      "name": "MWh.65",
+      "dtype": "object",
+      "non_null": 37,
+      "unique": 35
+    },
+    {
+      "name": "MWh.66",
+      "dtype": "object",
+      "non_null": 37,
+      "unique": 34
+    },
+    {
+      "name": "MWh.67",
+      "dtype": "object",
+      "non_null": 37,
+      "unique": 34
+    },
+    {
+      "name": "MWh.68",
+      "dtype": "object",
+      "non_null": 38,
+      "unique": 35
+    },
+    {
+      "name": "MWh.69",
+      "dtype": "object",
+      "non_null": 36,
+      "unique": 31
+    },
+    {
+      "name": "MWh.70",
+      "dtype": "object",
+      "non_null": 34,
+      "unique": 32
+    },
+    {
+      "name": "MWh.71",
+      "dtype": "object",
+      "non_null": 37,
+      "unique": 32
+    },
+    {
+      "name": "MWh.72",
+      "dtype": "object",
+      "non_null": 35,
+      "unique": 31
+    },
+    {
+      "name": "MWh.73",
+      "dtype": "object",
+      "non_null": 38,
+      "unique": 36
+    },
+    {
+      "name": "MWh.74",
+      "dtype": "object",
+      "non_null": 39,
+      "unique": 35
+    },
+    {
+      "name": "MWh.75",
+      "dtype": "object",
+      "non_null": 36,
+      "unique": 29
+    },
+    {
+      "name": "MWh.76",
+      "dtype": "object",
+      "non_null": 37,
+      "unique": 32
+    },
+    {
+      "name": "MWh.77",
+      "dtype": "object",
+      "non_null": 37,
+      "unique": 34
+    },
+    {
+      "name": "MWh.78",
+      "dtype": "object",
+      "non_null": 35,
+      "unique": 30
+    },
+    {
+      "name": "MWh.79",
+      "dtype": "object",
+      "non_null": 30,
+      "unique": 27
+    },
+    {
+      "name": "MWh.80",
+      "dtype": "object",
+      "non_null": 20,
+      "unique": 19
+    },
+    {
+      "name": "MWh.81",
+      "dtype": "object",
+      "non_null": 8,
+      "unique": 7
+    },
+    {
+      "name": "MWh.82",
+      "dtype": "object",
+      "non_null": 7,
+      "unique": 6
+    },
+    {
+      "name": "MWh.83",
+      "dtype": "object",
+      "non_null": 4,
+      "unique": 4
+    },
+    {
+      "name": "MWh.84",
+      "dtype": "object",
+      "non_null": 5,
+      "unique": 5
+    },
+    {
+      "name": "MWh.85",
+      "dtype": "object",
+      "non_null": 5,
+      "unique": 5
+    },
+    {
+      "name": "MWh.86",
+      "dtype": "object",
+      "non_null": 3,
+      "unique": 3
+    },
+    {
+      "name": "MWh.87",
+      "dtype": "object",
+      "non_null": 3,
+      "unique": 3
+    },
+    {
+      "name": "MWh.88",
+      "dtype": "object",
+      "non_null": 3,
+      "unique": 3
+    },
+    {
+      "name": "MWh.89",
+      "dtype": "object",
+      "non_null": 3,
+      "unique": 3
+    },
+    {
+      "name": "MWh.90",
+      "dtype": "object",
+      "non_null": 3,
+      "unique": 3
+    },
+    {
+      "name": "MWh.91",
+      "dtype": "object",
+      "non_null": 3,
+      "unique": 3
+    },
+    {
+      "name": "MWh.92",
+      "dtype": "object",
+      "non_null": 2,
+      "unique": 2
+    },
+    {
+      "name": "MWh.93",
+      "dtype": "object",
+      "non_null": 2,
+      "unique": 2
+    },
+    {
+      "name": "MWh.94",
+      "dtype": "object",
+      "non_null": 2,
+      "unique": 2
+    },
+    {
+      "name": "MWh.95",
+      "dtype": "object",
+      "non_null": 2,
+      "unique": 2
+    }
+  ]
+}
