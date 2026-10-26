@@ -1335,17 +1335,9 @@ EGPM003,EGLE VENTA ESP. 003,"AXPO IBERIA, S.L.",Axpo,verified_corporate,100,100.
 EGPM004,EGLE VENTA ESP. 004,"AXPO IBERIA, S.L.",Axpo,verified_corporate,100,100.0,1,RE Mercado Hidráulica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.axpo.com/es/es/about-us/axpo-iberia.html
 EGPPCX2,PORTFOLIO COMPRA,EDP GEM PORTUGAL S.A.,EDP,derived_from_legal_name,100,100.0,1,Porfolio Produccion Compra,PORFOLIO,ZONA PORTUGUESA,,,,,OMIE exact unit code,https://www.edp.com/
 EGPPVX2,PORTFOLIO VENDA,EDP GEM PORTUGAL S.A.,EDP,derived_from_legal_name,100,100.0,1,Porfolio Produccion Venta,PORFOLIO,ZONA PORTUGUESA,,,,,OMIE exact unit code,https://www.edp.com/
-EGPRE02,EOLICA EEGPEM,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-EGPRE21,EGPRE21-TICO,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-EGPRE22,EGPRE22-EEGPE1,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-EGPRE26,EOL 100 SOCIEDAD NOHAB NOZR,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-EGPRE28,EOL EEGPES SRS 100ECYR,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 EGPRE29,EOL EREGPES SRS NO100ECYR,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
-EGPRE30,EEGPEV,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 EGPRE31,EGPRE31-EREGPEV,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
-EGPRE51,FV FEGPE3,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 EGPRE52,FV FREGP3,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
-EGPRE54,FV SOCIE EGPE MAS 1 MW Y NO ZR,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 EGPRE55,FV SUBASTAS FREGPEM,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
 EGPRE56,FV 100EGPE HAB FEGPEM,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
 EGPRE57,FV SOCIEDADES REER,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
@@ -1356,12 +1348,8 @@ EGPRE61,FV 100EGPE RA_ZR,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,de
 EGPRE62,EGPRE62-FCENTUR,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
 EGPRE63,EGPRE63-FESPARR,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
 EGPRE64,EGPRE64-FTREVAG-FTREVEU,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
-EGPRE65,EGPRE65-FBALBON,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-EGPRE66,EGPRE66-FROCINA,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 EGPRE67,EGPRE67-FEGPEV,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
 EGPRE68,EGPRE68-FREGPEV,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
-EGPRE80,HIDRAULICA HEGPE,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Hidráulica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-EGPRE81,HIDRAULICA HEGPE3 MENOR 1 MW,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Hidráulica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 EGPRE82,HIDRAULICA REPRESENTADA HREGPE,ENDESA GENERACIÓN (ENDESA CICLOS COMBINADOS),Endesa,derived_from_legal_name,100,100.0,1,RE Mercado Hidráulica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.endesa.com/
 EGPRE90,BIOMASA REGPE3,ENEL GREEN POWER ESPAÑA SL (ACT: COM RE),,,100,100.0,1,RE Mercado Térmica Renovable,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 EGRAIA,EGRAIA,ELEKTRIZITATS-GESELLSHAFT,,,,,1,Eólica terrestre,,,1.0,GRAIADE,GRAIADE,EGLE,eSIOS UP + OMIE exact code + eSIOS UF,
