@@ -1,0 +1,42 @@
+{
+  "row_count": 60,
+  "column_count": 6,
+  "columns": [
+    {
+      "name": "Unnamed: 0",
+      "dtype": "object",
+      "non_null": 60,
+      "unique": 60
+    },
+    {
+      "name": "Unnamed: 1",
+      "dtype": "object",
+      "non_null": 60,
+      "unique": 3
+    },
+    {
+      "name": "Dia",
+      "dtype": "object",
+      "non_null": 1,
+      "unique": 1
+    },
+    {
+      "name": "29-julio-2026",
+      "dtype": "object",
+      "non_null": 60,
+      "unique": 48
+    },
+    {
+      "name": "29-julio-2026.1",
+      "dtype": "object",
+      "non_null": 60,
+      "unique": 48
+    },
+    {
+      "name": "29-julio-2026.2",
+      "dtype": "object",
+      "non_null": 12,
+      "unique": 12
+    }
+  ]
+}

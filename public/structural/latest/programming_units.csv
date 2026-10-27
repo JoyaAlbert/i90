@@ -598,10 +598,10 @@ EEBLCO2,EEBLCO2,EBLCO,Eólica terrestre
 EECAB,EECAB,CEG,Eólica terrestre
 EECAP,EECAP,CEG,Eólica terrestre
 EECARAM,PE CARAMON,EBLCO,Eólica terrestre
-EEGPE1,EEGPE1,ECYR,Eólica terrestre
-EEGPEM,EEGPEM,ECYR,Eólica terrestre
-EEGPES,EEGPES,ECYR,Eólica terrestre
-EEGPEV,EEGPEV,ECYR,Eólica terrestre
+EEGPE1,EEGPE1,ENDG,Eólica terrestre
+EEGPEM,EEGPEM,ENDG,Eólica terrestre
+EEGPES,EEGPES,ENDG,Eólica terrestre
+EEGPEV,EEGPEV,ENDG,Eólica terrestre
 EEHU2,EEHU2,ENCHU,Biomasa
 EEJEREZ,PE JEREZ,EBLCO,Eólica terrestre
 EELEZU,EELEZU,CEG,Eólica terrestre
@@ -894,7 +894,7 @@ EQUAC01,EQUAC01,EQUAN,Comercializadores mercado libre
 ERALTA,ERALTA,EGLE,Eólica terrestre
 ERANCHO,ERANCHO,NEXU,Eólica terrestre
 EREDON,EREDON,NEXU,Eólica terrestre
-EREGPE1,EREGPE1,ECYR,Eólica terrestre
+EREGPE1,EREGPE1,ENDG,Eólica terrestre
 EREGPEM,EREGPEM,ENDG,Eólica terrestre
 EREGPES,EREGPES,ENDG,Eólica terrestre
 EREGPEV,EREGPEV,ENDG,Eólica terrestre
@@ -1102,7 +1102,7 @@ FAZARA,UP AZARAR,NEXU,Solar fotovoltaica
 FAZUER1,FAZUER1,NEXU,Solar fotovoltaica
 FAZUER2,FAZUER2,NEXU,Solar fotovoltaica
 FBADJOZ,FBADJOZ,NEXU,Solar fotovoltaica
-FBALBON,FBALBON,ECYR,Solar fotovoltaica
+FBALBON,FBALBON,ENDG,Solar fotovoltaica
 FBALFV3,FBALFV3,SOLRC,Solar fotovoltaica
 FBALZ4V,FBALZ4V,IBGES,Híbrida renovable-almacenamiento
 FBALZ5V,FBALZ5V,IBGES,Híbrida renovable-almacenamiento
@@ -1291,9 +1291,9 @@ FEDAC04,FEDAUP,FEDA,Exportación Andorra
 FEDRERO,FEDRERO,CEG,Solar fotovoltaica
 FEEDC01,FEEDC,FEED,Comercializadores mercado libre
 FEGA,FEGA,EGLE,Solar fotovoltaica
-FEGPE1,FEGPE1,ECYR,Solar fotovoltaica
+FEGPE1,FEGPE1,ENDG,Solar fotovoltaica
 FEGPE2,FREGP2,ENDG,Solar fotovoltaica
-FEGPE3,FEGPE3,ECYR,Solar fotovoltaica
+FEGPE3,FEGPE3,ENDG,Solar fotovoltaica
 FEGPE4,FEGPE4,ENDG,Solar fotovoltaica
 FEGPE5,FEGPE5,ENDG,Solar fotovoltaica
 FEGPE6,FEGPE6,ENDG,Solar fotovoltaica
@@ -1728,7 +1728,7 @@ FRIGAL1,FRIGAL1,NEXU,Solar fotovoltaica
 FRIGAL2,FRIGAL2,NEXU,Solar fotovoltaica
 FRINCO,FRINCO,CEG,Solar fotovoltaica
 FRIXRAB,FRIXRAB,GNRA,Solar fotovoltaica
-FROCINA,FROCINA,ECYR,Solar fotovoltaica
+FROCINA,FROCINA,ENDG,Solar fotovoltaica
 FRODEO,FRODEO,NEXU,Solar fotovoltaica
 FRODRI,FRODRI,CEG,Solar fotovoltaica
 FROTEL,FROTEL,EGLE,Solar fotovoltaica
@@ -2289,8 +2289,8 @@ HECEC01,HECEC01,HECEN,Comercializadores mercado libre
 HEEARG,HEEARG,CEG,Hidráulica no UGH
 HEGEDGS,LA SARRA,EGED,Hidráulica no UGH
 HEGILLO,HEGILLO,CEG,Hidráulica no UGH
-HEGPE,HEGPE,ECYR,Hidráulica no UGH
-HEGPE3,HEGPE3,ECYR,Hidráulica no UGH
+HEGPE,HEGPE,ENDG,Hidráulica no UGH
+HEGPE3,HEGPE3,ENDG,Hidráulica no UGH
 HELEC01,UP01 HELIO,HELEC,Comercializadores mercado libre
 HELIC01,HELIOS PEN,HELEI,Comercializadores mercado libre
 HENANSA,HENANSA,EGED,Hidráulica no UGH
@@ -3330,7 +3330,7 @@ THCTUDE,THCTUDE,HC G,Gas Natural Cogeneración
 THELC01,THELC01,THELE,Comercializadores mercado libre
 THERC01,THERMOLYMP,THER,Consumos directos en mercado
 THUNOS,THUNOS,HUNOS,Subproductos minería
-TICO,TICO,ECYR,Eólica terrestre
+TICO,TICO,ENDG,Eólica terrestre
 TIGALC,ALCARRASIE,FUTGR,Gas Natural Cogeneración
 TIGALT,ALTORRICON,COGEN,Gas Natural Cogeneración
 TIGCOR,CORCOIE,COGEN,Gas Natural Cogeneración
