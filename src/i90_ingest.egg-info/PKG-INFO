@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: i90-ingest
+Version: 0.3.0
+Summary: Daily REE/eSIOS I90DIA ingestion and structural market mapping
+Requires-Python: >=3.11
+Requires-Dist: httpx<1,>=0.27
+Requires-Dist: pandas<3,>=2.1
+Requires-Dist: pdfplumber<1,>=0.11
+Requires-Dist: playwright<2,>=1.55
