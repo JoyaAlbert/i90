@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T11:47:04.652368+01:00",
+  "generated_at": "2026-10-30T12:31:18.036895+01:00",
   "sources": {
     "programming_units": {
       "url": "https://www.esios.ree.es/es/unidades-de-programacion",
@@ -114,19 +114,19 @@
       "url": "https://www.grupoomi.eu/sites/default/files/dados/listados/LISTA_UNIDADES.PDF",
       "status": 200,
       "content_type": "application/pdf",
-      "bytes": 512423,
-      "rows": 4170,
-      "unique_unit_codes": 4161,
-      "rows_with_legal_entity": 4170,
-      "rows_with_technology": 4150
+      "bytes": 512676,
+      "rows": 4173,
+      "unique_unit_codes": 4164,
+      "rows_with_legal_entity": 4173,
+      "rows_with_technology": 4153
     }
   },
   "warnings": [],
   "master": {
-    "rows": 7293,
-    "unique_up_codes": 7284,
-    "mapped_legal_entity": 7293,
-    "mapped_group": 1520,
+    "rows": 7296,
+    "unique_up_codes": 7287,
+    "mapped_legal_entity": 7296,
+    "mapped_group": 1521,
     "mapped_uf": 3916,
     "shared_ownership_up_codes": 5
   }
