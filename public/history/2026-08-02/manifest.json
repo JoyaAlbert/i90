@@ -1,0 +1,183 @@
+{
+  "generated_at": "2026-10-31T12:02:35.036932+01:00",
+  "today_madrid": "2026-10-31",
+  "target_data_date": "2026-08-02",
+  "selected_data_date": "2026-08-02",
+  "backtrack_days": 0,
+  "archive_id": 34,
+  "archive_name": "I90DIA",
+  "download": {
+    "initial_status": 200,
+    "redirected": false,
+    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-08-02T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-02T00%3A00%3A00%2B00%3A00",
+    "content_type": "zip"
+  },
+  "metadata": {
+    "name": "I90DIA",
+    "description": "Información de detalle por Unidad de Programación (I90DIA)",
+    "updated_at": "2015-01-29 09:20:49.0",
+    "id": 34,
+    "horizon": "D",
+    "archive_type": "zip",
+    "download": {
+      "name": "I90DIA",
+      "url": "/archives/34/download?date_type=datos&end_date=2026-08-02T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-02T00%3A00%3A00%2B00%3A00"
+    },
+    "date": {
+      "date_type": "datos",
+      "start_date": "2026-08-02 00:00:00.000+0200",
+      "end_date": "2026-08-02 23:59:59.000+0200"
+    },
+    "date_times": [
+      "2026-08-02"
+    ],
+    "publication_date": [
+      "2026-10-31"
+    ],
+    "taxonomy_terms": [
+      {
+        "id_taxonomy_term": 155,
+        "name": "Generación y consumo",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 156,
+        "name": "Mercados y precios",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 165,
+        "name": "Descargas",
+        "vocabulary_id": 21
+      },
+      {
+        "id_taxonomy_term": 168,
+        "name": "General",
+        "vocabulary_id": 22
+      }
+    ],
+    "vocabularies": [
+      {
+        "id_vocabulary": 20,
+        "name": "Universo"
+      },
+      {
+        "id_vocabulary": 21,
+        "name": "Temática"
+      },
+      {
+        "id_vocabulary": 22,
+        "name": "Área"
+      }
+    ]
+  },
+  "sha256_download": "66a1a588ee0c68ac0ea8fe24d4fdb223437b8828436df36d8dcd1728d916813c",
+  "csv": {
+    "encoding": "utf-8-sig",
+    "separator": ";",
+    "rows": 531,
+    "columns": [
+      "Unnamed: 0",
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "Unnamed: 3",
+      "MW",
+      "MW.1",
+      "MW.2",
+      "MW.3",
+      "MW.4",
+      "MW.5",
+      "MW.6",
+      "MW.7",
+      "MW.8",
+      "MW.9",
+      "MW.10",
+      "MW.11",
+      "MW.12",
+      "MW.13",
+      "MW.14",
+      "MW.15",
+      "MW.16",
+      "MW.17",
+      "MW.18",
+      "MW.19",
+      "MW.20",
+      "MW.21",
+      "MW.22",
+      "MW.23",
+      "MW.24",
+      "MW.25",
+      "MW.26",
+      "MW.27",
+      "MW.28",
+      "MW.29",
+      "MW.30",
+      "MW.31",
+      "MW.32",
+      "MW.33",
+      "MW.34",
+      "MW.35",
+      "MW.36",
+      "MW.37",
+      "MW.38",
+      "MW.39",
+      "MW.40",
+      "MW.41",
+      "MW.42",
+      "MW.43",
+      "MW.44",
+      "MW.45",
+      "MW.46",
+      "MW.47",
+      "MW.48",
+      "MW.49",
+      "MW.50",
+      "MW.51",
+      "MW.52",
+      "MW.53",
+      "MW.54",
+      "MW.55",
+      "MW.56",
+      "MW.57",
+      "MW.58",
+      "MW.59",
+      "MW.60",
+      "MW.61",
+      "MW.62",
+      "MW.63",
+      "MW.64",
+      "MW.65",
+      "MW.66",
+      "MW.67",
+      "MW.68",
+      "MW.69",
+      "MW.70",
+      "MW.71",
+      "MW.72",
+      "MW.73",
+      "MW.74",
+      "MW.75",
+      "MW.76",
+      "MW.77",
+      "MW.78",
+      "MW.79",
+      "MW.80",
+      "MW.81",
+      "MW.82",
+      "MW.83",
+      "MW.84",
+      "MW.85",
+      "MW.86",
+      "MW.87",
+      "MW.88",
+      "MW.89",
+      "MW.90",
+      "MW.91",
+      "MW.92",
+      "MW.93",
+      "MW.94",
+      "MW.95"
+    ]
+  },
+  "acquisition_errors_before_success": []
+}
