@@ -18,6 +18,23 @@ def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def is_no_values_payload(blob: bytes) -> bool:
+    stripped = blob.lstrip()
+    if not stripped.startswith(b"{"):
+        return False
+
+    try:
+        payload = json.loads(blob.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        return False
+
+    message = payload.get("message")
+    return (
+        isinstance(message, str)
+        and "No values for specified archive" in message
+    )
+
+
 def run(
     out_root: Path = Path("data/work"),
     public_root: Path = Path("public"),
@@ -46,6 +63,8 @@ def run(
             candidate = client.get_candidate(day)
             if candidate:
                 blob, download_meta = client.download(candidate.download_url)
+                if is_no_values_payload(blob):
+                    raise RuntimeError("Archive response indicates no values")
                 selected_day = candidate.data_date
                 metadata = candidate.metadata
                 break
@@ -60,6 +79,8 @@ def run(
         try:
             direct = client.direct_download_url(day)
             blob, download_meta = client.download(direct)
+            if is_no_values_payload(blob):
+                raise RuntimeError("Archive response indicates no values")
             if blob:
                 selected_day = day
                 metadata = {
