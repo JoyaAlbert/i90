@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-31T12:02:35.036932+01:00",
-  "today_madrid": "2026-10-31",
-  "target_data_date": "2026-08-02",
-  "selected_data_date": "2026-08-02",
+  "generated_at": "2026-11-01T12:57:31.019389+01:00",
+  "today_madrid": "2026-11-01",
+  "target_data_date": "2026-08-03",
+  "selected_data_date": "2026-08-03",
   "backtrack_days": 0,
   "archive_id": 34,
   "archive_name": "I90DIA",
   "download": {
     "initial_status": 200,
     "redirected": false,
-    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-08-02T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-02T00%3A00%3A00%2B00%3A00",
+    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-08-03T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-03T00%3A00%3A00%2B00%3A00",
     "content_type": "zip"
   },
   "metadata": {
@@ -21,18 +21,18 @@
     "archive_type": "zip",
     "download": {
       "name": "I90DIA",
-      "url": "/archives/34/download?date_type=datos&end_date=2026-08-02T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-02T00%3A00%3A00%2B00%3A00"
+      "url": "/archives/34/download?date_type=datos&end_date=2026-08-03T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-03T00%3A00%3A00%2B00%3A00"
     },
     "date": {
       "date_type": "datos",
-      "start_date": "2026-08-02 00:00:00.000+0200",
-      "end_date": "2026-08-02 23:59:59.000+0200"
+      "start_date": "2026-08-03 00:00:00.000+0200",
+      "end_date": "2026-08-03 23:59:59.000+0200"
     },
     "date_times": [
-      "2026-08-02"
+      "2026-08-03"
     ],
     "publication_date": [
-      "2026-10-31"
+      "2026-11-01"
     ],
     "taxonomy_terms": [
       {
@@ -71,11 +71,11 @@
       }
     ]
   },
-  "sha256_download": "66a1a588ee0c68ac0ea8fe24d4fdb223437b8828436df36d8dcd1728d916813c",
+  "sha256_download": "a16ec25860e7843531133c75ab939822717aa7cf42b0e0b4e4646cd690b7a032",
   "csv": {
     "encoding": "utf-8-sig",
     "separator": ";",
-    "rows": 531,
+    "rows": 717,
     "columns": [
       "Unnamed: 0",
       "Unnamed: 1",

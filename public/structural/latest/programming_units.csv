@@ -2,7 +2,6 @@ up_code,up_name,subject_code,technology_esios
 A2GAME2,A2GAME2,AME,Energía residual
 ABA1,ABA1,BARER,Hidráulica UGH
 ABA2,ABA2,BARER,Hidráulica UGH
-ABASC01,UPC ABAST,ABAST,Comercializadores mercado libre
 ABO1,ABOÑO 1,ABOGE,Hulla antracita
 ABO2G,ABO2G,ABOGE,Gas Natural
 ABOUC01,ABOUTWHI,ABOUT,Comercializadores mercado libre
@@ -58,6 +57,7 @@ AHORC01,AHORA PEN,ALENE,Comercializadores mercado libre
 AHTC01,AHTC01,COMED,Comercializadores mercado libre
 AIBCURC,CAMLIBCUR,IBCUR,Comercializadores mercado libre
 AIBCURV,AIBCURV,IBCUR,Almacenamiento
+AIBER02,AIBER02,AIBER,Solar fotovoltaica
 AIREC01,AIREL,AIREL,Comercializadores mercado libre
 AIREV01,AIREV01,AIREL,Solar fotovoltaica
 AIZEC01,UP AIZEN,AIZEE,Comercializadores mercado libre
@@ -130,6 +130,7 @@ ASIEBRO,ASIEBRO,ASIE,Hidráulica UGH
 ASIEC01,COMPRA ENE,ASIE,Comercializadores mercado libre
 ASIJUCA,ASIJUCA,ASIE,Hidráulica UGH
 ASITAJ,ASITAJ,ASIE,Hidráulica UGH
+ASPIC01,ASPIV,ASPIR,Comercializadores mercado libre
 ASRIHCC,ASRIHCC,HC G,Almacenamiento
 ASRIHCV,ASRIHCV,HC G,Almacenamiento
 ASSEC01,ASSEC01,ASSEN,Comercializadores mercado libre
@@ -437,6 +438,7 @@ DLSTC01,GOENERGIA,DLSTE,Comercializadores mercado libre
 DOLAR,DOLAR,LIDER,Solar fotovoltaica
 DOLVC01,DOL,DOLNO,Consumos directos en mercado
 DONBC01,DONBECO,DONBE,Comercializadores mercado libre
+DONBERA,RABICHE FV,DONBE,Solar fotovoltaica
 DPDETIC,DPDETIC,DETIC,Derivados del petróleo ó carbón
 DREAC01,DREUA,DREUA,Comercializadores mercado libre
 DREDC01,DREDC01,DREUA,Consumos directos en mercado
@@ -481,15 +483,10 @@ EALP6,EALP6,HISPE,Eólica terrestre
 EALP7,EALP7,HISPE,Eólica terrestre
 EALP8,EALP8,HISPE,Eólica terrestre
 EALP9,EALP9,HISPE,Eólica terrestre
-EALTAN,EALTAN,EGLE,Eólica terrestre
 EALTIPL,PE ALTIPLA,PEALT,Eólica terrestre
 EAM0C01,EAM0C01,EAM01,Comercializadores mercado libre
 EAMC01,ANT MAD,AMADR,Comercializadores mercado libre
 EAMV02,GRAFENO,AMADR,Solar fotovoltaica
-EAMV03,EAMV03,AMADR,Solar fotovoltaica
-EAMV04,EAMV04,AMADR,Solar fotovoltaica
-EAMV05,EAMV05,AMADR,Solar fotovoltaica
-EAMV06,EAMV06,AMADR,Solar fotovoltaica
 EANTONI,PE SANTONI,EBLCO,Eólica terrestre
 EARNO,EARNO,EGLE,Eólica terrestre
 EARTIG,EARTIG,REPSB,Eólica terrestre
@@ -567,7 +564,7 @@ ECT2X,ECT2X,CYDDP,Consumo de Servicios Auxiliares
 ECT3,ESCAT3,REPSB,Ciclo Combinado
 ECURRAG,ECURRAG,EGED,Eólica terrestre
 ECYLEO,ECYLEO,EGLE,Eólica terrestre
-ECYRREX,ECYRREX,ECYR,Consumo de Servicios Auxiliares
+ECYRREX,ECYRREX,ENDG,Consumo de Servicios Auxiliares
 EDALOBA,EDALOBA,NEXU,Eólica terrestre
 EDENCA,EDENCA,EGLE,Eólica terrestre
 EDEPON,EDEPON,EGLE,Eólica terrestre
@@ -711,7 +708,6 @@ EHIBPED,EHIBPED,NEXU,Híbrida renovable
 EHIBRI2,EHIBRI2,NEXU,Híbrida renovable
 EHIBRIO,EHIBRIO,NEXU,Híbrida renovable
 EHILC01,HELIA UP,HELIC,Comercializadores mercado libre
-EHINOJ,EHINOJ,EGLE,Eólica terrestre
 EIBGEBU,EIBGEBU,IBGES,Eólica terrestre
 EIBGECA,EIBGECA,IBGES,Eólica terrestre
 EIBGEIG,EIBGEIG,IBGES,Eólica terrestre
@@ -785,6 +781,7 @@ ENAVA,ELANAVA,NEXU,Eólica terrestre
 ENCECP3,COMPRAINTE,EENER,Exportación Francia
 ENCEVP3,VENTAINTER,EENER,Importación Francia
 ENDE01,END-EN-NAC,ENDCO,Comercializadores mercado libre
+ENDEB01,DEM BALANC,ENDCO,Comercializadores mercado libre
 ENDEC01,ENDEC01,ENDEE,Comercializadores mercado libre
 ENDEC04,ENDEC AND,ENDCO,Exportación Andorra
 ENDER01,ENDCO BALA,ENDCO,Comercializadores mercado libre
@@ -942,7 +939,6 @@ ESEIXO,ESEIXO,NEXU,Eólica terrestre
 ESEOUR,ESEOUR,EGLE,Eólica terrestre
 ESERC01,ESERO COM,ESERO,Comercializadores mercado libre
 ESHAC01,HANWHA,ESHAN,Comercializadores mercado libre
-ESIEMIN,ESIEMIN,EGLE,Eólica terrestre
 ESIERAR,SIERRA,HISPE,Eólica terrestre
 ESLA,ESLA,LMER,Gas Natural Cogeneración
 ESOLANS,PE SOLANS,EBLCO,Eólica terrestre
@@ -1337,10 +1333,12 @@ FFUNDI,FFUNDI,EGLE,Solar fotovoltaica
 FFV124,FFV124,EGLE,Solar fotovoltaica
 FFV154,FFV154,EGLE,Solar fotovoltaica
 FFV155,FFV155,EGLE,Solar fotovoltaica
+FFVUIXO,FFVUIXO,SERVC,Solar fotovoltaica
 FFWMARK,FFWMARK,WMARK,Solar fotovoltaica
 FFYECL1,FFYECL1,NEXU,Solar fotovoltaica
 FFYECL2,FFYECL2,NEXU,Solar fotovoltaica
 FFYECL3,FFYECL3,NEXU,Solar fotovoltaica
+FFZAFRA,FFZAFRA,SERVC,Solar fotovoltaica
 FGALERA,FGALERA,NEXU,Solar fotovoltaica
 FGAMMAI,FGAMMAI,SOLRC,Solar fotovoltaica
 FGAMNSA,FGAMNSA,NEXU,Solar fotovoltaica
@@ -1564,6 +1562,7 @@ FKELLY,FKELLY,EGLE,Solar fotovoltaica
 FKGAC,GACFOTOV3,GAC,Solar fotovoltaica
 FLAISLA,FLAISLA,NEXU,Solar fotovoltaica
 FLAMC01,FLAMC01,FLAMA,Consumos directos en mercado
+FLANDET,FLANDET,AIREL,Solar fotovoltaica
 FLARRAL,LARRAL,NEXU,Solar fotovoltaica
 FLASTR2,LSTS,GESTE,Solar fotovoltaica
 FLASTRA,LASTRA,GESTE,Solar fotovoltaica
@@ -1642,6 +1641,7 @@ FNUMAN,FNUMAN,CEG,Solar fotovoltaica
 FNVELOS,FNVELOS,NEXU,Solar fotovoltaica
 FOBAGLS,FOBAGLS,NEXU,Solar fotovoltaica
 FOGAC,FOGAC,GAC,Solar fotovoltaica
+FOITURA,FOITURA,NEXU,Solar fotovoltaica
 FOLIVA,FOLIVA,NEXU,Solar fotovoltaica
 FOLIVR2,FOLIVR2,NEXU,Solar fotovoltaica
 FOLIVR3,FOLIVR3,NEXU,Solar fotovoltaica
@@ -1678,6 +1678,7 @@ FPFAGUS,FPFAGUS,NEXU,Solar fotovoltaica
 FPGAC,FPGAC,GAC,Solar fotovoltaica
 FPHCCUR,FPHCCUR,HCCUR,Solar fotovoltaica
 FPHLIPS,FPHLIPS,NEXU,Solar fotovoltaica
+FPHOALM,FPHOALM,NEXU,Solar fotovoltaica
 FPIBCUR,FPIBCUR,IBCUR,Solar fotovoltaica
 FPINILA,FPINILA,NEXU,Solar fotovoltaica
 FPINTA,FPINTA,NEXU,Solar fotovoltaica
@@ -1718,7 +1719,7 @@ FRBDLAG,RIBADELAGO,NEXU,Solar fotovoltaica
 FRCERIA,FRCERIA,NEXU,Solar fotovoltaica
 FREBSCO,FREBSCO,NEXU,Solar fotovoltaica
 FREGANT,FREGANT,CEG,Solar fotovoltaica
-FREGP3,FVRDES1MW,ECYR,Solar fotovoltaica
+FREGP3,FVRDES1MW,ENDG,Solar fotovoltaica
 FREGPEM,FREGPEM,ENDG,Solar fotovoltaica
 FREGPEV,FREGPEV,ENDG,Solar fotovoltaica
 FRENEDO,FRENEDO,NEXU,Solar fotovoltaica
@@ -1797,7 +1798,6 @@ FSTOMAS,FSTOMAS,NEXU,Solar fotovoltaica
 FSUNO1,FSUNO1,CEG,Solar fotovoltaica
 FSUNO2,FSUNO2,CEG,Solar fotovoltaica
 FSUNRIS,FSUNRIS,NEXU,Solar fotovoltaica
-FSUNZAF,FSUNZAF,EGLE,Solar fotovoltaica
 FT10150,FT10150,SOLRC,Solar fotovoltaica
 FTABRNS,TABRNAS,GESTE,Solar fotovoltaica
 FTALAR1,FTALAR1,NEXU,Solar fotovoltaica
@@ -1827,6 +1827,9 @@ FTLAYL2,FTLAYL2,NEXU,Solar fotovoltaica
 FTO1CON,FTO1CON,SOLRC,Almacenamiento
 FTO1GEN,FTO1GEN,SOLRC,Híbrida renovable-almacenamiento
 FTO2101,FTO2101,SOLRC,Solar fotovoltaica
+FTOLLO1,FTOLLO1,NEXU,Solar fotovoltaica
+FTOLLO2,FTOLLO2,NEXU,Solar fotovoltaica
+FTOLLO3,FTOLLO3,NEXU,Solar fotovoltaica
 FTOMI,FTOMI,REPSB,Solar fotovoltaica
 FTOR3LE,FTOR3LE,SOLRC,Solar fotovoltaica
 FTORDE1,TORDE,GESTE,Solar fotovoltaica
@@ -1846,6 +1849,7 @@ FTULC01,FORTU PEN,FORTU,Comercializadores mercado libre
 FTURBIN,FTURBIN,NEXU,Solar fotovoltaica
 FTURRON,FTURRON,NEXU,Solar fotovoltaica
 FTZNETA,FTZNETA,NEXU,Solar fotovoltaica
+FUCINEA,FUCINEA,NEXU,Solar fotovoltaica
 FULCONA,FULCONA,NEXU,Solar fotovoltaica
 FUNVC01,FUNVC01,NENAP,Consumos directos en mercado
 FURSAMA,URSA,GESTE,Solar fotovoltaica
@@ -1899,6 +1903,7 @@ FVHIBRC,FVHIBRC,EGED,Almacenamiento
 FVHIBRV,FVHIBRV,EGED,Híbrida renovable-almacenamiento
 FVHITA,FVHITA,CEG,Solar fotovoltaica
 FVIENTO,FVIENTO,NEXU,Solar fotovoltaica
+FVILABR,FVILABR,NEXU,Solar fotovoltaica
 FVILLAV,VILLA,GESTE,Solar fotovoltaica
 FVIMAN,FVIMAN,CEG,Solar fotovoltaica
 FVINASG,VIÑAS,GESTE,Solar fotovoltaica
@@ -2091,6 +2096,9 @@ GALPT35,GAZULES2,GALP,Solar fotovoltaica
 GALPT37,TARAZONA,GALP,Eólica terrestre
 GALPT38,ALCANIZ,GALP,Solar fotovoltaica
 GALPT39,ORION,GALP,Solar fotovoltaica
+GALPT41,GALPT41,GALP,Eólica terrestre
+GALPT44,GALPT44,GALP,Eólica terrestre
+GALPT47,GALPT47,GALP,Eólica terrestre
 GAMBC01,GAMBASTAR,GAMB,Consumos directos en mercado
 GAMIC01,GAMBITO,GAMBI,Comercializadores mercado libre
 GAOLC01,GANA ENER,GAOLA,Comercializadores mercado libre
@@ -2364,6 +2372,7 @@ HIDEUR,HIDEUR,WMARK,Hidráulica no UGH
 HIDRAUL,H1CEG,IGNIS,Hidráulica no UGH
 HIDSC01,HIDR SERV,HIDSE,Comercializadores mercado libre
 HILAC01,HILAD,HILAD,Consumos directos en mercado
+HINIEST,HINIESTA,SOLWE,Solar fotovoltaica
 HINOJ,HINOJOSASF,IGNIS,Solar fotovoltaica
 HINTRA,HINTRA,INTRA,Hidráulica no UGH
 HIS1R01,HIS1R01,HISPE,Comercializadores mercado libre
@@ -2411,7 +2420,7 @@ HPORMA,HPORMA,NEXU,Hidráulica no UGH
 HPOZOS,HPOZOS,CEG,Hidráulica no UGH
 HPTMR,UP HPTMR,GNRA,Hidráulica no UGH
 HPUEYO,HPUEYO,GNRA,Hidráulica no UGH
-HREGPE,HREGPE,ECYR,Hidráulica no UGH
+HREGPE,HREGPE,ENDG,Hidráulica no UGH
 HRIEAG,HRIEAG,EGLE,Hidráulica no UGH
 HRPI,HRPI,EGLE,Hidráulica no UGH
 HRUMBLA,HRUMBLA,EGLE,Hidráulica no UGH
@@ -2763,7 +2772,7 @@ PBCN1,PBCN1,GNCC,Ciclo Combinado
 PBCN2,PBCN2,GNCC,Ciclo Combinado
 PECAST,PECAST,GNRA,Eólica terrestre
 PEJUBER,PE JUBERA,WMARK,Eólica terrestre
-PEMONDI,PE MONDIGO,WMARK,Eólica terrestre
+PEMONDI,PE MONDIGO,NEXU,Eólica terrestre
 PENAS3,UP PENAS3,ISMSL,Solar fotovoltaica
 PENAV,PENAV,GNRA,Eólica terrestre
 PEONEDA,PE NEDA,WMARK,Eólica terrestre
@@ -2814,7 +2823,6 @@ PULSC01,PULSAR,PULSA,Comercializadores mercado libre
 PVENT1,PVENT1,GNCC,Ciclo Combinado
 PVENT2,PVENT2,HISPE,Ciclo Combinado
 PVENT2X,PVENT2X,HISPE,Consumo de Servicios Auxiliares
-PVVIDAL,PVVIDAL,TSRDE,Solar fotovoltaica
 PZCP,PZCP,VIEG,Hidráulica UGH
 QENEC01,QUASAR,QENER,Comercializadores mercado libre
 QUALC01,QUALC01,QUANA,Comercializadores mercado libre
@@ -2856,11 +2864,10 @@ RDQ1,RDQ1,BARER,Hidráulica UGH
 RDQ2,RDQ2,BARER,Hidráulica UGH
 RECARRE,CARRE,RENSP,Eólica terrestre
 RECMED,RECMED,CEG,Biogás
-RECOBAR,RECOBAR,EGLE,Biogás
+RECO1,RECO1,ECO1,Biogás
 RECOC01,EMECE,RECON,Comercializadores mercado libre
 REEM20,REEM20,ENCEG,Biomasa
 REGBRE,REGBRE,COGEN,Biomasa
-REGPE3,REGPE3,ECYR,Biogás
 RELUC01,UP_RELUZCA,RELUZ,Comercializadores mercado libre
 RENCE,RENCE,ENCEG,Biomasa
 RENMAN,RENMAN,ENCEG,Biomasa
@@ -3206,7 +3213,7 @@ TBANER,TBANER,EGLE,Gas Natural Cogeneración
 TBEFESA,TBEFESA,REPSB,Residuos varios
 TBESOS,TBESOS,NEXU,Gas Natural Cogeneración
 TBIEMTE,TBIEMTE,IGNIS,Gas Natural Cogeneración
-TBIOBG,VERTBG,EGLE,Gas Natural Cogeneración
+TBIOBG,VERTBG,EENER,Gas Natural Cogeneración
 TBIOEC,VERTEC,EENER,Gas Natural Cogeneración
 TBLANSA,TBLANSA,EGLE,Gas Natural Cogeneración
 TBOIRO,TBOIRO,EGLE,Derivados del petróleo ó carbón
@@ -3219,6 +3226,7 @@ TBUTARQ,TBUTARQ,CEG,Gas Natural Cogeneración
 TBUTETE,BIOGASUTEM,UTTEM,Biogás
 TCANAIS,TCANAIS,GNRA,Gas Natural Cogeneración
 TCAPSA,TCAPSA,DETIC,Gas Natural Cogeneración
+TCARTA,TCARTA,CLIDM,Gas Natural Cogeneración
 TCAVLO,TCAVLO,WMARK,Gas Natural Cogeneración
 TCELISI,TCELISI,GNRA,Gas Natural Cogeneración
 TCELVSI,TCELVSI,GNRA,Gas Natural Cogeneración
@@ -3256,7 +3264,6 @@ TDONOST,TDONOST,WMARK,Gas Natural Cogeneración
 TEBLLRB,TEBLLRB,AME,Biogás
 TECKER,TECKER,PECKE,Gas Natural Cogeneración
 TECLAS,TECLAS,ELEIA,Solar fotovoltaica
-TECONAV,TECONAV,EGLE,Gas Natural Cogeneración
 TEDARUB,TEDARUB,NEXU,Gas Natural Cogeneración
 TEES,TERA-ESLA,ENDG,Hidráulica UGH
 TEGASN,TEGASN,GNCO,Gas Natural Cogeneración
@@ -3551,6 +3558,8 @@ UPARCHI,UP ARCHO I,IGNIS,Solar fotovoltaica
 UPARCKG,UPARCKG,GNRA,Solar fotovoltaica
 UPARCOH,UPARCOH,GNRA,Solar fotovoltaica
 UPARENA,UP ARENOSA,IGNIS,Solar fotovoltaica
+UPARH2,UPARH2,GNRA,Solar fotovoltaica
+UPARH4,UPARH4,GNRA,Solar fotovoltaica
 UPARM,UPARM,GNRA,Solar fotovoltaica
 UPARN1,UPARN1,GNRA,Solar fotovoltaica
 UPARN2,UPARN2,GNRA,Solar fotovoltaica
@@ -3595,6 +3604,7 @@ UPCAM5,UPCAM5,GNRA,Solar fotovoltaica
 UPCAMI,UPCAMCRUZ,IGNIS,Solar fotovoltaica
 UPCARB,UPCARBESO,IGNIS,Solar fotovoltaica
 UPCARTU,UPCARTU,GNRA,Solar fotovoltaica
+UPCASB,UPCASB,GNRA,Solar fotovoltaica
 UPCASI,UPCASILLA,IGNIS,Solar fotovoltaica
 UPCASTA,UP CASTAÑO,IGNIS,Solar fotovoltaica
 UPCENS,UPCENS,GNRA,Solar fotovoltaica
@@ -3701,6 +3711,7 @@ UPKEN3,UP KENIA 3,IGNIS,Solar fotovoltaica
 UPKEN4,UP KENIA 4,IGNIS,Solar fotovoltaica
 UPLAGU,UPLAGUARD,IGNIS,Solar fotovoltaica
 UPLAS,UPLAS,GNRA,Solar fotovoltaica
+UPLCOC,UPLCOC,GNRA,Solar fotovoltaica
 UPLESS,UPLESS,GNRA,Solar fotovoltaica
 UPLINI,UPLINI,GNRA,Solar fotovoltaica
 UPLIT,UPLIT,GNRA,Solar fotovoltaica
@@ -3751,6 +3762,7 @@ UPONDA,ONDA,IGNIS,Gas Natural Cogeneración
 UPONDA1,ONDA 1,IGNIS,Gas Natural Cogeneración
 UPOUBAS,UPOUBASM,IGNIS,Eólica terrestre
 UPOWER,UPOWER,GNRA,Solar fotovoltaica
+UPOZC,UPOZC,GNRA,Solar fotovoltaica
 UPOZO,UPOZO,GNRA,Solar fotovoltaica
 UPPAL,UPPAL,GNRA,Solar fotovoltaica
 UPPATO,UP PATO,IGNIS,Solar fotovoltaica
@@ -3772,6 +3784,7 @@ UPPTDIS,UP PTDIS,LUM1,Hidráulica UGH
 UPQLL,UPQLL,GNRA,Solar fotovoltaica
 UPQUALI,QUALICAPS,LMER,Gas Natural Cogeneración
 UPQUIJO,MUNERA I,IGNIS,Eólica terrestre
+UPQUIN,UPQUIN,GNRA,Solar fotovoltaica
 UPRADON,RADONA,IGNIS,Eólica terrestre
 UPRASC,UPRASCON,IGNIS,Solar fotovoltaica
 UPRCIER,UPRENCIERZ,IGNIS,Eólica terrestre
@@ -3789,6 +3802,8 @@ UPRUE2,UPRUEDA2,IGNIS,Solar fotovoltaica
 UPRUE3,UPRUEDA3,IGNIS,Eólica terrestre
 UPRUE4,UPRUEDAW1,IGNIS,Eólica terrestre
 UPRUE5,UPRUEDAW2,IGNIS,Eólica terrestre
+UPSAE1,UPSAE1,GNRA,Solar fotovoltaica
+UPSAE2,UPSAE2,GNRA,Solar fotovoltaica
 UPSALG,UPSALGUERO,IGNIS,Eólica terrestre
 UPSALI2,UPSALINET2,IGNIS,Solar fotovoltaica
 UPSASO,UPSASO,GNRA,Solar fotovoltaica
@@ -3828,6 +3843,7 @@ UPTREV2,UPTREV2,GNRA,Solar fotovoltaica
 UPTRRE,UPTORRECOT,IGNIS,Solar fotovoltaica
 UPTRUJI,UP TRUJI,IGNIS,Solar fotovoltaica
 UPUSE,UPUSE,GNRA,Solar fotovoltaica
+UPVAD,UPVAD,GNRA,Solar fotovoltaica
 UPVALD1,VADOMPE1,IGNIS,Solar fotovoltaica
 UPVALD2,VADOMPERE2,IGNIS,Solar fotovoltaica
 UPVALD3,VALDOMPERE,IGNIS,Solar fotovoltaica
