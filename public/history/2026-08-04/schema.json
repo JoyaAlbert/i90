@@ -1,0 +1,60 @@
+{
+  "row_count": 51,
+  "column_count": 9,
+  "columns": [
+    {
+      "name": "Unnamed: 0",
+      "dtype": "object",
+      "non_null": 47,
+      "unique": 47
+    },
+    {
+      "name": "Unnamed: 1",
+      "dtype": "object",
+      "non_null": 43,
+      "unique": 43
+    },
+    {
+      "name": "Unnamed: 2",
+      "dtype": "object",
+      "non_null": 2,
+      "unique": 2
+    },
+    {
+      "name": "Unnamed: 3",
+      "dtype": "float64",
+      "non_null": 0,
+      "unique": 0
+    },
+    {
+      "name": "Unnamed: 4",
+      "dtype": "float64",
+      "non_null": 0,
+      "unique": 0
+    },
+    {
+      "name": "Unnamed: 5",
+      "dtype": "float64",
+      "non_null": 0,
+      "unique": 0
+    },
+    {
+      "name": "Unnamed: 6",
+      "dtype": "float64",
+      "non_null": 0,
+      "unique": 0
+    },
+    {
+      "name": "Unnamed: 7",
+      "dtype": "float64",
+      "non_null": 0,
+      "unique": 0
+    },
+    {
+      "name": "Unnamed: 8",
+      "dtype": "float64",
+      "non_null": 0,
+      "unique": 0
+    }
+  ]
+}
