@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-11-03T13:56:21.476024+01:00",
+  "today_madrid": "2026-11-03",
+  "target_data_date": "2026-08-05",
+  "selected_data_date": "2026-08-05",
+  "backtrack_days": 0,
+  "archive_id": 34,
+  "archive_name": "I90DIA",
+  "download": {
+    "initial_status": 200,
+    "redirected": false,
+    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-08-05T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-05T00%3A00%3A00%2B00%3A00",
+    "content_type": "zip"
+  },
+  "metadata": {
+    "name": "I90DIA",
+    "description": "Información de detalle por Unidad de Programación (I90DIA)",
+    "updated_at": "2015-01-29 09:20:49.0",
+    "id": 34,
+    "horizon": "D",
+    "archive_type": "zip",
+    "download": {
+      "name": "I90DIA",
+      "url": "/archives/34/download?date_type=datos&end_date=2026-08-05T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-05T00%3A00%3A00%2B00%3A00"
+    },
+    "date": {
+      "date_type": "datos",
+      "start_date": "2026-08-05 00:00:00.000+0200",
+      "end_date": "2026-08-05 23:59:59.000+0200"
+    },
+    "date_times": [
+      "2026-08-05"
+    ],
+    "publication_date": [
+      "2026-11-03"
+    ],
+    "taxonomy_terms": [
+      {
+        "id_taxonomy_term": 155,
+        "name": "Generación y consumo",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 156,
+        "name": "Mercados y precios",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 165,
+        "name": "Descargas",
+        "vocabulary_id": 21
+      },
+      {
+        "id_taxonomy_term": 168,
+        "name": "General",
+        "vocabulary_id": 22
+      }
+    ],
+    "vocabularies": [
+      {
+        "id_vocabulary": 20,
+        "name": "Universo"
+      },
+      {
+        "id_vocabulary": 21,
+        "name": "Temática"
+      },
+      {
+        "id_vocabulary": 22,
+        "name": "Área"
+      }
+    ]
+  },
+  "sha256_download": "4f10fd94ff4a9d5f178e703a9f91307d1ea22c48ecd0b6de418e4b91202339a9",
+  "csv": {
+    "encoding": "utf-8-sig",
+    "separator": ";",
+    "rows": 90,
+    "columns": [
+      "Unnamed: 0",
+      "Unnamed: 1",
+      "05-ago-2026",
+      "05-ago-2026.1",
+      "05-ago-2026.2"
+    ]
+  },
+  "acquisition_errors_before_success": []
+}

@@ -1,0 +1,36 @@
+{
+  "row_count": 90,
+  "column_count": 5,
+  "columns": [
+    {
+      "name": "Unnamed: 0",
+      "dtype": "object",
+      "non_null": 90,
+      "unique": 90
+    },
+    {
+      "name": "Unnamed: 1",
+      "dtype": "object",
+      "non_null": 90,
+      "unique": 3
+    },
+    {
+      "name": "05-ago-2026",
+      "dtype": "object",
+      "non_null": 90,
+      "unique": 70
+    },
+    {
+      "name": "05-ago-2026.1",
+      "dtype": "object",
+      "non_null": 90,
+      "unique": 71
+    },
+    {
+      "name": "05-ago-2026.2",
+      "dtype": "object",
+      "non_null": 12,
+      "unique": 12
+    }
+  ]
+}

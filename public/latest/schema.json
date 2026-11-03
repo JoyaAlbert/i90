@@ -1,60 +1,36 @@
 {
-  "row_count": 51,
-  "column_count": 9,
+  "row_count": 90,
+  "column_count": 5,
   "columns": [
     {
       "name": "Unnamed: 0",
       "dtype": "object",
-      "non_null": 47,
-      "unique": 47
+      "non_null": 90,
+      "unique": 90
     },
     {
       "name": "Unnamed: 1",
       "dtype": "object",
-      "non_null": 43,
-      "unique": 43
+      "non_null": 90,
+      "unique": 3
     },
     {
-      "name": "Unnamed: 2",
+      "name": "05-ago-2026",
       "dtype": "object",
-      "non_null": 2,
-      "unique": 2
+      "non_null": 90,
+      "unique": 70
     },
     {
-      "name": "Unnamed: 3",
-      "dtype": "float64",
-      "non_null": 0,
-      "unique": 0
+      "name": "05-ago-2026.1",
+      "dtype": "object",
+      "non_null": 90,
+      "unique": 71
     },
     {
-      "name": "Unnamed: 4",
-      "dtype": "float64",
-      "non_null": 0,
-      "unique": 0
-    },
-    {
-      "name": "Unnamed: 5",
-      "dtype": "float64",
-      "non_null": 0,
-      "unique": 0
-    },
-    {
-      "name": "Unnamed: 6",
-      "dtype": "float64",
-      "non_null": 0,
-      "unique": 0
-    },
-    {
-      "name": "Unnamed: 7",
-      "dtype": "float64",
-      "non_null": 0,
-      "unique": 0
-    },
-    {
-      "name": "Unnamed: 8",
-      "dtype": "float64",
-      "non_null": 0,
-      "unique": 0
+      "name": "05-ago-2026.2",
+      "dtype": "object",
+      "non_null": 12,
+      "unique": 12
     }
   ]
 }
