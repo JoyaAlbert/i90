@@ -1,36 +1,606 @@
 {
-  "row_count": 90,
-  "column_count": 5,
+  "row_count": 693,
+  "column_count": 100,
   "columns": [
     {
       "name": "Unnamed: 0",
       "dtype": "object",
-      "non_null": 90,
-      "unique": 90
+      "non_null": 691,
+      "unique": 347
     },
     {
       "name": "Unnamed: 1",
       "dtype": "object",
-      "non_null": 90,
-      "unique": 3
+      "non_null": 691,
+      "unique": 9
     },
     {
-      "name": "05-ago-2026",
+      "name": "Unnamed: 2",
       "dtype": "object",
-      "non_null": 90,
-      "unique": 70
+      "non_null": 691,
+      "unique": 295
     },
     {
-      "name": "05-ago-2026.1",
+      "name": "Energía gestionada en Contratos Bilaterales (MWh)",
       "dtype": "object",
-      "non_null": 90,
-      "unique": 71
+      "non_null": 693,
+      "unique": 621
     },
     {
-      "name": "05-ago-2026.2",
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).1",
       "dtype": "object",
-      "non_null": 12,
-      "unique": 12
+      "non_null": 458,
+      "unique": 218
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).2",
+      "dtype": "object",
+      "non_null": 458,
+      "unique": 216
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).3",
+      "dtype": "object",
+      "non_null": 458,
+      "unique": 215
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).4",
+      "dtype": "object",
+      "non_null": 459,
+      "unique": 222
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).5",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 228
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).6",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 230
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).7",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 227
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).8",
+      "dtype": "object",
+      "non_null": 457,
+      "unique": 223
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).9",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 218
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).10",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 205
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).11",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 204
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).12",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 205
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).13",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 209
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).14",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 212
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).15",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 216
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).16",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 218
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).17",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 211
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).18",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 211
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).19",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 210
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).20",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 205
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).21",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 209
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).22",
+      "dtype": "object",
+      "non_null": 456,
+      "unique": 214
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).23",
+      "dtype": "object",
+      "non_null": 458,
+      "unique": 216
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).24",
+      "dtype": "object",
+      "non_null": 458,
+      "unique": 208
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).25",
+      "dtype": "object",
+      "non_null": 466,
+      "unique": 217
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).26",
+      "dtype": "object",
+      "non_null": 466,
+      "unique": 206
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).27",
+      "dtype": "object",
+      "non_null": 466,
+      "unique": 210
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).28",
+      "dtype": "object",
+      "non_null": 472,
+      "unique": 218
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).29",
+      "dtype": "object",
+      "non_null": 525,
+      "unique": 213
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).30",
+      "dtype": "object",
+      "non_null": 551,
+      "unique": 207
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).31",
+      "dtype": "object",
+      "non_null": 614,
+      "unique": 216
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).32",
+      "dtype": "object",
+      "non_null": 637,
+      "unique": 217
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).33",
+      "dtype": "object",
+      "non_null": 667,
+      "unique": 228
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).34",
+      "dtype": "object",
+      "non_null": 671,
+      "unique": 233
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).35",
+      "dtype": "object",
+      "non_null": 676,
+      "unique": 248
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).36",
+      "dtype": "object",
+      "non_null": 681,
+      "unique": 262
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).37",
+      "dtype": "object",
+      "non_null": 679,
+      "unique": 253
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).38",
+      "dtype": "object",
+      "non_null": 679,
+      "unique": 262
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).39",
+      "dtype": "object",
+      "non_null": 679,
+      "unique": 270
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).40",
+      "dtype": "object",
+      "non_null": 652,
+      "unique": 260
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).41",
+      "dtype": "object",
+      "non_null": 672,
+      "unique": 274
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).42",
+      "dtype": "object",
+      "non_null": 650,
+      "unique": 259
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).43",
+      "dtype": "object",
+      "non_null": 648,
+      "unique": 260
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).44",
+      "dtype": "object",
+      "non_null": 646,
+      "unique": 258
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).45",
+      "dtype": "object",
+      "non_null": 642,
+      "unique": 273
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).46",
+      "dtype": "object",
+      "non_null": 644,
+      "unique": 272
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).47",
+      "dtype": "object",
+      "non_null": 644,
+      "unique": 258
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).48",
+      "dtype": "object",
+      "non_null": 640,
+      "unique": 265
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).49",
+      "dtype": "object",
+      "non_null": 638,
+      "unique": 266
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).50",
+      "dtype": "object",
+      "non_null": 638,
+      "unique": 271
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).51",
+      "dtype": "object",
+      "non_null": 638,
+      "unique": 279
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).52",
+      "dtype": "object",
+      "non_null": 640,
+      "unique": 267
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).53",
+      "dtype": "object",
+      "non_null": 636,
+      "unique": 259
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).54",
+      "dtype": "object",
+      "non_null": 636,
+      "unique": 268
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).55",
+      "dtype": "object",
+      "non_null": 632,
+      "unique": 273
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).56",
+      "dtype": "object",
+      "non_null": 633,
+      "unique": 260
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).57",
+      "dtype": "object",
+      "non_null": 630,
+      "unique": 252
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).58",
+      "dtype": "object",
+      "non_null": 630,
+      "unique": 260
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).59",
+      "dtype": "object",
+      "non_null": 632,
+      "unique": 263
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).60",
+      "dtype": "object",
+      "non_null": 635,
+      "unique": 270
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).61",
+      "dtype": "object",
+      "non_null": 632,
+      "unique": 275
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).62",
+      "dtype": "object",
+      "non_null": 634,
+      "unique": 270
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).63",
+      "dtype": "object",
+      "non_null": 634,
+      "unique": 263
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).64",
+      "dtype": "object",
+      "non_null": 637,
+      "unique": 268
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).65",
+      "dtype": "object",
+      "non_null": 640,
+      "unique": 260
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).66",
+      "dtype": "object",
+      "non_null": 642,
+      "unique": 266
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).67",
+      "dtype": "object",
+      "non_null": 642,
+      "unique": 269
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).68",
+      "dtype": "object",
+      "non_null": 642,
+      "unique": 279
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).69",
+      "dtype": "object",
+      "non_null": 642,
+      "unique": 259
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).70",
+      "dtype": "object",
+      "non_null": 642,
+      "unique": 267
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).71",
+      "dtype": "object",
+      "non_null": 664,
+      "unique": 267
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).72",
+      "dtype": "object",
+      "non_null": 665,
+      "unique": 275
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).73",
+      "dtype": "object",
+      "non_null": 671,
+      "unique": 267
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).74",
+      "dtype": "object",
+      "non_null": 673,
+      "unique": 276
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).75",
+      "dtype": "object",
+      "non_null": 673,
+      "unique": 270
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).76",
+      "dtype": "object",
+      "non_null": 674,
+      "unique": 270
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).77",
+      "dtype": "object",
+      "non_null": 673,
+      "unique": 275
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).78",
+      "dtype": "object",
+      "non_null": 672,
+      "unique": 261
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).79",
+      "dtype": "object",
+      "non_null": 669,
+      "unique": 250
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).80",
+      "dtype": "object",
+      "non_null": 672,
+      "unique": 263
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).81",
+      "dtype": "object",
+      "non_null": 658,
+      "unique": 268
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).82",
+      "dtype": "object",
+      "non_null": 655,
+      "unique": 250
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).83",
+      "dtype": "object",
+      "non_null": 648,
+      "unique": 238
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).84",
+      "dtype": "object",
+      "non_null": 640,
+      "unique": 240
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).85",
+      "dtype": "object",
+      "non_null": 563,
+      "unique": 225
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).86",
+      "dtype": "object",
+      "non_null": 496,
+      "unique": 219
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).87",
+      "dtype": "object",
+      "non_null": 475,
+      "unique": 219
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).88",
+      "dtype": "object",
+      "non_null": 471,
+      "unique": 226
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).89",
+      "dtype": "object",
+      "non_null": 460,
+      "unique": 231
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).90",
+      "dtype": "object",
+      "non_null": 460,
+      "unique": 226
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).91",
+      "dtype": "object",
+      "non_null": 460,
+      "unique": 230
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).92",
+      "dtype": "object",
+      "non_null": 461,
+      "unique": 228
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).93",
+      "dtype": "object",
+      "non_null": 459,
+      "unique": 232
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).94",
+      "dtype": "object",
+      "non_null": 459,
+      "unique": 229
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).95",
+      "dtype": "object",
+      "non_null": 459,
+      "unique": 226
+    },
+    {
+      "name": "Energía gestionada en Contratos Bilaterales (MWh).96",
+      "dtype": "object",
+      "non_null": 460,
+      "unique": 222
     }
   ]
 }
