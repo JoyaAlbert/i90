@@ -6282,7 +6282,7 @@ SRI4R,C.C. SOTO 4,"EDP ESPAÑA, S.A.U. (GENERACIÓN)",EDP,derived_from_legal_nam
 SRI5,SOTO5,CENTRAL TÉRMICA CCO G4 S.L.,,,,,1,Ciclo Combinado,,,1.0,SRI5,SOTO 5,CCSR4,eSIOS UP + OMIE exact code + eSIOS UF,
 SRI5R,CC SOTO RIBERA 5 REPR,"EDP ESPAÑA, S.A.U. (GENERACIÓN)",EDP,derived_from_legal_name,100,100.0,1,Ciclo Combinado,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.edp.com/
 SROQ1,SANROQUE1,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,Ciclo Combinado,GENERACION,ZONA ESPAÑOLA,1.0,SROQ1,S.ROQUE 1,GNCC,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
-SROQ2,SANROQUE2,"ENDESA GENERACIÓN, S.A.",Endesa,derived_from_legal_name,100,100.0,1,Ciclo Combinado,GENERACION,ZONA ESPAÑOLA,1.0,SROQ2,S.ROQUE 2,ENDG,eSIOS UP + OMIE exact code + eSIOS UF,https://www.endesa.com/
+SROQ2,SANROQUE2,"ENDESA GENERACIÓN, S.A.",Endesa,derived_from_legal_name,100,100.0,1,Ciclo Combinado,GENERACION,ZONA ESPAÑOLA,1.0,SROQ2,SROQUE 2,ENDG,eSIOS UP + OMIE exact code + eSIOS UF,https://www.endesa.com/
 SRVGC01,GASHOGAR15,SERVIGAS S.XXI S.A.,,,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,1.0,SRVGC01,GASHOGAR15,SRVGS,eSIOS UP + OMIE exact code + eSIOS UF,
 SRVIC01,SRVI,SERVINERGIA ELECTRICA SL,,,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,1.0,SRVIC01,SRVI,SERV,eSIOS UP + OMIE exact code + eSIOS UF,
 SRVRM01,DOMESTICA GAS Y ELECTRICIDAD,SERVIGAS S.XXI S.A.,,,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
