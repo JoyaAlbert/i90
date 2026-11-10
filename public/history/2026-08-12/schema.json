@@ -1,0 +1,42 @@
+{
+  "row_count": 124,
+  "column_count": 6,
+  "columns": [
+    {
+      "name": "Unnamed: 0",
+      "dtype": "object",
+      "non_null": 124,
+      "unique": 71
+    },
+    {
+      "name": "Unnamed: 1",
+      "dtype": "object",
+      "non_null": 124,
+      "unique": 3
+    },
+    {
+      "name": "Unnamed: 2",
+      "dtype": "object",
+      "non_null": 30,
+      "unique": 3
+    },
+    {
+      "name": "12-Agosto-2026",
+      "dtype": "object",
+      "non_null": 124,
+      "unique": 58
+    },
+    {
+      "name": "12-Agosto-2026.1",
+      "dtype": "object",
+      "non_null": 124,
+      "unique": 61
+    },
+    {
+      "name": "12-Agosto-2026.2",
+      "dtype": "object",
+      "non_null": 20,
+      "unique": 16
+    }
+  ]
+}
