@@ -1,0 +1,3 @@
+[console_scripts]
+i90-ingest = i90_ingest.cli:main
+i90-structural = i90_ingest.structural_cli:main
