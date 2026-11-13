@@ -1,0 +1,600 @@
+{
+  "row_count": 2958,
+  "column_count": 99,
+  "columns": [
+    {
+      "name": "Unnamed: 0",
+      "dtype": "object",
+      "non_null": 2956,
+      "unique": 2956
+    },
+    {
+      "name": "Unnamed: 1",
+      "dtype": "object",
+      "non_null": 2956,
+      "unique": 14
+    },
+    {
+      "name": "Programa (MWh)",
+      "dtype": "object",
+      "non_null": 2958,
+      "unique": 2415
+    },
+    {
+      "name": "Programa (MWh).1",
+      "dtype": "object",
+      "non_null": 1333,
+      "unique": 517
+    },
+    {
+      "name": "Programa (MWh).2",
+      "dtype": "object",
+      "non_null": 1322,
+      "unique": 505
+    },
+    {
+      "name": "Programa (MWh).3",
+      "dtype": "object",
+      "non_null": 1329,
+      "unique": 512
+    },
+    {
+      "name": "Programa (MWh).4",
+      "dtype": "object",
+      "non_null": 1327,
+      "unique": 501
+    },
+    {
+      "name": "Programa (MWh).5",
+      "dtype": "object",
+      "non_null": 1332,
+      "unique": 495
+    },
+    {
+      "name": "Programa (MWh).6",
+      "dtype": "object",
+      "non_null": 1343,
+      "unique": 502
+    },
+    {
+      "name": "Programa (MWh).7",
+      "dtype": "object",
+      "non_null": 1344,
+      "unique": 506
+    },
+    {
+      "name": "Programa (MWh).8",
+      "dtype": "object",
+      "non_null": 1321,
+      "unique": 498
+    },
+    {
+      "name": "Programa (MWh).9",
+      "dtype": "object",
+      "non_null": 1307,
+      "unique": 495
+    },
+    {
+      "name": "Programa (MWh).10",
+      "dtype": "object",
+      "non_null": 1306,
+      "unique": 499
+    },
+    {
+      "name": "Programa (MWh).11",
+      "dtype": "object",
+      "non_null": 1313,
+      "unique": 484
+    },
+    {
+      "name": "Programa (MWh).12",
+      "dtype": "object",
+      "non_null": 1302,
+      "unique": 485
+    },
+    {
+      "name": "Programa (MWh).13",
+      "dtype": "object",
+      "non_null": 1307,
+      "unique": 483
+    },
+    {
+      "name": "Programa (MWh).14",
+      "dtype": "object",
+      "non_null": 1299,
+      "unique": 488
+    },
+    {
+      "name": "Programa (MWh).15",
+      "dtype": "object",
+      "non_null": 1304,
+      "unique": 490
+    },
+    {
+      "name": "Programa (MWh).16",
+      "dtype": "object",
+      "non_null": 1314,
+      "unique": 490
+    },
+    {
+      "name": "Programa (MWh).17",
+      "dtype": "object",
+      "non_null": 1303,
+      "unique": 487
+    },
+    {
+      "name": "Programa (MWh).18",
+      "dtype": "object",
+      "non_null": 1302,
+      "unique": 490
+    },
+    {
+      "name": "Programa (MWh).19",
+      "dtype": "object",
+      "non_null": 1306,
+      "unique": 491
+    },
+    {
+      "name": "Programa (MWh).20",
+      "dtype": "object",
+      "non_null": 1302,
+      "unique": 493
+    },
+    {
+      "name": "Programa (MWh).21",
+      "dtype": "object",
+      "non_null": 1307,
+      "unique": 498
+    },
+    {
+      "name": "Programa (MWh).22",
+      "dtype": "object",
+      "non_null": 1310,
+      "unique": 489
+    },
+    {
+      "name": "Programa (MWh).23",
+      "dtype": "object",
+      "non_null": 1312,
+      "unique": 492
+    },
+    {
+      "name": "Programa (MWh).24",
+      "dtype": "object",
+      "non_null": 1318,
+      "unique": 484
+    },
+    {
+      "name": "Programa (MWh).25",
+      "dtype": "object",
+      "non_null": 1339,
+      "unique": 486
+    },
+    {
+      "name": "Programa (MWh).26",
+      "dtype": "object",
+      "non_null": 1334,
+      "unique": 487
+    },
+    {
+      "name": "Programa (MWh).27",
+      "dtype": "object",
+      "non_null": 1341,
+      "unique": 479
+    },
+    {
+      "name": "Programa (MWh).28",
+      "dtype": "object",
+      "non_null": 1333,
+      "unique": 481
+    },
+    {
+      "name": "Programa (MWh).29",
+      "dtype": "object",
+      "non_null": 1351,
+      "unique": 481
+    },
+    {
+      "name": "Programa (MWh).30",
+      "dtype": "object",
+      "non_null": 1557,
+      "unique": 488
+    },
+    {
+      "name": "Programa (MWh).31",
+      "dtype": "object",
+      "non_null": 1909,
+      "unique": 479
+    },
+    {
+      "name": "Programa (MWh).32",
+      "dtype": "object",
+      "non_null": 2222,
+      "unique": 489
+    },
+    {
+      "name": "Programa (MWh).33",
+      "dtype": "object",
+      "non_null": 2504,
+      "unique": 481
+    },
+    {
+      "name": "Programa (MWh).34",
+      "dtype": "object",
+      "non_null": 2651,
+      "unique": 491
+    },
+    {
+      "name": "Programa (MWh).35",
+      "dtype": "object",
+      "non_null": 2704,
+      "unique": 526
+    },
+    {
+      "name": "Programa (MWh).36",
+      "dtype": "object",
+      "non_null": 2726,
+      "unique": 543
+    },
+    {
+      "name": "Programa (MWh).37",
+      "dtype": "object",
+      "non_null": 2723,
+      "unique": 559
+    },
+    {
+      "name": "Programa (MWh).38",
+      "dtype": "object",
+      "non_null": 2732,
+      "unique": 594
+    },
+    {
+      "name": "Programa (MWh).39",
+      "dtype": "object",
+      "non_null": 2733,
+      "unique": 611
+    },
+    {
+      "name": "Programa (MWh).40",
+      "dtype": "object",
+      "non_null": 2736,
+      "unique": 657
+    },
+    {
+      "name": "Programa (MWh).41",
+      "dtype": "object",
+      "non_null": 2713,
+      "unique": 669
+    },
+    {
+      "name": "Programa (MWh).42",
+      "dtype": "object",
+      "non_null": 2702,
+      "unique": 665
+    },
+    {
+      "name": "Programa (MWh).43",
+      "dtype": "object",
+      "non_null": 2680,
+      "unique": 680
+    },
+    {
+      "name": "Programa (MWh).44",
+      "dtype": "object",
+      "non_null": 2620,
+      "unique": 705
+    },
+    {
+      "name": "Programa (MWh).45",
+      "dtype": "object",
+      "non_null": 2598,
+      "unique": 698
+    },
+    {
+      "name": "Programa (MWh).46",
+      "dtype": "object",
+      "non_null": 2537,
+      "unique": 694
+    },
+    {
+      "name": "Programa (MWh).47",
+      "dtype": "object",
+      "non_null": 2540,
+      "unique": 702
+    },
+    {
+      "name": "Programa (MWh).48",
+      "dtype": "object",
+      "non_null": 2541,
+      "unique": 698
+    },
+    {
+      "name": "Programa (MWh).49",
+      "dtype": "object",
+      "non_null": 2496,
+      "unique": 701
+    },
+    {
+      "name": "Programa (MWh).50",
+      "dtype": "object",
+      "non_null": 2495,
+      "unique": 697
+    },
+    {
+      "name": "Programa (MWh).51",
+      "dtype": "object",
+      "non_null": 2495,
+      "unique": 699
+    },
+    {
+      "name": "Programa (MWh).52",
+      "dtype": "object",
+      "non_null": 2496,
+      "unique": 696
+    },
+    {
+      "name": "Programa (MWh).53",
+      "dtype": "object",
+      "non_null": 2502,
+      "unique": 706
+    },
+    {
+      "name": "Programa (MWh).54",
+      "dtype": "object",
+      "non_null": 2509,
+      "unique": 716
+    },
+    {
+      "name": "Programa (MWh).55",
+      "dtype": "object",
+      "non_null": 2528,
+      "unique": 700
+    },
+    {
+      "name": "Programa (MWh).56",
+      "dtype": "object",
+      "non_null": 2521,
+      "unique": 714
+    },
+    {
+      "name": "Programa (MWh).57",
+      "dtype": "object",
+      "non_null": 2503,
+      "unique": 696
+    },
+    {
+      "name": "Programa (MWh).58",
+      "dtype": "object",
+      "non_null": 2508,
+      "unique": 701
+    },
+    {
+      "name": "Programa (MWh).59",
+      "dtype": "object",
+      "non_null": 2509,
+      "unique": 697
+    },
+    {
+      "name": "Programa (MWh).60",
+      "dtype": "object",
+      "non_null": 2508,
+      "unique": 703
+    },
+    {
+      "name": "Programa (MWh).61",
+      "dtype": "object",
+      "non_null": 2491,
+      "unique": 696
+    },
+    {
+      "name": "Programa (MWh).62",
+      "dtype": "object",
+      "non_null": 2495,
+      "unique": 670
+    },
+    {
+      "name": "Programa (MWh).63",
+      "dtype": "object",
+      "non_null": 2519,
+      "unique": 671
+    },
+    {
+      "name": "Programa (MWh).64",
+      "dtype": "object",
+      "non_null": 2544,
+      "unique": 678
+    },
+    {
+      "name": "Programa (MWh).65",
+      "dtype": "object",
+      "non_null": 2548,
+      "unique": 672
+    },
+    {
+      "name": "Programa (MWh).66",
+      "dtype": "object",
+      "non_null": 2533,
+      "unique": 675
+    },
+    {
+      "name": "Programa (MWh).67",
+      "dtype": "object",
+      "non_null": 2540,
+      "unique": 663
+    },
+    {
+      "name": "Programa (MWh).68",
+      "dtype": "object",
+      "non_null": 2569,
+      "unique": 668
+    },
+    {
+      "name": "Programa (MWh).69",
+      "dtype": "object",
+      "non_null": 2578,
+      "unique": 671
+    },
+    {
+      "name": "Programa (MWh).70",
+      "dtype": "object",
+      "non_null": 2589,
+      "unique": 654
+    },
+    {
+      "name": "Programa (MWh).71",
+      "dtype": "object",
+      "non_null": 2603,
+      "unique": 653
+    },
+    {
+      "name": "Programa (MWh).72",
+      "dtype": "object",
+      "non_null": 2613,
+      "unique": 649
+    },
+    {
+      "name": "Programa (MWh).73",
+      "dtype": "object",
+      "non_null": 2677,
+      "unique": 633
+    },
+    {
+      "name": "Programa (MWh).74",
+      "dtype": "object",
+      "non_null": 2669,
+      "unique": 625
+    },
+    {
+      "name": "Programa (MWh).75",
+      "dtype": "object",
+      "non_null": 2671,
+      "unique": 613
+    },
+    {
+      "name": "Programa (MWh).76",
+      "dtype": "object",
+      "non_null": 2705,
+      "unique": 608
+    },
+    {
+      "name": "Programa (MWh).77",
+      "dtype": "object",
+      "non_null": 2743,
+      "unique": 601
+    },
+    {
+      "name": "Programa (MWh).78",
+      "dtype": "object",
+      "non_null": 2732,
+      "unique": 584
+    },
+    {
+      "name": "Programa (MWh).79",
+      "dtype": "object",
+      "non_null": 2698,
+      "unique": 564
+    },
+    {
+      "name": "Programa (MWh).80",
+      "dtype": "object",
+      "non_null": 2690,
+      "unique": 550
+    },
+    {
+      "name": "Programa (MWh).81",
+      "dtype": "object",
+      "non_null": 2642,
+      "unique": 552
+    },
+    {
+      "name": "Programa (MWh).82",
+      "dtype": "object",
+      "non_null": 2513,
+      "unique": 516
+    },
+    {
+      "name": "Programa (MWh).83",
+      "dtype": "object",
+      "non_null": 2381,
+      "unique": 519
+    },
+    {
+      "name": "Programa (MWh).84",
+      "dtype": "object",
+      "non_null": 2138,
+      "unique": 508
+    },
+    {
+      "name": "Programa (MWh).85",
+      "dtype": "object",
+      "non_null": 1710,
+      "unique": 513
+    },
+    {
+      "name": "Programa (MWh).86",
+      "dtype": "object",
+      "non_null": 1447,
+      "unique": 500
+    },
+    {
+      "name": "Programa (MWh).87",
+      "dtype": "object",
+      "non_null": 1406,
+      "unique": 490
+    },
+    {
+      "name": "Programa (MWh).88",
+      "dtype": "object",
+      "non_null": 1385,
+      "unique": 490
+    },
+    {
+      "name": "Programa (MWh).89",
+      "dtype": "object",
+      "non_null": 1363,
+      "unique": 502
+    },
+    {
+      "name": "Programa (MWh).90",
+      "dtype": "object",
+      "non_null": 1375,
+      "unique": 504
+    },
+    {
+      "name": "Programa (MWh).91",
+      "dtype": "object",
+      "non_null": 1361,
+      "unique": 506
+    },
+    {
+      "name": "Programa (MWh).92",
+      "dtype": "object",
+      "non_null": 1356,
+      "unique": 511
+    },
+    {
+      "name": "Programa (MWh).93",
+      "dtype": "object",
+      "non_null": 1349,
+      "unique": 501
+    },
+    {
+      "name": "Programa (MWh).94",
+      "dtype": "object",
+      "non_null": 1344,
+      "unique": 505
+    },
+    {
+      "name": "Programa (MWh).95",
+      "dtype": "object",
+      "non_null": 1342,
+      "unique": 503
+    },
+    {
+      "name": "Programa (MWh).96",
+      "dtype": "object",
+      "non_null": 1339,
+      "unique": 486
+    }
+  ]
+}
