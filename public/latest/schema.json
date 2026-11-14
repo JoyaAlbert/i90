@@ -1,600 +1,606 @@
 {
-  "row_count": 2958,
-  "column_count": 99,
+  "row_count": 1148,
+  "column_count": 100,
   "columns": [
     {
       "name": "Unnamed: 0",
       "dtype": "object",
-      "non_null": 2956,
-      "unique": 2956
+      "non_null": 1147,
+      "unique": 2
     },
     {
       "name": "Unnamed: 1",
       "dtype": "object",
-      "non_null": 2956,
-      "unique": 14
+      "non_null": 1147,
+      "unique": 1004
     },
     {
-      "name": "Programa (MWh)",
+      "name": "Unnamed: 2",
       "dtype": "object",
-      "non_null": 2958,
-      "unique": 2415
+      "non_null": 1147,
+      "unique": 11
     },
     {
-      "name": "Programa (MWh).1",
+      "name": "Unnamed: 3",
       "dtype": "object",
-      "non_null": 1333,
-      "unique": 517
+      "non_null": 1147,
+      "unique": 7
     },
     {
-      "name": "Programa (MWh).2",
+      "name": "16-08-2026",
       "dtype": "object",
-      "non_null": 1322,
-      "unique": 505
+      "non_null": 935,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).3",
+      "name": "16-08-2026.1",
       "dtype": "object",
-      "non_null": 1329,
-      "unique": 512
+      "non_null": 936,
+      "unique": 299
     },
     {
-      "name": "Programa (MWh).4",
+      "name": "16-08-2026.2",
       "dtype": "object",
-      "non_null": 1327,
-      "unique": 501
+      "non_null": 938,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).5",
+      "name": "16-08-2026.3",
       "dtype": "object",
-      "non_null": 1332,
-      "unique": 495
+      "non_null": 942,
+      "unique": 300
     },
     {
-      "name": "Programa (MWh).6",
+      "name": "16-08-2026.4",
       "dtype": "object",
-      "non_null": 1343,
-      "unique": 502
+      "non_null": 942,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).7",
+      "name": "16-08-2026.5",
       "dtype": "object",
-      "non_null": 1344,
-      "unique": 506
+      "non_null": 943,
+      "unique": 300
     },
     {
-      "name": "Programa (MWh).8",
+      "name": "16-08-2026.6",
       "dtype": "object",
-      "non_null": 1321,
-      "unique": 498
+      "non_null": 938,
+      "unique": 297
     },
     {
-      "name": "Programa (MWh).9",
+      "name": "16-08-2026.7",
       "dtype": "object",
-      "non_null": 1307,
-      "unique": 495
+      "non_null": 947,
+      "unique": 300
     },
     {
-      "name": "Programa (MWh).10",
+      "name": "16-08-2026.8",
       "dtype": "object",
-      "non_null": 1306,
-      "unique": 499
+      "non_null": 942,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).11",
+      "name": "16-08-2026.9",
       "dtype": "object",
-      "non_null": 1313,
-      "unique": 484
+      "non_null": 938,
+      "unique": 297
     },
     {
-      "name": "Programa (MWh).12",
+      "name": "16-08-2026.10",
       "dtype": "object",
-      "non_null": 1302,
-      "unique": 485
+      "non_null": 939,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).13",
+      "name": "16-08-2026.11",
       "dtype": "object",
-      "non_null": 1307,
-      "unique": 483
+      "non_null": 939,
+      "unique": 297
     },
     {
-      "name": "Programa (MWh).14",
+      "name": "16-08-2026.12",
       "dtype": "object",
-      "non_null": 1299,
-      "unique": 488
+      "non_null": 940,
+      "unique": 294
     },
     {
-      "name": "Programa (MWh).15",
+      "name": "16-08-2026.13",
       "dtype": "object",
-      "non_null": 1304,
-      "unique": 490
+      "non_null": 941,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).16",
+      "name": "16-08-2026.14",
       "dtype": "object",
-      "non_null": 1314,
-      "unique": 490
+      "non_null": 941,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).17",
+      "name": "16-08-2026.15",
       "dtype": "object",
-      "non_null": 1303,
-      "unique": 487
+      "non_null": 941,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).18",
+      "name": "16-08-2026.16",
       "dtype": "object",
-      "non_null": 1302,
-      "unique": 490
+      "non_null": 938,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).19",
+      "name": "16-08-2026.17",
       "dtype": "object",
-      "non_null": 1306,
-      "unique": 491
+      "non_null": 939,
+      "unique": 297
     },
     {
-      "name": "Programa (MWh).20",
+      "name": "16-08-2026.18",
       "dtype": "object",
-      "non_null": 1302,
-      "unique": 493
+      "non_null": 940,
+      "unique": 299
     },
     {
-      "name": "Programa (MWh).21",
+      "name": "16-08-2026.19",
       "dtype": "object",
-      "non_null": 1307,
-      "unique": 498
+      "non_null": 943,
+      "unique": 295
     },
     {
-      "name": "Programa (MWh).22",
+      "name": "16-08-2026.20",
       "dtype": "object",
-      "non_null": 1310,
-      "unique": 489
+      "non_null": 939,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).23",
+      "name": "16-08-2026.21",
       "dtype": "object",
-      "non_null": 1312,
-      "unique": 492
+      "non_null": 939,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).24",
+      "name": "16-08-2026.22",
       "dtype": "object",
-      "non_null": 1318,
-      "unique": 484
+      "non_null": 939,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).25",
+      "name": "16-08-2026.23",
       "dtype": "object",
-      "non_null": 1339,
-      "unique": 486
+      "non_null": 938,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).26",
+      "name": "16-08-2026.24",
       "dtype": "object",
-      "non_null": 1334,
-      "unique": 487
+      "non_null": 939,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).27",
+      "name": "16-08-2026.25",
       "dtype": "object",
-      "non_null": 1341,
-      "unique": 479
+      "non_null": 940,
+      "unique": 294
     },
     {
-      "name": "Programa (MWh).28",
+      "name": "16-08-2026.26",
       "dtype": "object",
-      "non_null": 1333,
-      "unique": 481
+      "non_null": 941,
+      "unique": 293
     },
     {
-      "name": "Programa (MWh).29",
+      "name": "16-08-2026.27",
       "dtype": "object",
-      "non_null": 1351,
-      "unique": 481
+      "non_null": 937,
+      "unique": 295
     },
     {
-      "name": "Programa (MWh).30",
+      "name": "16-08-2026.28",
       "dtype": "object",
-      "non_null": 1557,
-      "unique": 488
+      "non_null": 950,
+      "unique": 302
     },
     {
-      "name": "Programa (MWh).31",
+      "name": "16-08-2026.29",
       "dtype": "object",
-      "non_null": 1909,
-      "unique": 479
+      "non_null": 962,
+      "unique": 303
     },
     {
-      "name": "Programa (MWh).32",
+      "name": "16-08-2026.30",
       "dtype": "object",
-      "non_null": 2222,
-      "unique": 489
+      "non_null": 970,
+      "unique": 301
     },
     {
-      "name": "Programa (MWh).33",
+      "name": "16-08-2026.31",
       "dtype": "object",
-      "non_null": 2504,
-      "unique": 481
+      "non_null": 985,
+      "unique": 301
     },
     {
-      "name": "Programa (MWh).34",
+      "name": "16-08-2026.32",
       "dtype": "object",
-      "non_null": 2651,
-      "unique": 491
+      "non_null": 1017,
+      "unique": 303
     },
     {
-      "name": "Programa (MWh).35",
+      "name": "16-08-2026.33",
       "dtype": "object",
-      "non_null": 2704,
-      "unique": 526
+      "non_null": 1028,
+      "unique": 304
     },
     {
-      "name": "Programa (MWh).36",
+      "name": "16-08-2026.34",
       "dtype": "object",
-      "non_null": 2726,
-      "unique": 543
+      "non_null": 1031,
+      "unique": 303
     },
     {
-      "name": "Programa (MWh).37",
+      "name": "16-08-2026.35",
       "dtype": "object",
-      "non_null": 2723,
-      "unique": 559
+      "non_null": 1033,
+      "unique": 306
     },
     {
-      "name": "Programa (MWh).38",
+      "name": "16-08-2026.36",
       "dtype": "object",
-      "non_null": 2732,
-      "unique": 594
+      "non_null": 1036,
+      "unique": 308
     },
     {
-      "name": "Programa (MWh).39",
+      "name": "16-08-2026.37",
       "dtype": "object",
-      "non_null": 2733,
-      "unique": 611
+      "non_null": 1038,
+      "unique": 309
     },
     {
-      "name": "Programa (MWh).40",
+      "name": "16-08-2026.38",
       "dtype": "object",
-      "non_null": 2736,
-      "unique": 657
+      "non_null": 1046,
+      "unique": 313
     },
     {
-      "name": "Programa (MWh).41",
+      "name": "16-08-2026.39",
       "dtype": "object",
-      "non_null": 2713,
-      "unique": 669
+      "non_null": 1041,
+      "unique": 316
     },
     {
-      "name": "Programa (MWh).42",
+      "name": "16-08-2026.40",
       "dtype": "object",
-      "non_null": 2702,
-      "unique": 665
+      "non_null": 1041,
+      "unique": 315
     },
     {
-      "name": "Programa (MWh).43",
+      "name": "16-08-2026.41",
       "dtype": "object",
-      "non_null": 2680,
-      "unique": 680
+      "non_null": 1040,
+      "unique": 315
     },
     {
-      "name": "Programa (MWh).44",
+      "name": "16-08-2026.42",
       "dtype": "object",
-      "non_null": 2620,
-      "unique": 705
+      "non_null": 1048,
+      "unique": 319
     },
     {
-      "name": "Programa (MWh).45",
+      "name": "16-08-2026.43",
       "dtype": "object",
-      "non_null": 2598,
-      "unique": 698
+      "non_null": 1057,
+      "unique": 324
     },
     {
-      "name": "Programa (MWh).46",
+      "name": "16-08-2026.44",
       "dtype": "object",
-      "non_null": 2537,
-      "unique": 694
+      "non_null": 1085,
+      "unique": 336
     },
     {
-      "name": "Programa (MWh).47",
+      "name": "16-08-2026.45",
       "dtype": "object",
-      "non_null": 2540,
-      "unique": 702
+      "non_null": 1088,
+      "unique": 340
     },
     {
-      "name": "Programa (MWh).48",
+      "name": "16-08-2026.46",
       "dtype": "object",
-      "non_null": 2541,
-      "unique": 698
+      "non_null": 1085,
+      "unique": 336
     },
     {
-      "name": "Programa (MWh).49",
+      "name": "16-08-2026.47",
       "dtype": "object",
-      "non_null": 2496,
-      "unique": 701
+      "non_null": 1086,
+      "unique": 341
     },
     {
-      "name": "Programa (MWh).50",
+      "name": "16-08-2026.48",
       "dtype": "object",
-      "non_null": 2495,
-      "unique": 697
+      "non_null": 1072,
+      "unique": 334
     },
     {
-      "name": "Programa (MWh).51",
+      "name": "16-08-2026.49",
       "dtype": "object",
-      "non_null": 2495,
-      "unique": 699
+      "non_null": 1074,
+      "unique": 331
     },
     {
-      "name": "Programa (MWh).52",
+      "name": "16-08-2026.50",
       "dtype": "object",
-      "non_null": 2496,
-      "unique": 696
+      "non_null": 1076,
+      "unique": 326
     },
     {
-      "name": "Programa (MWh).53",
+      "name": "16-08-2026.51",
       "dtype": "object",
-      "non_null": 2502,
-      "unique": 706
+      "non_null": 1079,
+      "unique": 337
     },
     {
-      "name": "Programa (MWh).54",
+      "name": "16-08-2026.52",
       "dtype": "object",
-      "non_null": 2509,
-      "unique": 716
+      "non_null": 1076,
+      "unique": 339
     },
     {
-      "name": "Programa (MWh).55",
+      "name": "16-08-2026.53",
       "dtype": "object",
-      "non_null": 2528,
-      "unique": 700
+      "non_null": 1076,
+      "unique": 337
     },
     {
-      "name": "Programa (MWh).56",
+      "name": "16-08-2026.54",
       "dtype": "object",
-      "non_null": 2521,
-      "unique": 714
+      "non_null": 1080,
+      "unique": 344
     },
     {
-      "name": "Programa (MWh).57",
+      "name": "16-08-2026.55",
       "dtype": "object",
-      "non_null": 2503,
-      "unique": 696
+      "non_null": 1086,
+      "unique": 335
     },
     {
-      "name": "Programa (MWh).58",
+      "name": "16-08-2026.56",
       "dtype": "object",
-      "non_null": 2508,
-      "unique": 701
+      "non_null": 1068,
+      "unique": 334
     },
     {
-      "name": "Programa (MWh).59",
+      "name": "16-08-2026.57",
       "dtype": "object",
-      "non_null": 2509,
-      "unique": 697
+      "non_null": 1068,
+      "unique": 339
     },
     {
-      "name": "Programa (MWh).60",
+      "name": "16-08-2026.58",
       "dtype": "object",
-      "non_null": 2508,
-      "unique": 703
+      "non_null": 1072,
+      "unique": 334
     },
     {
-      "name": "Programa (MWh).61",
+      "name": "16-08-2026.59",
       "dtype": "object",
-      "non_null": 2491,
-      "unique": 696
+      "non_null": 1077,
+      "unique": 341
     },
     {
-      "name": "Programa (MWh).62",
+      "name": "16-08-2026.60",
       "dtype": "object",
-      "non_null": 2495,
-      "unique": 670
+      "non_null": 1074,
+      "unique": 342
     },
     {
-      "name": "Programa (MWh).63",
+      "name": "16-08-2026.61",
       "dtype": "object",
-      "non_null": 2519,
-      "unique": 671
+      "non_null": 1074,
+      "unique": 336
     },
     {
-      "name": "Programa (MWh).64",
+      "name": "16-08-2026.62",
       "dtype": "object",
-      "non_null": 2544,
-      "unique": 678
+      "non_null": 1076,
+      "unique": 337
     },
     {
-      "name": "Programa (MWh).65",
+      "name": "16-08-2026.63",
       "dtype": "object",
-      "non_null": 2548,
-      "unique": 672
+      "non_null": 1070,
+      "unique": 335
     },
     {
-      "name": "Programa (MWh).66",
+      "name": "16-08-2026.64",
       "dtype": "object",
-      "non_null": 2533,
-      "unique": 675
+      "non_null": 1071,
+      "unique": 339
     },
     {
-      "name": "Programa (MWh).67",
+      "name": "16-08-2026.65",
       "dtype": "object",
-      "non_null": 2540,
-      "unique": 663
+      "non_null": 1066,
+      "unique": 339
     },
     {
-      "name": "Programa (MWh).68",
+      "name": "16-08-2026.66",
       "dtype": "object",
-      "non_null": 2569,
-      "unique": 668
+      "non_null": 1063,
+      "unique": 337
     },
     {
-      "name": "Programa (MWh).69",
+      "name": "16-08-2026.67",
       "dtype": "object",
-      "non_null": 2578,
-      "unique": 671
+      "non_null": 1060,
+      "unique": 335
     },
     {
-      "name": "Programa (MWh).70",
+      "name": "16-08-2026.68",
       "dtype": "object",
-      "non_null": 2589,
-      "unique": 654
+      "non_null": 1044,
+      "unique": 322
     },
     {
-      "name": "Programa (MWh).71",
+      "name": "16-08-2026.69",
       "dtype": "object",
-      "non_null": 2603,
-      "unique": 653
+      "non_null": 1053,
+      "unique": 328
     },
     {
-      "name": "Programa (MWh).72",
+      "name": "16-08-2026.70",
       "dtype": "object",
-      "non_null": 2613,
-      "unique": 649
+      "non_null": 1046,
+      "unique": 318
     },
     {
-      "name": "Programa (MWh).73",
+      "name": "16-08-2026.71",
       "dtype": "object",
-      "non_null": 2677,
-      "unique": 633
+      "non_null": 1050,
+      "unique": 329
     },
     {
-      "name": "Programa (MWh).74",
+      "name": "16-08-2026.72",
       "dtype": "object",
-      "non_null": 2669,
-      "unique": 625
+      "non_null": 1045,
+      "unique": 318
     },
     {
-      "name": "Programa (MWh).75",
+      "name": "16-08-2026.73",
       "dtype": "object",
-      "non_null": 2671,
-      "unique": 613
+      "non_null": 1027,
+      "unique": 313
     },
     {
-      "name": "Programa (MWh).76",
+      "name": "16-08-2026.74",
       "dtype": "object",
-      "non_null": 2705,
-      "unique": 608
+      "non_null": 1022,
+      "unique": 312
     },
     {
-      "name": "Programa (MWh).77",
+      "name": "16-08-2026.75",
       "dtype": "object",
-      "non_null": 2743,
-      "unique": 601
+      "non_null": 1029,
+      "unique": 318
     },
     {
-      "name": "Programa (MWh).78",
+      "name": "16-08-2026.76",
       "dtype": "object",
-      "non_null": 2732,
-      "unique": 584
+      "non_null": 1016,
+      "unique": 303
     },
     {
-      "name": "Programa (MWh).79",
+      "name": "16-08-2026.77",
       "dtype": "object",
-      "non_null": 2698,
-      "unique": 564
+      "non_null": 1009,
+      "unique": 301
     },
     {
-      "name": "Programa (MWh).80",
+      "name": "16-08-2026.78",
       "dtype": "object",
-      "non_null": 2690,
-      "unique": 550
+      "non_null": 1006,
+      "unique": 298
     },
     {
-      "name": "Programa (MWh).81",
+      "name": "16-08-2026.79",
       "dtype": "object",
-      "non_null": 2642,
-      "unique": 552
+      "non_null": 1001,
+      "unique": 300
     },
     {
-      "name": "Programa (MWh).82",
+      "name": "16-08-2026.80",
       "dtype": "object",
-      "non_null": 2513,
-      "unique": 516
+      "non_null": 997,
+      "unique": 300
     },
     {
-      "name": "Programa (MWh).83",
+      "name": "16-08-2026.81",
       "dtype": "object",
-      "non_null": 2381,
-      "unique": 519
+      "non_null": 989,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).84",
+      "name": "16-08-2026.82",
       "dtype": "object",
-      "non_null": 2138,
-      "unique": 508
+      "non_null": 969,
+      "unique": 297
     },
     {
-      "name": "Programa (MWh).85",
+      "name": "16-08-2026.83",
       "dtype": "object",
-      "non_null": 1710,
-      "unique": 513
+      "non_null": 961,
+      "unique": 288
     },
     {
-      "name": "Programa (MWh).86",
+      "name": "16-08-2026.84",
       "dtype": "object",
-      "non_null": 1447,
-      "unique": 500
+      "non_null": 947,
+      "unique": 295
     },
     {
-      "name": "Programa (MWh).87",
+      "name": "16-08-2026.85",
       "dtype": "object",
-      "non_null": 1406,
-      "unique": 490
+      "non_null": 944,
+      "unique": 294
     },
     {
-      "name": "Programa (MWh).88",
+      "name": "16-08-2026.86",
       "dtype": "object",
-      "non_null": 1385,
-      "unique": 490
+      "non_null": 941,
+      "unique": 297
     },
     {
-      "name": "Programa (MWh).89",
+      "name": "16-08-2026.87",
       "dtype": "object",
-      "non_null": 1363,
-      "unique": 502
+      "non_null": 931,
+      "unique": 297
     },
     {
-      "name": "Programa (MWh).90",
+      "name": "16-08-2026.88",
       "dtype": "object",
-      "non_null": 1375,
-      "unique": 504
+      "non_null": 932,
+      "unique": 295
     },
     {
-      "name": "Programa (MWh).91",
+      "name": "16-08-2026.89",
       "dtype": "object",
-      "non_null": 1361,
-      "unique": 506
+      "non_null": 930,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).92",
+      "name": "16-08-2026.90",
       "dtype": "object",
-      "non_null": 1356,
-      "unique": 511
+      "non_null": 930,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).93",
+      "name": "16-08-2026.91",
       "dtype": "object",
-      "non_null": 1349,
-      "unique": 501
+      "non_null": 928,
+      "unique": 296
     },
     {
-      "name": "Programa (MWh).94",
+      "name": "16-08-2026.92",
       "dtype": "object",
-      "non_null": 1344,
-      "unique": 505
+      "non_null": 931,
+      "unique": 294
     },
     {
-      "name": "Programa (MWh).95",
+      "name": "16-08-2026.93",
       "dtype": "object",
-      "non_null": 1342,
-      "unique": 503
+      "non_null": 930,
+      "unique": 297
     },
     {
-      "name": "Programa (MWh).96",
+      "name": "16-08-2026.94",
       "dtype": "object",
-      "non_null": 1339,
-      "unique": 486
+      "non_null": 929,
+      "unique": 295
+    },
+    {
+      "name": "16-08-2026.95",
+      "dtype": "object",
+      "non_null": 935,
+      "unique": 296
     }
   ]
 }
