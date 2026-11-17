@@ -3315,8 +3315,8 @@ GASVD17,GASVD17,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.
 GASVD18,GASVD18,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 GASVD20,GASVD20,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 GASVD22,GASVD22,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,RE Mercado Eólica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
-GASVD23,UOF VENTA SFV + ALM,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
-GASVD24,UOF VENTA SFV + ALM,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+GASVD23,UOF VENTA SFV + ALM,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,Híbrida Renov.-Almacenamiento,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+GASVD24,UOF VENTA SFV + ALM,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,Híbrida Renov.-Almacenamiento,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 GAUDAX,GAUDAX,AUDAX RENOVABLES,,,,,1,Genéricas,,,1.0,GAUDAX,GAUDAX,ADXRE,eSIOS UP + OMIE exact code + eSIOS UF,
 GAVIAEG,GAVIAEG,ELEKTRIZITATS-GESELLSHAFT,,,,,1,Eólica terrestre,,,1.0,ATORMES,ATORMES,EGLE,eSIOS UP + OMIE exact code + eSIOS UF,
 GAVIC01,GAVIPLAS,GAVIPLAS,,,,,1,Consumos directos en mercado,,,1.0,GAVIC01,GAVIPLAS,GAVIP,eSIOS UP + OMIE exact code + eSIOS UF,
@@ -3500,8 +3500,8 @@ GGNCOV2,UNIDAD GENERICA VENTA PORT,GAS NATURAL COMERCIALIZADORA,Naturgy,verified
 GGNRA1,GGNRA1,GENERA ENERGIA Y TECNOLOGIA,,,,,1,Genéricas,,,1.0,GGNRA1,GGNRA1,GNRA,eSIOS UP + OMIE exact code + eSIOS UF,
 GGNRAC1,U. GENERICA INTERCONEXION,GNERA ENERGIA Y TECNOLOGIA,,,100,100.0,1,Unidad Generica,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 GGNRAV1,U. GENERICA INTERCONEXION,GNERA ENERGIA Y TECNOLOGIA,,,100,100.0,1,Unidad Generica,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-GGNSEC2,GNSE PORTUGAL GENERICA,NATURGY IBERIA S.A.,Naturgy,verified_corporate,100,100.0,1,Unidad Generica,GENERICA,ZONA PORTUGUESA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
-GGNSEV2,GNSE PORTUGAL GENERICA,NATURGY IBERIA S.A.,Naturgy,verified_corporate,100,100.0,1,Unidad Generica,GENERICA,ZONA PORTUGUESA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+GGNSEC2,GNSE PORTUGAL GENERICA,"NATURGY CLIENTES EMPRESAS, S.A.U.",Naturgy,verified_corporate,100,100.0,1,Unidad Generica,GENERICA,ZONA PORTUGUESA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+GGNSEV2,GNSE PORTUGAL GENERICA,"NATURGY CLIENTES EMPRESAS, S.A.U.",Naturgy,verified_corporate,100,100.0,1,Unidad Generica,GENERICA,ZONA PORTUGUESA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 GGSLZ1,GGSLZ1,GASILUZ ECO ENERCIA,,,,,1,Genéricas,,,1.0,GGSLZ1,GGSLZ1,GSLZE,eSIOS UP + OMIE exact code + eSIOS UF,
 GGSLZC1,GASILUZ GENERICA,"GASILUZ ECO ENERCÍA, S.L.",,,100,100.0,1,VENTA GENERICA,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 GGSLZV1,GASILUZ GENERICA,"GASILUZ ECO ENERCÍA, S.L.",,,100,100.0,1,Unidad Generica,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
@@ -3563,8 +3563,8 @@ GNCOVP3,GNCOVP3,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.
 GNCPCX1,GNCPCX1,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,Porfolio,PORFOLIO,ZONA ESPAÑOLA,1.0,GNCPCX1,GNCPCX1,GNCO,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 GNCPVX1,GNCPVX1,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,Porfolio,PORFOLIO,ZONA ESPAÑOLA,1.0,GNCPVX1,GNCPVX1,GNCO,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 GNEAS1,NEAS-CG,CENTRICA ENERGY TRADING A/S,,,,,1,Genéricas,,,1.0,GNEAS1,NEAS-CG,NEAS,eSIOS UP + OMIE exact code + eSIOS UF,
-GNEASC1,GENERICA NEAS,CENTRICA ENERGY TRADING AS,,,100,100.0,1,Unidad Generica,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-GNEASV1,GENERICA NEAS,CENTRICA ENERGY TRADING AS,,,100,100.0,1,Unidad Generica,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
+GNEASC1,GENERICA NEAS,CENTRICA ENERGY TRADING A/S,,,100,100.0,1,Unidad Generica,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
+GNEASV1,GENERICA NEAS,CENTRICA ENERGY TRADING A/S,,,100,100.0,1,Unidad Generica,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 GNEBRO,UOF GNEBRO,GNERA ENERGIA Y TECNOLOGIA,,,100,100.0,1,Hidráulica Generación,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 GNEXU1,GNEXU1,NEXUS ENERGIA,,,,,1,Genéricas,,,1.0,GNEXU1,GNEXU1,NEXU,eSIOS UP + OMIE exact code + eSIOS UF,
 GNEXUC1,NEXU GENERICA COMPRA,NEXUS ENERGÍA,,,100,100.0,1,Unidad Generica,GENERICA,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
@@ -3611,9 +3611,9 @@ GNRVD88,UOF HURJA01,GNERA ENERGIA Y TECNOLOGIA,,,100,100.0,1,RE Mercado Hidrául
 GNRVD94,UOF ELECDEY,GNERA ENERGIA Y TECNOLOGIA,,,100,100.0,1,RE Mercado Hidráulica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 GNRVD97,UOF ALHAMA,GNERA ENERGIA Y TECNOLOGIA,,,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 GNRVD99,UOF BLANC,GNERA ENERGIA Y TECNOLOGIA,,,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-GNSEC01,GNSE,NATURGY IBERIA S.A.,Naturgy,verified_corporate,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,1.0,GNSEC01,GNSEC01,GNSE,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
-GNSEC02,GNS COMPRA PORTUGAL,NATURGY IBERIA S.A.,Naturgy,verified_corporate,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA PORTUGUESA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
-GNSER01,GNSER01,NATURGY IBERIA S.A.,Naturgy,verified_corporate,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,5.0,ESANTX|ESDXAT|ESDXBA|ESDXTE|ESERCR,ESANTX|ESDXAT|ESDXBA|ESDXTE|ESERCR,GNSE,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+GNSEC01,GNSE,"NATURGY CLIENTES EMPRESAS, S.A.U.",Naturgy,verified_corporate,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,1.0,GNSEC01,GNSEC01,GNSE,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+GNSEC02,GNS COMPRA PORTUGAL,"NATURGY CLIENTES EMPRESAS, S.A.U.",Naturgy,verified_corporate,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA PORTUGUESA,,,,,OMIE exact unit code,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+GNSER01,GNSER01,"NATURGY CLIENTES EMPRESAS, S.A.U.",Naturgy,verified_corporate,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,5.0,ESANTX|ESDXAT|ESDXBA|ESDXTE|ESERCR,ESANTX|ESDXAT|ESDXBA|ESDXTE|ESERCR,GNSE,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 GNSUC01,GNSUC01,"COMERCIALIZADORA REGULADA GAS POWER, S.A",,,100 COMERCIALIZADOR,,1,Comercializadores último recurso,ULTIMO RECURSO,ZONA ESPAÑOLA,1.0,GNSUC01,GNSUC01,GNSUR,eSIOS UP + OMIE exact code + eSIOS UF,
 GNSUCEB,GNSUCEB,"COMERCIALIZADORA REGULADA GAS POWER, S.A",,,100,100.0,1,Enlace Baleares,DISTRIBUIDOR,ZONA ESPAÑOLA,1.0,GNSUCEB,GNSUCEB,GNSUR,eSIOS UP + OMIE exact code + eSIOS UF,
 GNSUVD1,VENTA RE_GN SUR,"COMERCIALIZADORA REGULADA GAS POWER, S.A",,,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
@@ -4184,9 +4184,9 @@ HBARLO,HBARLO,ELEKTRIZITATS-GESELLSHAFT,,,,,1,Hidráulica no UGH,,,3.0,CHVICAR|H
 HBAUSEN,HBAUSEN,NEXUS ENERGIA,,,,,1,Hidráulica no UGH,,,1.0,BAUSEN,RE-000162,NEXU,eSIOS UP + OMIE exact code + eSIOS UF,
 HBBONAR,HBBONAR,CEPSA GAS Y ELECTRICIDAD,Moeve,derived_from_legal_name,,,1,Híbrida renovable,,,1.0,HSBONAR,HSBONAR,DETIC,eSIOS UP + OMIE exact code + eSIOS UF,https://www.moeveglobal.com/
 HBTAB1C,HBTAB1C,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,Almacenamiento,ALMACENAMIENTO,ZONA ESPAÑOLA,1.0,ALTAB1C,ALTAB1C,GNCO,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
-HBTAB1V,HBTAB1V,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,,,1,Híbrida renovable-almacenamiento,,,1.0,TABER1,TABER1,GNCO,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+HBTAB1V,HBTAB1V,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,,,1,Híbrida renovable-almacenamiento,,,2.0,ALTAB1V|TABER1,ALTAB1V|TABER1,GNCO,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 HBTAB2C,HBTAB2C,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,100,100.0,1,Almacenamiento,ALMACENAMIENTO,ZONA ESPAÑOLA,1.0,ALTAB2C,ALTAB2C,GNCO,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
-HBTAB2V,HBTAB2V,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,,,1,Híbrida renovable-almacenamiento,,,1.0,TABER2,TABER2,GNCO,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
+HBTAB2V,HBTAB2V,GAS NATURAL COMERCIALIZADORA,Naturgy,verified_corporate,,,1,Híbrida renovable-almacenamiento,,,2.0,ALTAB2V|TABER2,ALTAB2V|TABER2,GNCO,eSIOS UP + OMIE exact code + eSIOS UF,https://www.naturgy.com/app/uploads/2025/02/CCAA-Individuales-y-Consolidadas-NATURGY-2024.pdf
 HCADOS,HCADOS,ELEKTRIZITATS-GESELLSHAFT,,,,,1,Hidráulica no UGH,,,1.0,CHCADOS,CHCADOS,EGLE,eSIOS UP + OMIE exact code + eSIOS UF,
 HCALDA,HCALDA,ELEKTRIZITATS-GESELLSHAFT,,,,,1,Hidráulica no UGH,,,1.0,EMILIAN,EMILIAN,EGLE,eSIOS UP + OMIE exact code + eSIOS UF,
 HCAMPOS,HCAMPOS,ENERGYA VM GENERACION S.L.U.,,,,,1,Hidráulica no UGH,,,1.0,CASOL,CASOL,CEG,eSIOS UP + OMIE exact code + eSIOS UF,
@@ -5197,9 +5197,9 @@ NCERM04,REPRESETNACION LUX,"NUEVA COMERCIALIZADORA ESPAÑOLA, S.L.",,,100,100.0,
 NCERM06,REPRESENTACION DXD,"NUEVA COMERCIALIZADORA ESPAÑOLA, S.L.",,,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 NCERM22,REPRESENTACION CHANDUY,"NUEVA COMERCIALIZADORA ESPAÑOLA, S.L.",,,100,100.0,1,Compras Comercialización,COMERCIALIZADOR,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 NCEVD01,REPRESENTACION FOTOVOLTAICA,"NUEVA COMERCIALIZADORA ESPAÑOLA, S.L.",,,100,100.0,1,RE Mercado Solar Fotovoltáica,GENERACION,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
-NEASC01,SPECTRA,CENTRICA ENERGY TRADING AS,,,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,1.0,NEASC01,SPECTRA,NEAS,eSIOS UP + OMIE exact code + eSIOS UF,
-NEASCP3,NEASCP3,CENTRICA ENERGY TRADING AS,,,100,100.0,1,Exportación Francia,COMERCIALIZADOR,FRONTERA FRANCIA,1.0,NEASCP3,NEASCP3,NEAS,eSIOS UP + OMIE exact code + eSIOS UF,
-NEASVP3,NEAS,CENTRICA ENERGY TRADING AS,,,100,100.0,1,Importación Francia,COMERCIALIZADOR,FRONTERA FRANCIA,1.0,NEASVP3,NEAS,NEAS,eSIOS UP + OMIE exact code + eSIOS UF,
+NEASC01,SPECTRA,CENTRICA ENERGY TRADING A/S,,,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,1.0,NEASC01,SPECTRA,NEAS,eSIOS UP + OMIE exact code + eSIOS UF,
+NEASCP3,NEASCP3,CENTRICA ENERGY TRADING A/S,,,100,100.0,1,Exportación Francia,COMERCIALIZADOR,FRONTERA FRANCIA,1.0,NEASCP3,NEASCP3,NEAS,eSIOS UP + OMIE exact code + eSIOS UF,
+NEASVP3,NEAS,CENTRICA ENERGY TRADING A/S,,,100,100.0,1,Importación Francia,COMERCIALIZADOR,FRONTERA FRANCIA,1.0,NEASVP3,NEAS,NEAS,eSIOS UP + OMIE exact code + eSIOS UF,
 NEMOC01,NEMOC01,"NEMON INTELLIGENCE IN BUSINESS, SL",,,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,1.0,NEMOC01,NEMOC01,NEMON,eSIOS UP + OMIE exact code + eSIOS UF,
 NENRC01,NENAP,NUEVAS ENERGIAS APLICADAS SL,,,100,100.0,1,Compras Consumo Directo,CONSUMIDOR DIRECTO,ZONA ESPAÑOLA,,,,,OMIE exact unit code,
 NETOC01,NETON,"NETON ENERGY SERVICES, S.L.U.",,,100,100.0,1,Comercializadores mercado libre,COMERCIALIZADOR,ZONA ESPAÑOLA,1.0,NETOC01,NETON,NETON,eSIOS UP + OMIE exact code + eSIOS UF,
