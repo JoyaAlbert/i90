@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-11-18T15:26:27.874720+01:00",
-  "today_madrid": "2026-11-18",
-  "target_data_date": "2026-08-20",
-  "selected_data_date": "2026-08-20",
+  "generated_at": "2026-11-19T15:37:22.683676+01:00",
+  "today_madrid": "2026-11-19",
+  "target_data_date": "2026-08-21",
+  "selected_data_date": "2026-08-21",
   "backtrack_days": 0,
   "archive_id": 34,
   "archive_name": "I90DIA",
   "download": {
     "initial_status": 200,
     "redirected": false,
-    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-08-20T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-20T00%3A00%3A00%2B00%3A00",
+    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-08-21T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-21T00%3A00%3A00%2B00%3A00",
     "content_type": "zip"
   },
   "metadata": {
@@ -21,18 +21,18 @@
     "archive_type": "zip",
     "download": {
       "name": "I90DIA",
-      "url": "/archives/34/download?date_type=datos&end_date=2026-08-20T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-20T00%3A00%3A00%2B00%3A00"
+      "url": "/archives/34/download?date_type=datos&end_date=2026-08-21T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-21T00%3A00%3A00%2B00%3A00"
     },
     "date": {
       "date_type": "datos",
-      "start_date": "2026-08-20 00:00:00.000+0200",
-      "end_date": "2026-08-20 23:59:59.000+0200"
+      "start_date": "2026-08-21 00:00:00.000+0200",
+      "end_date": "2026-08-21 23:59:59.000+0200"
     },
     "date_times": [
-      "2026-08-20"
+      "2026-08-21"
     ],
     "publication_date": [
-      "2026-11-18"
+      "2026-11-19"
     ],
     "taxonomy_terms": [
       {
@@ -71,17 +71,21 @@
       }
     ]
   },
-  "sha256_download": "0eeccf4d2b54e5632dae364314df3ed88dc7114bea13f1cd1922f900ec0bec80",
+  "sha256_download": "6b673c5d26153ab6b02b3a81cc8083968aa7f663326bb5c20c302f987e548420",
   "csv": {
     "encoding": "latin-1",
     "separator": ";",
-    "rows": 59,
+    "rows": 51,
     "columns": [
       "Unnamed: 0",
       "Unnamed: 1",
-      "20-Agosto-2026",
-      "20-Agosto-2026.1",
-      "20-Agosto-2026.2"
+      "Unnamed: 2",
+      "Unnamed: 3",
+      "Unnamed: 4",
+      "Unnamed: 5",
+      "Unnamed: 6",
+      "Unnamed: 7",
+      "Unnamed: 8"
     ]
   },
   "acquisition_errors_before_success": []
