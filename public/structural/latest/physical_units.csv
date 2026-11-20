@@ -49,6 +49,7 @@ ACSOC01,ACSOL,ACSOC01,ACSOL,Comercializadores mercado libre
 ACTIC01,ACTIC01UN1,ACTIC01,ACTIV,Comercializadores mercado libre
 ACUADRA,ACUADRA,EFEGEL2,EGED,Eólica terrestre
 ACUAVIR,ACUAVIR,HACUAVI,IGNIS,Embalse
+ADDUC01,ADDUC01,ADDUC01,ADDUP,Comercializadores mercado libre
 ADEIC01,ADEINNOVA,ADEIC01,ADEIN,Comercializadores mercado libre
 ADEIV01,FYNEXU,ADEIV01,ADEIN,Solar fotovoltaica
 ADELC01,ADELFAS,ADELC01,ADELF,Comercializadores mercado libre
@@ -3104,6 +3105,7 @@ GST337,GST337,FGST337,GESTE,Solar fotovoltaica
 GST338,GST338,FGST338,GESTE,Solar fotovoltaica
 GST339,GST339,FGST339,GESTE,Solar fotovoltaica
 GST340,GST340,FGST340,GESTE,Solar fotovoltaica
+GST341,GST341,FGST341,GESTE,Solar fotovoltaica
 GST342,GST342,FGST342,GESTE,Solar fotovoltaica
 GSTB228,GSTB228,EGST228,GESTE,Eólica terrestre
 GSTCP3,GSTCP3,GSTCP3,FR_GS,Importación Francia
