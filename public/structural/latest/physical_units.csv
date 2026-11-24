@@ -3252,6 +3252,7 @@ HINIX,HINIX,UPSON2,GNRA,Solar fotovoltaica
 HINOJO,HINOJOSAS,SHEPV21,SHEEN,Solar fotovoltaica
 HINTRA,CONDALS,HINTRA,INTRA,Fluyente
 HIPERII,HIPERII,PEVER,GNRA,Eólica terrestre
+HIPOD,HIPOD,FHIPOD,CEG,Solar fotovoltaica
 HISPC01,HISPC01,HISPC01,HISPE,Comercializadores mercado libre
 HITA,HITA,FVHITA,CEG,Solar fotovoltaica
 HITACH,HITACH,ENDER01,ENDCO,Comercializadores mercado libre
@@ -4916,6 +4917,7 @@ QUI1,QUINTAN 1,EBRA,IBEG,Fluyente
 QUI2,QUINTAN 2,EBRA,IBEG,Fluyente
 QUIJOT3,QUIJOT3,FQIJOT3,NEXU,Solar fotovoltaica
 QUIJOTE,QUIJOTE,FREGPEM,ENDG,Solar fotovoltaica
+QUIMC01,QUIMC01,QUIMC01,QUIME,Comercializadores mercado libre
 QUIMICC,QUIMICC,EBLCR01,EBLCO,Comercializadores mercado libre
 QUINI,QUINI SPV,SHEPV07,SHEEN,Solar fotovoltaica
 QUINTA2,QUINTA2,HCGSCSA,HC G,Eólica terrestre
@@ -5511,6 +5513,7 @@ SIMENE1,SIMENE1,EHIBGES,IBGES,Eólica terrestre
 SIMPV01,FYGNRA,SIMPV01,SIMPE,Solar fotovoltaica
 SININDI,SININDI,EFWMARK,WMARK,Eólica terrestre
 SIPLA,SIPLA,FVGNRA,GNRA,Solar fotovoltaica
+SIRIC01,SIREN,SIRIC01,SIREN,Comercializadores mercado libre
 SIRIU5,SIRIU5,FVGNRA,GNRA,Solar fotovoltaica
 SIRIU9,SIRIU9,FVGNRA,GNRA,Solar fotovoltaica
 SIRUSA,SIRUSA,TSIRUS,SIRUS,Residuos domésticos y similares

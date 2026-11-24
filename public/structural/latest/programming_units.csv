@@ -1523,6 +1523,7 @@ FHELVES,FHELVES,NEXU,Solar fotovoltaica
 FHERCON,FHERCON,SOLRC,Almacenamiento
 FHERGEN,FHERGEN,SOLRC,Híbrida renovable-almacenamiento
 FHIBGES,FHIBGES,IBGES,Solar fotovoltaica
+FHIPOD,FHIPOD,CEG,Solar fotovoltaica
 FHOTEI,FHOTEI,EGLE,Solar fotovoltaica
 FHRRERA,FHRRERA,NEXU,Solar fotovoltaica
 FHUCENA,FHUCENA,NEXU,Solar fotovoltaica
@@ -2829,6 +2830,7 @@ PZCP,PZCP,VIEG,Hidráulica UGH
 QENEC01,QUASAR,QENER,Comercializadores mercado libre
 QUALC01,QUALC01,QUANA,Comercializadores mercado libre
 QUATC01,QUANTC01,QUANT,Comercializadores mercado libre
+QUIMC01,QUIMC01,QUIME,Comercializadores mercado libre
 RABANIL,RABANIL,GNRA,Biogás
 RABIDA2,RABIDA2,CEPSA,Gas Natural Cogeneración
 RAFAP,RAFAP,EGLE,Biomasa
@@ -3077,6 +3079,7 @@ SIL,SIL G,IBEG,Hidráulica UGH
 SILB,SIL B,IBEG,Consumo bombeo
 SILOC01,HSILOS,SILOS,Consumos directos en mercado
 SIMPV01,SIMPV01,SIMPE,Solar fotovoltaica
+SIRIC01,SIREN,SIREN,Comercializadores mercado libre
 SISLA,FV LA ISLA,TOTGA,Solar fotovoltaica
 SKISSO,KISSORO,IGNIS,Solar fotovoltaica
 SLBYC01,SLBYC01,SBYCO,Consumos directos en mercado
