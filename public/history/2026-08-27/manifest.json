@@ -1,0 +1,182 @@
+{
+  "generated_at": "2026-11-25T16:55:14.138105+01:00",
+  "today_madrid": "2026-11-25",
+  "target_data_date": "2026-08-27",
+  "selected_data_date": "2026-08-27",
+  "backtrack_days": 0,
+  "archive_id": 34,
+  "archive_name": "I90DIA",
+  "download": {
+    "initial_status": 200,
+    "redirected": false,
+    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-08-27T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-27T00%3A00%3A00%2B00%3A00",
+    "content_type": "zip"
+  },
+  "metadata": {
+    "name": "I90DIA",
+    "description": "Información de detalle por Unidad de Programación (I90DIA)",
+    "updated_at": "2015-01-29 09:20:49.0",
+    "id": 34,
+    "horizon": "D",
+    "archive_type": "zip",
+    "download": {
+      "name": "I90DIA",
+      "url": "/archives/34/download?date_type=datos&end_date=2026-08-27T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-27T00%3A00%3A00%2B00%3A00"
+    },
+    "date": {
+      "date_type": "datos",
+      "start_date": "2026-08-27 00:00:00.000+0200",
+      "end_date": "2026-08-27 23:59:59.000+0200"
+    },
+    "date_times": [
+      "2026-08-27"
+    ],
+    "publication_date": [
+      "2026-11-25"
+    ],
+    "taxonomy_terms": [
+      {
+        "id_taxonomy_term": 155,
+        "name": "Generación y consumo",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 156,
+        "name": "Mercados y precios",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 165,
+        "name": "Descargas",
+        "vocabulary_id": 21
+      },
+      {
+        "id_taxonomy_term": 168,
+        "name": "General",
+        "vocabulary_id": 22
+      }
+    ],
+    "vocabularies": [
+      {
+        "id_vocabulary": 20,
+        "name": "Universo"
+      },
+      {
+        "id_vocabulary": 21,
+        "name": "Temática"
+      },
+      {
+        "id_vocabulary": 22,
+        "name": "Área"
+      }
+    ]
+  },
+  "sha256_download": "992688f9a6fef93fa5db05c8ef60cab578a43ac31072f2cf00c26e8b87d0f242",
+  "csv": {
+    "encoding": "latin-1",
+    "separator": ";",
+    "rows": 7,
+    "columns": [
+      "Unnamed: 0",
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "Precio Marginal Cuartohorario /MWh",
+      "Precio Marginal Cuartohorario /MWh.1",
+      "Precio Marginal Cuartohorario /MWh.2",
+      "Precio Marginal Cuartohorario /MWh.3",
+      "Precio Marginal Cuartohorario /MWh.4",
+      "Precio Marginal Cuartohorario /MWh.5",
+      "Precio Marginal Cuartohorario /MWh.6",
+      "Precio Marginal Cuartohorario /MWh.7",
+      "Precio Marginal Cuartohorario /MWh.8",
+      "Precio Marginal Cuartohorario /MWh.9",
+      "Precio Marginal Cuartohorario /MWh.10",
+      "Precio Marginal Cuartohorario /MWh.11",
+      "Precio Marginal Cuartohorario /MWh.12",
+      "Precio Marginal Cuartohorario /MWh.13",
+      "Precio Marginal Cuartohorario /MWh.14",
+      "Precio Marginal Cuartohorario /MWh.15",
+      "Precio Marginal Cuartohorario /MWh.16",
+      "Precio Marginal Cuartohorario /MWh.17",
+      "Precio Marginal Cuartohorario /MWh.18",
+      "Precio Marginal Cuartohorario /MWh.19",
+      "Precio Marginal Cuartohorario /MWh.20",
+      "Precio Marginal Cuartohorario /MWh.21",
+      "Precio Marginal Cuartohorario /MWh.22",
+      "Precio Marginal Cuartohorario /MWh.23",
+      "Precio Marginal Cuartohorario /MWh.24",
+      "Precio Marginal Cuartohorario /MWh.25",
+      "Precio Marginal Cuartohorario /MWh.26",
+      "Precio Marginal Cuartohorario /MWh.27",
+      "Precio Marginal Cuartohorario /MWh.28",
+      "Precio Marginal Cuartohorario /MWh.29",
+      "Precio Marginal Cuartohorario /MWh.30",
+      "Precio Marginal Cuartohorario /MWh.31",
+      "Precio Marginal Cuartohorario /MWh.32",
+      "Precio Marginal Cuartohorario /MWh.33",
+      "Precio Marginal Cuartohorario /MWh.34",
+      "Precio Marginal Cuartohorario /MWh.35",
+      "Precio Marginal Cuartohorario /MWh.36",
+      "Precio Marginal Cuartohorario /MWh.37",
+      "Precio Marginal Cuartohorario /MWh.38",
+      "Precio Marginal Cuartohorario /MWh.39",
+      "Precio Marginal Cuartohorario /MWh.40",
+      "Precio Marginal Cuartohorario /MWh.41",
+      "Precio Marginal Cuartohorario /MWh.42",
+      "Precio Marginal Cuartohorario /MWh.43",
+      "Precio Marginal Cuartohorario /MWh.44",
+      "Precio Marginal Cuartohorario /MWh.45",
+      "Precio Marginal Cuartohorario /MWh.46",
+      "Precio Marginal Cuartohorario /MWh.47",
+      "Precio Marginal Cuartohorario /MWh.48",
+      "Precio Marginal Cuartohorario /MWh.49",
+      "Precio Marginal Cuartohorario /MWh.50",
+      "Precio Marginal Cuartohorario /MWh.51",
+      "Precio Marginal Cuartohorario /MWh.52",
+      "Precio Marginal Cuartohorario /MWh.53",
+      "Precio Marginal Cuartohorario /MWh.54",
+      "Precio Marginal Cuartohorario /MWh.55",
+      "Precio Marginal Cuartohorario /MWh.56",
+      "Precio Marginal Cuartohorario /MWh.57",
+      "Precio Marginal Cuartohorario /MWh.58",
+      "Precio Marginal Cuartohorario /MWh.59",
+      "Precio Marginal Cuartohorario /MWh.60",
+      "Precio Marginal Cuartohorario /MWh.61",
+      "Precio Marginal Cuartohorario /MWh.62",
+      "Precio Marginal Cuartohorario /MWh.63",
+      "Precio Marginal Cuartohorario /MWh.64",
+      "Precio Marginal Cuartohorario /MWh.65",
+      "Precio Marginal Cuartohorario /MWh.66",
+      "Precio Marginal Cuartohorario /MWh.67",
+      "Precio Marginal Cuartohorario /MWh.68",
+      "Precio Marginal Cuartohorario /MWh.69",
+      "Precio Marginal Cuartohorario /MWh.70",
+      "Precio Marginal Cuartohorario /MWh.71",
+      "Precio Marginal Cuartohorario /MWh.72",
+      "Precio Marginal Cuartohorario /MWh.73",
+      "Precio Marginal Cuartohorario /MWh.74",
+      "Precio Marginal Cuartohorario /MWh.75",
+      "Precio Marginal Cuartohorario /MWh.76",
+      "Precio Marginal Cuartohorario /MWh.77",
+      "Precio Marginal Cuartohorario /MWh.78",
+      "Precio Marginal Cuartohorario /MWh.79",
+      "Precio Marginal Cuartohorario /MWh.80",
+      "Precio Marginal Cuartohorario /MWh.81",
+      "Precio Marginal Cuartohorario /MWh.82",
+      "Precio Marginal Cuartohorario /MWh.83",
+      "Precio Marginal Cuartohorario /MWh.84",
+      "Precio Marginal Cuartohorario /MWh.85",
+      "Precio Marginal Cuartohorario /MWh.86",
+      "Precio Marginal Cuartohorario /MWh.87",
+      "Precio Marginal Cuartohorario /MWh.88",
+      "Precio Marginal Cuartohorario /MWh.89",
+      "Precio Marginal Cuartohorario /MWh.90",
+      "Precio Marginal Cuartohorario /MWh.91",
+      "Precio Marginal Cuartohorario /MWh.92",
+      "Precio Marginal Cuartohorario /MWh.93",
+      "Precio Marginal Cuartohorario /MWh.94",
+      "Precio Marginal Cuartohorario /MWh.95"
+    ]
+  },
+  "acquisition_errors_before_success": []
+}
