@@ -3025,6 +3025,7 @@ SESBIO9,GADOR,SHELL,Biogás
 SESOL,SESOL,GNRA,Solar fotovoltaica
 SESPV04,SESPV04,SHELL,Solar fotovoltaica
 SESPV05,OLIVARES,SHELL,Solar fotovoltaica
+SESPV38,EL CONDE,SHELL,Solar fotovoltaica
 SEXTC01,SES,SEXTS,Consumos directos en mercado
 SEZUELA,SEZUELA,NEXU,Solar fotovoltaica
 SFA1,SFA1,BARER,Hidráulica UGH
@@ -3628,6 +3629,8 @@ UPCOV3,UPCOVA3,IGNIS,Solar fotovoltaica
 UPCOV4,UPCOVA4,IGNIS,Solar fotovoltaica
 UPCOV5,UPCOV5,GNRA,Solar fotovoltaica
 UPCOV6,UPCOV6,GNRA,Solar fotovoltaica
+UPCRIS3,UPCRIS3,GNRA,Solar fotovoltaica
+UPCRIS4,UPCRIS4,GNRA,Solar fotovoltaica
 UPCRVI,UPCRVI,GNRA,Solar fotovoltaica
 UPCTE,UPCTE,GNRA,Solar fotovoltaica
 UPCUCO,UF EL CUCO,IGNIS,Solar fotovoltaica
