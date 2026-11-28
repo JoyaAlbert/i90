@@ -252,6 +252,7 @@ CEBIC01,CEBIC01,CEBIN,Comercializadores mercado libre
 CECAC01,CASTELLAR,CECA,Comercializadores mercado libre
 CEDC01,CEDSL,CEDSL,Comercializadores mercado libre
 CEEEC01,CEEEC01,CEEE,Comercializadores mercado libre
+CEESC01,CEESC01,CENES,Comercializadores mercado libre
 CELC01,CELC01,CELL,Consumos directos en mercado
 CELSC01,CELSC01,CELSA,Consumos directos en mercado
 CELSC02,CFERIMSA,CELSA,Consumos directos en mercado
@@ -1063,6 +1064,8 @@ FALP23,FALP23,HISPE,Solar fotovoltaica
 FALP24,FALP24,HISPE,Solar fotovoltaica
 FALP25,FALP25,HISPE,Solar fotovoltaica
 FALP29,FALP29,HISPE,Solar fotovoltaica
+FALP34,FALP34,HISPE,Solar fotovoltaica
+FALP35,FALP35,HISPE,Solar fotovoltaica
 FALPMAI,FALPMAI,SOLRC,Solar fotovoltaica
 FALQRIA,FALQRIA,GESTE,Solar fotovoltaica
 FALTCO,UP ALTCO,NEXU,Solar fotovoltaica
@@ -2733,6 +2736,7 @@ NOBLCP3,CONS ACCT,NOBLE,Exportación Francia
 NOBLVP3,PROD ACCT,NOBLE,Importación Francia
 NOCTC01,NOCTILUCA,NOCTI,Comercializadores mercado libre
 NOREC01,NOREC01,NORE,Comercializadores mercado libre
+NORPC01,NORPC01,NORTC,Comercializadores mercado libre
 NORTC01,NORTC01 CO,NORT,Comercializadores mercado libre
 NORVENT,PE NORVENT,WMARK,Eólica terrestre
 NOSAC01,NOSAC01,NOSA,Comercializadores mercado libre
@@ -3875,6 +3879,7 @@ UPVVILA,VILALBA,IGNIS,Eólica terrestre
 UPWM273,CORRANUEVO,WMARK,Eólica terrestre
 UPWM274,FVZON,WMARK,Solar fotovoltaica
 UPWM275,UPWM275,WMARK,Solar fotovoltaica
+UPWM276,UPWM276,WMARK,Solar fotovoltaica
 UPXENC,UPXENC,GNRA,Almacenamiento
 UPXENV,UPXENV,GNRA,Almacenamiento
 UPYARTE,EL YARTE,IGNIS,Solar fotovoltaica
@@ -3915,6 +3920,7 @@ VISFV23,VISFV23,VISAL,Solar fotovoltaica
 VISFV24,VISFV24,VISAL,Solar fotovoltaica
 VISFV25,VISFV25,VISAL,Solar fotovoltaica
 VISLC01,VISLC01,VISAL,Comercializadores mercado libre
+VISPC01,VISPC01,VISPO,Comercializadores mercado libre
 VITLC01,VITLC01,VITOL,Comercializadores mercado libre
 VITLCP3,VITOLCP3,VITOL,Exportación Francia
 VITLVP3,VITOLVP3,VITOL,Importación Francia

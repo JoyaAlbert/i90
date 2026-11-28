@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-11-28T15:26:33.466505+01:00",
+  "today_madrid": "2026-11-28",
+  "target_data_date": "2026-08-30",
+  "selected_data_date": "2026-08-30",
+  "backtrack_days": 0,
+  "archive_id": 34,
+  "archive_name": "I90DIA",
+  "download": {
+    "initial_status": 200,
+    "redirected": false,
+    "final_url": "https://api.esios.ree.es/archives/34/download?date_type=datos&end_date=2026-08-30T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-30T00%3A00%3A00%2B00%3A00",
+    "content_type": "zip"
+  },
+  "metadata": {
+    "name": "I90DIA",
+    "description": "Información de detalle por Unidad de Programación (I90DIA)",
+    "updated_at": "2015-01-29 09:20:49.0",
+    "id": 34,
+    "horizon": "D",
+    "archive_type": "zip",
+    "download": {
+      "name": "I90DIA",
+      "url": "/archives/34/download?date_type=datos&end_date=2026-08-30T23%3A59%3A59%2B00%3A00&locale=es&start_date=2026-08-30T00%3A00%3A00%2B00%3A00"
+    },
+    "date": {
+      "date_type": "datos",
+      "start_date": "2026-08-30 00:00:00.000+0200",
+      "end_date": "2026-08-30 23:59:59.000+0200"
+    },
+    "date_times": [
+      "2026-08-30"
+    ],
+    "publication_date": [
+      "2026-11-28"
+    ],
+    "taxonomy_terms": [
+      {
+        "id_taxonomy_term": 155,
+        "name": "Generación y consumo",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 156,
+        "name": "Mercados y precios",
+        "vocabulary_id": 20
+      },
+      {
+        "id_taxonomy_term": 165,
+        "name": "Descargas",
+        "vocabulary_id": 21
+      },
+      {
+        "id_taxonomy_term": 168,
+        "name": "General",
+        "vocabulary_id": 22
+      }
+    ],
+    "vocabularies": [
+      {
+        "id_vocabulary": 20,
+        "name": "Universo"
+      },
+      {
+        "id_vocabulary": 21,
+        "name": "Temática"
+      },
+      {
+        "id_vocabulary": 22,
+        "name": "Área"
+      }
+    ]
+  },
+  "sha256_download": "45bfbe4262f7ece6e5f6bf4f268cb153a769d8abdd44ce3cb9246ac5dd6f6dc5",
+  "csv": {
+    "encoding": "latin-1",
+    "separator": ";",
+    "rows": 51,
+    "columns": [
+      "Unnamed: 0",
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "Unnamed: 3",
+      "Unnamed: 4",
+      "Unnamed: 5",
+      "Unnamed: 6",
+      "Unnamed: 7",
+      "Unnamed: 8"
+    ]
+  },
+  "acquisition_errors_before_success": []
+}

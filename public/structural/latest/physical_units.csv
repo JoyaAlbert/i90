@@ -1131,6 +1131,7 @@ CED3,CEDILLO 3,TAJO,IBEG,Embalse
 CED4,CEDILLO 4,TAJO,IBEG,Embalse
 CEDC01,CEDSL,CEDC01,CEDSL,Comercializadores mercado libre
 CEEEC01,CEEEC01 CO,CEEEC01,CEEE,Comercializadores mercado libre
+CEESC01,CEESC01,CEESC01,CENES,Comercializadores mercado libre
 CELAD,CELAD,EGREEN1,EGED,Eólica terrestre
 CELAD1,CELAD1,EGREEN1,EGED,Eólica terrestre
 CELADFU,CELADFU,EGREEN3,EGED,Eólica terrestre
@@ -2337,6 +2338,7 @@ FPRS6,UFPUERTOL6,SPRS6,IGNIS,Solar fotovoltaica
 FPRS7,UFPUERTOL7,SPRS7,IGNIS,Solar fotovoltaica
 FPRS8,UFPUERTOL8,SPRS8,IGNIS,Solar fotovoltaica
 FPRS9,UFPUERTOL9,SPRS9,IGNIS,Solar fotovoltaica
+FRAGA,FV FRAGA,UPWM276,WMARK,Solar fotovoltaica
 FRAGA1,FRAGA1,FFRAGA1,NEXU,Solar fotovoltaica
 FRAGA2,FRAGA2,UPWM275,WMARK,Solar fotovoltaica
 FRAILA,FRAILA,EMTORR,EGLE,Eólica terrestre
@@ -2439,6 +2441,10 @@ FVALP23,FVALP23,FALP23,HISPE,Solar fotovoltaica
 FVALP24,FVALP24,FALP24,HISPE,Solar fotovoltaica
 FVALP25,FVALP25,FALP25,HISPE,Solar fotovoltaica
 FVALP29,FVALP29,FALP29,HISPE,Solar fotovoltaica
+FVALP34,FVALP34,FALP34,HISPE,Solar fotovoltaica
+FVALP35,FVALP35,FALP34,HISPE,Solar fotovoltaica
+FVALP36,FVALP36,FALP35,HISPE,Solar fotovoltaica
+FVALP37,FVALP37,FALP35,HISPE,Solar fotovoltaica
 FVALZ,FVALZ,FBALZ4V,IBGES,Solar fotovoltaica
 FVALZII,FVALZII,FBALZ5V,IBGES,Solar fotovoltaica
 FVAND1,FVAND1,FFFGASN,GNCO,Solar fotovoltaica
@@ -4333,6 +4339,7 @@ NOR1,NORIAS 1,EBRA,IBEG,Fluyente
 NOR2,NORIAS 2,EBRA,IBEG,Fluyente
 NORDCON,NORDCON,TVGNRA2,GNRA,Derivados del petróleo o carbón
 NOREC01,NOREC01,NOREC01,NORE,Comercializadores mercado libre
+NORPC01,NORPC01,NORPC01,NORTC,Comercializadores mercado libre
 NORTC01,NORTC01,NORTC01,NORT,Comercializadores mercado libre
 NOSAC01,NOSAC01,NOSAC01,NOSA,Comercializadores mercado libre
 NOSR01F,NOSR01F,ENSRR01,ENUFR,Comercializadores mercado libre
@@ -6534,6 +6541,7 @@ VISFV24,VISFV24,VISFV24,VISAL,Solar fotovoltaica
 VISFV25,VISFV25,VISFV25,VISAL,Solar fotovoltaica
 VISLC01,VISLC01,VISLC01,VISAL,Comercializadores mercado libre
 VISOS,VISOS,UPEBROH,IGNIS,Híbrida Renovable
+VISPC01,VISPC01,VISPC01,VISPO,Comercializadores mercado libre
 VITIGUD,VITIGUD,FVITIGU,EBLCO,Solar fotovoltaica
 VITLC01,VITLC01,VITLC01,VITOL,Comercializadores mercado libre
 VITLCP3,VITOLCP3,VITLCP3,VITOL,Importación Francia
