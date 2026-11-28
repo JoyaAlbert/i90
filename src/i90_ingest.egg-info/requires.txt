@@ -1,0 +1,4 @@
+httpx<1,>=0.27
+pandas<3,>=2.1
+pdfplumber<1,>=0.11
+playwright<2,>=1.55
